@@ -1,0 +1,13 @@
+==== PORTALL LissHelper.exe ====
+
+--- port 0x1f68 = 8040 ---
+  not found
+
+--- port 0x1f6d = 8045 ---
+  @ 00409be6 in FUN_00409ba0
+
+--- port 0x2346 = 9030 ---
+  not found
+
+--- port 0x1e60 = 7776 ---
+  not found

@@ -1,0 +1,131 @@
+==== VERIFYADDR MainLogic.dll ====
+
+### 0x1009E070 => FUN_1009e070 @ 1009e070 size=356
+
+void __thiscall FUN_1009e070(void *this,void *param_1,size_t param_2)
+
+{
+  bool bVar1;
+  uint uVar2;
+  _Mutex_base *p_Var3;
+  undefined1 auStack_68 [16];
+  undefined4 uStack_58;
+  _Mutex_base local_48 [12];
+  undefined4 local_3c [2];
+  undefined1 *local_34;
+  undefined1 *local_30;
+  size_t *local_2c;
+  size_t *local_28;
+  size_t *local_24;
+  size_t *local_20;
+  void *local_1c;
+  void *local_18;
+  uint local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  int local_8;
+  
+  puStack_c = &LAB_10142537;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_8 = 0;
+  local_18 = this;
+  if (*(char *)((int)this + 0x10c) == '\0') {
+    bVar1 = FUN_10011430((_Mutex_base *)&stack0x0000000c);
+    if (!bVar1) {
+      FUN_10009920(local_48);
+      local_8._0_1_ = 1;
+      local_30 = &stack0xffffff94;
+      FUN_10008a00(&stack0xffffff94,(_Mutex_base *)&stack0x0000000c);
+      FUN_1009e570();
+      uStack_58 = 0x1009e0ff;
+      FUN_100494a0(local_3c,(int)local_18 + 0xf0);
+      local_8._0_1_ = 2;
+      local_14 = 0;
+      while( true ) {
+        uVar2 = FUN_10095e50(local_48);
+        if (uVar2 <= local_14) break;
+        uStack_58 = 0x1009e129;
+        local_1c = (void *)FUN_10135089(0x20);
+        local_8._0_1_ = 3;
+        if (local_1c == (void *)0x0) {
+          local_20 = (size_t *)0x0;
+        }
+        else {
+          local_34 = auStack_68;
+          p_Var3 = (_Mutex_base *)FUN_100541c0(local_48,local_14);
+          FUN_10008a00(auStack_68,p_Var3);
+          local_24 = FUN_10099cd0(local_1c,param_1,param_2);
+          local_20 = local_24;
+        }
+        local_28 = local_20;
+        local_8._0_1_ = 2;
+        local_2c = local_20;
+        uStack_58 = 0x1009e196;
+        FUN_100a0610((void *)((int)local_18 + 0x68),(char **)&local_2c);
+        local_14 = local_14 + 1;
+      }
+      local_8._0_1_ = 1;
+      FUN_1000b200(local_3c);
+      local_8 = (uint)local_8._1_3_ << 8;
+      FUN_10051b50(local_48);
+    }
+  }
+  local_8 = 0xffffffff;
+  std::function<void___cdecl(void)>::~function<void___cdecl(void)>
+            ((function<void___cdecl(void)> *)&stack0x0000000c);
+  ExceptionList = local_10;
+  return;
+}
+
+
+
+### 0x10099CD0 => FUN_10099cd0 @ 10099cd0 size=186
+
+size_t * __thiscall FUN_10099cd0(void *this,void *param_1,size_t param_2)
+
+{
+  undefined4 uVar1;
+  void *local_10;
+  undefined1 *puStack_c;
+  undefined4 local_8;
+  
+  puStack_c = &LAB_101420d3;
+  local_10 = ExceptionList;
+  ExceptionList = &local_10;
+  local_8 = 0;
+  FUN_10008bd0((_Mutex_base *)((int)this + 8));
+  local_8 = CONCAT31(local_8._1_3_,1);
+  uVar1 = FUN_10135865(param_2 + 4);
+  *(undefined4 *)((int)this + 4) = uVar1;
+  memcpy((void *)(*(int *)((int)this + 4) + 4),param_1,param_2);
+  *(size_t *)this = param_2;
+  **(undefined4 **)((int)this + 4) = *(undefined4 *)this;
+  FID_conflict_operator_((void *)((int)this + 8),(_Mutex_base *)&stack0x0000000c);
+  local_8 = 0xffffffff;
+  std::function<void___cdecl(void)>::~function<void___cdecl(void)>
+            ((function<void___cdecl(void)> *)&stack0x0000000c);
+  ExceptionList = local_10;
+  return this;
+}
+
+
+
+### 0x1003F850 => FUN_1003f850 @ 1003f850 size=74
+
+void __thiscall FUN_1003f850(void *this,undefined4 *param_1)
+
+{
+  undefined4 *puVar1;
+  
+  puVar1 = *(undefined4 **)((int)this + 4);
+  *puVar1 = *param_1;
+  puVar1[1] = param_1[1];
+  puVar1[2] = param_1[2];
+  puVar1[3] = param_1[3];
+  *(int *)((int)this + 4) = *(int *)((int)this + 4) + 0x10;
+  *(int *)((int)this + 8) = *(int *)((int)this + 8) + 0x10;
+  return;
+}
+
+

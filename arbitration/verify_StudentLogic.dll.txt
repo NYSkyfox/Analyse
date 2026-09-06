@@ -1,0 +1,287 @@
+==== VERIFYADDR StudentLogic.dll ====
+
+### 0x100836A0 => FUN_100836a0 @ 100836a0 size=506
+
+void FUN_100836a0(undefined4 param_1,byte param_2,byte param_3,byte param_4,byte param_5)
+
+{
+  undefined1 auStack_d8 [20];
+  undefined4 uStack_c4;
+  undefined1 *puStack_c0;
+  undefined1 auStack_bc [12];
+  undefined4 uStack_b0;
+  char *pcStack_ac;
+  function<void___cdecl(void)> *pfStack_a8;
+  uint uStack_a4;
+  undefined1 local_a0 [16];
+  undefined1 local_90 [16];
+  undefined1 local_80 [16];
+  undefined1 local_70 [16];
+  undefined1 local_60 [16];
+  undefined4 local_50;
+  undefined1 *local_4c;
+  undefined4 local_48;
+  undefined1 *local_44;
+  uint local_30;
+  function<void___cdecl(void)> local_2c [24];
+  uint local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  int local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_1021a116;
+  local_10 = ExceptionList;
+  uStack_a4 = DAT_1028d604 ^ (uint)&stack0xfffffffc;
+  ExceptionList = &local_10;
+  local_30 = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x100836d7;
+  local_14 = uStack_a4;
+  FUN_100801e0();
+  pfStack_a8 = (function<void___cdecl(void)> *)0x0;
+  pcStack_ac = (char *)0x100836e1;
+  FUN_101fc820();
+  local_8 = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x1023ee28;
+  pcStack_ac = (char *)0x100836f5;
+  FUN_101fc7e0();
+  local_8._0_1_ = 1;
+  pfStack_a8 = (function<void___cdecl(void)> *)local_60;
+  pcStack_ac = "type";
+  uStack_b0 = 0x1008370a;
+  FUN_101fd440();
+  pcStack_ac = (char *)0x10083711;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x1008371d;
+  FUN_101fcc80();
+  pfStack_a8 = (function<void___cdecl(void)> *)(uint)param_2;
+  pcStack_ac = (char *)0x1008372a;
+  FUN_101fc970();
+  local_8._0_1_ = 2;
+  pfStack_a8 = (function<void___cdecl(void)> *)local_70;
+  pcStack_ac = "stopnetworktraffic";
+  uStack_b0 = 0x1008373f;
+  FUN_101fd440();
+  pcStack_ac = (char *)0x10083746;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x10083752;
+  FUN_101fcc80();
+  pfStack_a8 = (function<void___cdecl(void)> *)(uint)param_3;
+  pcStack_ac = (char *)0x1008375f;
+  FUN_101fc970();
+  local_8._0_1_ = 3;
+  pfStack_a8 = (function<void___cdecl(void)> *)local_80;
+  pcStack_ac = "stopnetwork";
+  uStack_b0 = 0x10083774;
+  FUN_101fd440();
+  pcStack_ac = (char *)0x1008377b;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x10083787;
+  FUN_101fcc80();
+  pfStack_a8 = (function<void___cdecl(void)> *)(uint)param_4;
+  pcStack_ac = (char *)0x10083797;
+  FUN_101fc970();
+  local_8._0_1_ = 4;
+  pfStack_a8 = (function<void___cdecl(void)> *)local_90;
+  pcStack_ac = "stopdevice";
+  uStack_b0 = 0x100837af;
+  FUN_101fd440();
+  pcStack_ac = (char *)0x100837b6;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x100837c5;
+  FUN_101fcc80();
+  pfStack_a8 = (function<void___cdecl(void)> *)(uint)param_5;
+  pcStack_ac = (char *)0x100837d5;
+  FUN_101fc970();
+  local_8._0_1_ = 5;
+  pfStack_a8 = (function<void___cdecl(void)> *)local_a0;
+  pcStack_ac = "stopprocess";
+  uStack_b0 = 0x100837ed;
+  FUN_101fd440();
+  pcStack_ac = (char *)0x100837f4;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x10083803;
+  FUN_101fcc80();
+  local_44 = auStack_bc;
+  puStack_c0 = auStack_bc;
+  uStack_c4 = 0x10083814;
+  local_48 = FUN_102017b0();
+  local_8._0_1_ = 6;
+  puStack_c0 = (undefined1 *)0x1f6d;
+  local_4c = auStack_d8;
+  FUN_100133f0("127.0.0.1");
+  local_8._0_1_ = 0;
+  local_50 = FUN_1008e960(local_2c);
+  local_8._0_1_ = 7;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x1008384e;
+  FUN_1008f940();
+  pfStack_a8 = local_2c;
+  pcStack_ac = (char *)0x1008385a;
+  FUN_10013220();
+  local_30 = local_30 | 1;
+  local_8 = (uint)local_8._1_3_ << 8;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x1008386f;
+  std::function<void___cdecl(void)>::~function<void___cdecl(void)>(local_2c);
+  local_8 = 0xffffffff;
+  pfStack_a8 = (function<void___cdecl(void)> *)0x1008387e;
+  FUN_101fcc80();
+  ExceptionList = local_10;
+  uStack_a4 = 0x10083896;
+  __security_check_cookie(local_14 ^ (uint)&stack0xfffffffc);
+  return;
+}
+
+
+
+### 0x1007BE60 => FUN_1007be60 @ 1007be60 size=273
+
+void FUN_1007be60(void)
+
+{
+  undefined1 auStack_98 [20];
+  undefined4 uStack_84;
+  undefined1 *puStack_80;
+  undefined1 auStack_7c [12];
+  undefined4 uStack_70;
+  undefined *puStack_6c;
+  function<void___cdecl(void)> *pfStack_68;
+  uint uStack_64;
+  undefined1 local_60 [32];
+  undefined4 local_40;
+  undefined1 *local_3c;
+  undefined4 local_38;
+  undefined1 *local_34;
+  uint local_30;
+  function<void___cdecl(void)> local_2c [24];
+  uint local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  int local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_102180c0;
+  local_10 = ExceptionList;
+  uStack_64 = DAT_1028d604 ^ (uint)&stack0xfffffffc;
+  ExceptionList = &local_10;
+  local_30 = 0;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1007be94;
+  local_14 = uStack_64;
+  FUN_100801e0();
+  pfStack_68 = (function<void___cdecl(void)> *)0x0;
+  puStack_6c = (undefined *)0x1007be9e;
+  FUN_101fc820();
+  local_8 = 0;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1023eda4;
+  puStack_6c = (undefined *)0x1007beb2;
+  FUN_101fc7e0();
+  local_8._0_1_ = 1;
+  pfStack_68 = (function<void___cdecl(void)> *)local_60;
+  puStack_6c = &DAT_1023e474;
+  uStack_70 = 0x1007bec7;
+  FUN_101fd440();
+  puStack_6c = (undefined *)0x1007bece;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1007beda;
+  FUN_101fcc80();
+  local_34 = auStack_7c;
+  puStack_80 = auStack_7c;
+  uStack_84 = 0x1007beeb;
+  local_38 = FUN_102017b0();
+  local_8._0_1_ = 2;
+  puStack_80 = (undefined1 *)0x2346;
+  local_3c = auStack_98;
+  FUN_100133f0("127.0.0.1");
+  local_8._0_1_ = 0;
+  local_40 = FUN_1008e960(local_2c);
+  local_8._0_1_ = 3;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1007bf25;
+  FUN_1008f940();
+  pfStack_68 = local_2c;
+  puStack_6c = (undefined *)0x1007bf31;
+  FUN_10013220();
+  local_30 = local_30 | 1;
+  local_8 = (uint)local_8._1_3_ << 8;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1007bf46;
+  std::function<void___cdecl(void)>::~function<void___cdecl(void)>(local_2c);
+  local_8 = 0xffffffff;
+  pfStack_68 = (function<void___cdecl(void)> *)0x1007bf55;
+  FUN_101fcc80();
+  ExceptionList = local_10;
+  uStack_64 = 0x1007bf6d;
+  __security_check_cookie(local_14 ^ (uint)&stack0xfffffffc);
+  return;
+}
+
+
+
+### 0x10082AD0 => FUN_10082ad0 @ 10082ad0 size=206
+
+void FUN_10082ad0(void)
+
+{
+  undefined1 auStack_74 [20];
+  undefined4 uStack_60;
+  undefined1 *puStack_5c;
+  undefined1 auStack_58 [12];
+  undefined4 uStack_4c;
+  undefined *puStack_48;
+  char *pcStack_44;
+  uint uStack_40;
+  undefined1 local_3c [32];
+  undefined1 *local_1c;
+  undefined4 local_18;
+  undefined1 *local_14;
+  void *local_10;
+  undefined1 *puStack_c;
+  int local_8;
+  
+  local_8 = 0xffffffff;
+  puStack_c = &LAB_10219e98;
+  local_10 = ExceptionList;
+  uStack_40 = DAT_1028d604 ^ (uint)&stack0xfffffffc;
+  ExceptionList = &local_10;
+  pcStack_44 = "j";
+  FUN_100801e0();
+  pcStack_44 = (char *)0x0;
+  puStack_48 = (undefined *)0x10082b04;
+  FUN_101fc820();
+  local_8 = 0;
+  pcStack_44 = "npd-auto";
+  puStack_48 = (undefined *)0x10082b18;
+  FUN_101fc7e0();
+  local_8._0_1_ = 1;
+  pcStack_44 = local_3c;
+  puStack_48 = &DAT_1023e474;
+  uStack_4c = 0x10082b2d;
+  FUN_101fd440();
+  puStack_48 = (undefined *)0x10082b34;
+  FUN_101fcd80();
+  local_8._0_1_ = 0;
+  pcStack_44 = (char *)0x10082b40;
+  FUN_101fcc80();
+  local_14 = auStack_58;
+  puStack_5c = auStack_58;
+  uStack_60 = 0x10082b51;
+  local_18 = FUN_102017b0();
+  local_8._0_1_ = 2;
+  puStack_5c = (undefined1 *)0x2346;
+  local_1c = auStack_74;
+  FUN_100133f0("127.0.0.1");
+  local_8 = (uint)local_8._1_3_ << 8;
+  FUN_1008e6c0();
+  pcStack_44 = (char *)0x10082b80;
+  FUN_1008f940();
+  local_8 = 0xffffffff;
+  pcStack_44 = (char *)0x10082b8f;
+  FUN_101fcc80();
+  ExceptionList = local_10;
+  return;
+}
+
+

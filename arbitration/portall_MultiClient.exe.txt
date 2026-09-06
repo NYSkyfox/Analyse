@@ -1,0 +1,15 @@
+==== PORTALL MultiClient.exe ====
+
+--- port 0x1f68 = 8040 ---
+  not found
+
+--- port 0x1f6d = 8045 ---
+  @ 00415ac2 in FUN_00415a30
+  @ 00418e75 in FUN_00418d80
+
+--- port 0x2346 = 9030 ---
+  @ 00418f8c in FUN_00418ed0
+  @ 0042da72 in FUN_0042d9e0
+
+--- port 0x1e60 = 7776 ---
+  not found

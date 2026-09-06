@@ -1,0 +1,18 @@
+==== PORTALL Student.exe ====
+
+--- port 0x1f68 = 8040 ---
+  not found
+
+--- port 0x1f6d = 8045 ---
+  not found
+
+--- port 0x2346 = 9030 ---
+  @ 004a3864 in FUN_004a3770
+  @ 004a3a24 in FUN_004a3990
+  @ 004a3ab9 in FUN_004a3990
+  @ 004a3bc0 in FUN_004a3b00
+  @ 004a3ca8 in FUN_004a3c20
+  @ 004bb5f8 in FUN_004bb570
+
+--- port 0x1e60 = 7776 ---
+  not found
