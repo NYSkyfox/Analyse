@@ -89,7 +89,7 @@ WS2_32.dll (网络), IPHLPAPI.DLL (适配器信息)
 MSVCP140.dll, VCRUNTIME140.dll (VS2015 运行时)
 ```
 
-**详细报告**: → `/root/ghidra/MULTICLIENT_ANALYSIS_REPORT.md`
+**详细报告**: → `MULTICLIENT_ANALYSIS_REPORT.md`
 
 ---
 
@@ -286,9 +286,9 @@ docker exec ghidra /ghidra/support/analyzeHeadless \
 
 ## 📚 相关文档
 
-1. **MultiClient 详细分析** → `/root/ghidra/MULTICLIENT_ANALYSIS_REPORT.md`
-2. **项目初步报告** → `/root/ghidra/OS-EASY_ANALYSIS_REPORT.md`
-3. **Ghidra 使用说明** → `/root/ghidra/README.md`
+1. **MultiClient 详细分析** → `MULTICLIENT_ANALYSIS_REPORT.md`
+2. **项目初步报告** → `OS-EASY_ANALYSIS_REPORT.md`
+3. **Ghidra 容器使用说明** → `GHIDRA_CONTAINER_GUIDE.md`
 
 ---
 
@@ -344,7 +344,6 @@ docker exec ghidra /ghidra/support/analyzeHeadless \
 ---
 
 **项目创建时间**: 2024-09-06
-**最后更新**: $(date '+%Y-%m-%d %H:%M:%S')
 **分析工具**: Ghidra 12.1.3 PUBLIC
 **分析者**: Operit AI Assistant
 **服务器**: 45.207.220.121

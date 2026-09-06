@@ -387,6 +387,6 @@ MultiClient.exe 是 Os-Easy 多播教学系统的**客户端管理组件**，主
 
 ---
 
-**分析时间**: $(date '+%Y-%m-%d %H:%M:%S')
+**分析时间**: 2026-09-06
 **分析工具**: Ghidra 12.1.3 + objdump + strings
 **项目路径**: /root/ghidra/projects/os-easy-analysis
