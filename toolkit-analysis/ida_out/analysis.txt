@@ -1,0 +1,94 @@
+================================================================================
+BASIC INFORMATION
+================================================================================
+File: C:\Users\WangDe\Desktop\Os-Easy\os-easy multicast teaching system\MainLogic.dll
+Entry Point: 0x1013602a
+Min EA: 0x10001000
+Max EA: 0x10195000
+Total Functions: 10847
+
+================================================================================
+EXPORTS
+================================================================================
+Total: 63
+
+0x10019400: AcceptFileSubmitRequst
+0x10019430: Assign
+0x10019470: AudioTalkSwitch
+0x100194a0: AutoSumbitFile
+0x100194d0: BlackSilent
+0x10019500: CheckFilter
+0x10019540: Completed
+0x10019570: ControlRunningBoard
+0x10019590: DeviceQuery
+0x100195d0: ExamFileTransferEnd
+0x10019600: ExamFileTransferStart
+0x10019630: ExamSendFile
+0x10019670: ExamTchContinue
+0x100196a0: ExamTchDelay
+0x100196c0: ExamTchEnd
+0x100196d0: ExamTchPause
+0x100196e0: ExamTchResend
+0x10019710: ExamTchStandard
+0x10019720: ExamTchStart
+0x10019730: GetAttention
+0x10019740: GetConnectedTerminMacIp
+0x10019760: GetExamFileTransferIps
+0x10019780: GetFilterMap
+0x100197a0: GetOwner
+0x100197b0: GetTSpaceDesktopIpVector
+0x100197c0: GetUnique
+0x100197d0: GetVirtualDesktopipMap
+0x100197e0: Limit
+0x10019810: Load
+0x100198a0: Message
+0x100198d0: NotifyFile
+0x10019900: PainterBardIsRuning
+0x10019910: PublishRankingList
+0x10019960: Quit
+0x10019990: ReceiveFileFailed
+0x100199c0: RemoteWatch
+0x100199f0: RewardFlower
+0x10019a40: SendCallSignToNewStudent
+0x10019a70: SendExamFuncCmdCast
+0x10019aa0: SendFixedPosition
+0x10019ad0: SendImageFile
+0x10019b10: SendMsgToWebClient
+0x10019b40: SendStudentParaConfig
+0x10019b70: SendTSapceFuncMsg
+0x10019b90: SendToCallSign
+0x10019bc0: SetKeyBoardLock
+0x10019bf0: SetLockAfterNetWorkBroken
+0x10019c10: SetRemoteCommand
+0x10019c50: SetTimeServerIP
+0x10019c80: SetUiEx
+0x10019cb0: StartElectronicAnswer
+0x10019ce0: StartMusical
+0x10019d10: StartRemoteControlToAll
+0x10019d40: StopBlackScreen
+0x10019d70: StopRemoteControlToAll
+0x10019d80: SwitchOnWhiteboard
+0x10019db0: TalkbackServerCast
+0x10019de0: TcClose
+0x10019df0: UnLoad
+0x10019e00: UpdataStudentSign
+0x10019e70: UpdateProgass
+0x10134f40: TlsCallback_0
+0x1013602a: DllEntryPoint
+
+================================================================================
+OEP DECOMPILE
+================================================================================
+Entry Point: 0x1013602a
+
+Function: DllEntryPoint
+Range: 0x1013602a - 0x1013604d
+Size: 35 bytes
+
+--- Pseudocode ---
+BOOL __stdcall DllEntryPoint(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
+{
+  if ( fdwReason == 1 )
+    __security_init_cookie();
+  return dllmain_dispatch(hinstDLL, fdwReason, lpReserved);
+}

@@ -1,0 +1,2721 @@
+=== Strings ===
+
+Total strings: 2694
+  ASCII: 2694
+  UTF-16: 0
+  Unicode: 0
+
+============================================================
+ASCII Strings
+============================================================
+channel=%d
+http://%s:%d/channel_match
+RegisterServerIp
+VdiChannelServerPort
+match
+match
+IpProto
+IpProto
+IpProto
+IpProto:%d,teacherip:%s
+ConfigRemoteIp
+ChannelRegisterServer
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+unexpected end of pattern found
+invalid escape control letter; must be one of a-z or A-Z
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+unexpected end of pattern found
+invalid hex escape : must be \x HexDigit HexDigit
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+unexpected end of pattern found
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+unexpected end of pattern found
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+type:%s,channel:%d,ConfigIp:%s,port:%d
+IpProto
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+ChannleScanPort
+ff02::f188
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+invalid Unicode escape : must be \u HexDigit HexDigit HexDigit HexDigit
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+joined membership Failed
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+channel
+teacher_ip
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+channel
+teacher_ip
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+MultiCastReciever::Get()
+INVALID_SOCKET
+ChannleScanPort
+bind errorcode : %d
+channel
+channel
+teacher_ip
+teacher_ip
+get teacherip : %s
+teacher_ip
+Unknown exception
+bad exception
+bad allocation
+generic
+system
+bad cast
+bad lexical cast: source type value could not be interpreted as target
+Message text unavailable
+Unknown error
+Unknown error (%d)
+boost::format_error: format generic failure
+boost::bad_format_string: format-string is ill-formed
+boost::too_few_args: format-string referred to more arguments than were passed
+boost::too_many_args: format-string referred to fewer arguments than were passed
+%c:\MmcFtp
+debug
+FtpServerCachePath
+%02d-%02d %02d:%02d:%02d %s
+
+invalid string position
+vector<T> too long
+string too long
+map/set<T> too long
+vector<bool> too long
+asio.misc
+Already open
+End of file
+Element not found
+The descriptor does not fit into the select call's fd_set
+asio.misc error
+mutex
+thread.entry_event
+thread.exit_event
+thread
+winsock
+timer
+bad executor
+255.255.255.255
+bad address cast
+boost::thread_resource_error
+%s,%s:%d
+Content-Type:application/json; charset=UTF-8
+CurlImpl::PostData
+boost unique_lock has no mutex
+boost unique_lock owns already the mutex
+expires_from_now
+deque<T> too long
+list<T> too long
+count > max_size()
+__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+n > max_size()
+void __thiscall boost::beast::static_string<24,char,struct std::char_traits<char> >::resize(unsigned int)
+n > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+void __thiscall boost::beast::static_string<28,char,struct std::char_traits<char> >::resize(unsigned int)
+TSpaceInUse
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+RegisterType
+TSpaceInUse
+TSpaceInUse
+[UpdateTSpaceInUseConfig] error :%s!
+TSpaceInUse
+[GetTSpaceInUseIpListFromConfig] error :%s!
+count > max_size()
+__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+0123456789
+0123456789
+size() + count > max_size()
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+count > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+index > size()
+invalid status-code
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+Sec-WebSocket-Extensions
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+field value too large
+n > max_size()
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+field name too large
+127.0.0.1
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+class boost::beast::static_string<123,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::assign(const char *,unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+void __thiscall boost::beast::static_string<11,char,struct std::char_traits<char> >::resize(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+1e7b44beea882d13636bc0290083b24ac3d2dec66fb17163fef8792635e1481cd122d7a4fb0e4db9448a87cb612c191d59a5724360a83ccf1ebfa3069d8fa6233305192041d28626e40c19a86537e4de948cebc6e6fadc017372c77d7c38416962776c6f504ec009796eadc16f8b3c95354fd9b65cf62fb7cb9b226895e972d23fec064ebc66c3b4f6282f3f41b8695cdc56eee20e36eeff044b0005017aea9ca75f13a58acadb2309394404d7254c7aaabe22d931e4973baf6bc10288e0b810e270e3deed2114a3eab79f5f033a8afd16bbbd77d432e52ce64726ec072c428c4738ec549df395175af3b568c73e812a18c94024596d92f25d80b2db7958e21bcb56825a2a716931e7b83eef584f491f74dc477352c5925ea51fe1349cb8be26b636d5dca34e6e3f06891ee7284cc74357fb9245bcb4b36f9ff23203e88c73d628c1b8766a355c579af42227e02481d142370eed32b7177c166f677885f92017db9e1a9953da761c80ae7c7d5a1f65561fb7a3eab25c7ac511c153caf3ca86c50a41a53b5d474659e1ef28b78e5bd87dacaef120d7c89fa8006953715
+void __thiscall boost::beast::http::header<0,class boost::beast::http::basic_fields<class std::allocator<char> > >::result(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\http\impl\message.hpp
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+:AM:am:PM:pm
+IpProto
+IpProto
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+[%s]ReadedHeader error:%s
+ReadedBody error:%s
+Connected error == 10056
+<-----------------[[%s]Connected connected localip:%s]----------------->
+IpProto
+connected errorvalus:%d
+connected errorvalus:%s
+IpProto
+MacMatch
+bind localIp:%s
+bind localIp:%s
+NetMatchIp
+NetMatchIp:%s
+bind localIp:%s
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+socket_select_interrupter
+address_v4 from unsigned integer
+IpProto
+Memory allocation failed for IP_ADAPTER_ADDRESSES struct
+
+Ipv6Match
+Ipv6Regex
+match:%s,regex:%s
+%02X:%02X:%02X:%02X:%02X:%02X
+00:00:00:00:00:00
+mac:%s,ip:%s
+Call to GetAdaptersAddresses failed with error: %d
+
+	No addresses were found for the requested parameters
+
+	Error: %s
+0.0.0.0
+shutdown
+local_endpoint
+close
+share already work
+ReadMemoryThread thread exit
+websocket client status connect:%d
+SetDisconStatus:%d
+Have been closed
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+127.0.0.1
+start-screen
+stop-screen
+call to empty boost::function
+boost thread: trying joining itself
+CreateSemaphore DataAvailableSemaphore err:%d
+CreateSemaphore SpaceAvailableSemaphore err:%d
+CreateMutex BufferIndexMutex err:%d
+CreateFileMapping err:%d
+MapViewOfFile err:%d
+Write err:%d
+Read err:%d
+Write close enter
+Write close leave
+1e7b44beea882d13636bc0290083b24ac3d2dec66fb17163fef8792635e1481cd122d7a4fb0e4db9448a87cb612c191d59a5724360a83ccf1ebfa3069d8fa6233305192041d28626e40c19a86537e4de948cebc6e6fadc017372c77d7c38416962776c6f504ec009796eadc16f8b3c95354fd9b65cf62fb7cb9b226895e972d23fec064ebc66c3b4f6282f3f41b8695cdc56eee20e36eeff044b0005017aea9ca75f13a58acadb2309394404d7254c7aaabe22d931e4973baf6bc10288e0b810e270e3deed2114a3eab79f5f033a8afd16bbbd77d432e52ce64726ec072c428c4738ec549df395175af3b568c73e812a18c94024596d92f25d80b2db7958e21bcb56825a2a716931e7b83eef584f491f74dc477352c5925ea51fe1349cb8be26b636d5dca34e6e3f06891ee7284cc74357fb9245bcb4b36f9ff23203e88c73d628c1b8766a355c579af42227e02481d142370eed32b7177c166f677885f92017db9e1a9953da761c80ae7c7d5a1f65561fb7a3eab25c7ac511c153caf3ca86c50a41a53b5d474659e1ef28b78e5bd87dacaef120d7c89fa8006953715
+multicast
+s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]d|1dd|[1-9]?d)(.(25[0-5]|2[0-4]d|1dd|[1-9]?d)){3}))|:)))(%.+)?s*
+StudentLogic
+LogLevel
+RegisterType
+RegisterType
+NetModule---->
+<------NetModule
+bLockKeyBorad start:%d
+unlock
+timerIdGetConfigValue unlock
+default
+timerIdGetConfigValue lock bLockAfterNetWorkBroken:%d
+default
+timerIdGetConfigValue exit
+timerIdGetConfigValue bSilenceScreen>>>
+default
+TemplateShare
+RemoteIp
+channel
+default
+ConfigRemoteIp
+ChannelRegisterServer
+matchiptables
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+0123456789
+0123456789
+default
+ConfigRemoteIp
+ChannelRegisterServer
+type:%s
+start multiclient
+IpProto
+Get desktop:%s
+timerIdCheckRedirection start
+send TSPACEINUSE 
+Clear TSpace
+context
+context
+context
+LocalStuInfo
+UpdateLocalStuInfo
+context
+context
+context
+type:%s,context:%s
+connected
+message
+OpenMirco
+CloseMirco
+NetWorkBroken.json
+Load NetWorkBroken.json
+LockScreen
+LockScreen
+LockScreen
+LockScreen:%d
+lockConfig.json
+BlackSlient.json isExist true
+BlackSlient
+BlackSlient
+BlackSlient
+lockConfig.json isExist false
+BlackSlient
+lockConfig.json
+lockConfig.json
+BlackSlient
+BlackSlient
+BlackSlient
+LockScreen:%d
+NetWorkBroken.json
+NetWorkBroken.json isExist true
+LockScreen
+LockScreen
+LockScreen
+NetWorkBroken.json isExist false
+LockScreen
+NetWorkBroken.json
+bLockKeyBorad stop:%d
+whiteBoard.GetRuning() : %d
+WebSocketServer error:%s
+MircoWebSocket error:%s
+context
+IsConnected.
+IsConnected..
+Net no
+NetworkBroken
+bLockKeyborad:%d
+Net ok
+CheckMulticast enter
+CheckMulticast leave
+TspaceInit enter
+TspaceInit leave
+StudentLogic::InitIdpThread
+%s enter
+StudentLogic::InitIdpThread
+error %s:%s
+StudentLogic::InitIdpThread
+%s leave
+WebSoundRecordPause.file
+echo. > "
+RegisterType
+WebSoundRecordPause.file
+StudentLogic::IdpRecordSoundThread
+%s enter
+StudentLogic::IdpRecordSoundThread
+%s leave
+TSpaceInUse
+TSpaceInUse
+ScreenRender()
+StudentLogic::HandleIdpMsgThread
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+%s enter
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+StudentLogic::HandleIdpMsgThread
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+%s leave
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+error ScreenRender:%s
+TSpaceInUse
+[UpdateTSpaceInUseConfig] error :%s!
+TSpaceInUse
+[GetTSpaceInUseIpListFromConfig] error :%s!
+not is Json
+context
+context
+context
+TspaceDataHandle type[%s]
+ScreenShot
+ScreenShot
+ScreenRender window not find
+Barrage
+ReferenceBarrage
+TopBarrage
+LocalStuInfo
+LocalStuInfo enter
+LocalStuInfo leave
+TSpaceConnected
+TSpaceConnected mapwebpublishmsg size:%d
+Send Tpaceconnected msg:%s
+DisabledAudioDevice
+Empty AudioDevice
+EnabledAudioDevice
+Use AudioDevice
+AudioRecordSenderPause
+web else type[%s]
+context
+context
+StuVoice
+context
+context
+OpenMirco
+message
+CloseMirco
+message
+TspaceDataHandle prase json error
+UpdateLocalStuInfo
+UpdateLocalStuInfo
+MouseAndKeyBoardLock Disable()
+MouseAndKeyBoardLock Enable()
+StudentLogic::MultiClient_InitWebSocketServer
+%s enter
+MouseLock Disable()
+MouseLock Enable()
+WebSocketServer error:%s
+StudentLogic::MultiClient_InitWebSocketServer
+%s leave
+KeyBoardLock Disable()
+context
+KeyBoardLock Enable()
+StudentLogic::MultiClient_GetMsgs
+%s enter
+0123456789
+0123456789
+context
+context
+context
+StudentLogic::MultiClient_GetMsgs
+%s leave
+StudentLogic::MultiClient_Data_Handle
+[%s] type:[%s],context:%s
+dmt_screen_open
+dmt_screen_close
+context
+StudentLogic::CloseOnlineFunc
+[%s] enter
+SwitchUi
+context
+StudentLogic::CloseOnlineFunc
+[%s]  leave
+close
+Voice
+Voice
+context
+0.0.0.0
+VeriyReceiverCast error:%s
+network is ok
+NewWorkChangeExector enable
+default
+network is down
+bLockAfterNetWorkBroken:%d
+NetworkBroken
+bLockKeyborad:%d
+StudentLogic::UnLoad
+do->>>%s
+StudentLogic::UnLoad
+delete receiverVeriy enter :%s
+StudentLogic::UnLoad
+delete receiverVeriy leave :%s
+Notify idp exit
+SearchType
+ConnectPort
+SharedDeskTopAppBindPort
+VirtualMachineType
+local
+none desktop:%s
+errorCode:%d
+debug
+vender_id
+vender_id
+oseasy.mmc.udp
+mouse
+message
+mouseLockAll
+keybroad
+message
+state
+stop-deamon-multiclient
+stop deamon multiclient
+stop:%d,m_bStopDeamonMulticlient:%d
+__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+count > max_size()
+void __thiscall boost::beast::static_string<24,char,struct std::char_traits<char> >::resize(unsigned int)
+n > max_size()
+dispatch error:%s
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+n > max_size()
+127.0.0.1
+void __thiscall boost::beast::static_string<28,char,struct std::char_traits<char> >::resize(unsigned int)
+count > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+index > size()
+size() + count > max_size()
+__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+id:%d,
+disconnted
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+connected
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+debug
+ import student
+get json bLockAfterNetWorkBroken:%d
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+ScreenUdpVerityPort
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+ConfBackupRestore.exe
+TransferType
+MutiTeacherIp
+home_work_server_ip
+GeneralEducation
+OnceConfigIp
+IpProto
+context
+context
+context
+Qt BARRAGEMSG Type:%s
+UpdateLocalStuInfo
+BARRAGEMSG json error
+VoiceTalk:TSpace no work now
+context
+context
+context
+Voice
+Recv FILETRANSFER, start Client_console
+client_console.exe 
+%s %d 0 0
+Recv FILETRANSFER, close Client_console
+Recv EXAMFILETRANSFER, start Client_console
+recv time:%s
+client_console.exe 
+%s %d 0 1
+Recv EXAMFILETRANSFER, close Client_console
+success
+blacklock:%s
+bLockKeyBorad start:%d
+bLockKeyBorad stop:%d
+failed
+xueshengyanshi_teacher
+failed
+127.0.0.1
+keywords.json
+[UpdateTSpaceInUseConfig] error :%s!
+[StudentLogic]-AUDIOTALKSWITCH-PERMITTALK
+[StudentLogic]-AUDIOTALKSWITCH-EM_FORBIT_CMD
+[StudentLogic][GetDataFromTeacher]_TalkbackClient.Start[local_ip:%s][remote_ip:%s][port:%d]
+udpSingle
+[StudentLogic]-AUDIOTALKSWITCH-no change
+PERMITTALK
+AudioTalkingCmd
+[StudentLogic]-AUDIOTALKSWITCH-AUTOTALK
+udpSingle
+[StudentLogic][GetDataFromTeacher]_TalkbackClient.Start[local_ip:%s][remote_ip:%s][port:%d]
+[StudentLogic]-AUTOTALK-no change
+AUTOTALK
+AudioTalkingCmd
+[StudentLogic]-AUDIOTALKSWITCH-LIMITTALK
+[StudentLogic][GetDataFromTeacher]_TalkbackClient.Start[local_ip:%s][remote_ip:%s][port:%d]
+udpSingle
+LIMITTALK
+AudioTalkingCmd
+[StudentLogic]-AUDIOTALKSWITCH-EXITAUDIOTALK
+EXITAUDIOTALK
+AudioTalkingCmd
+create success
+ConfBackupRestore.exe
+ import student
+Set Lock machine After Network broken
+ConfBackupRestore.exe
+ import student
+Cancel Setting Of Locking machine After Network broken
+whiteBoard.GetRuning() %d
+1111111111111111111111111111111111111111111
+22222222222222222222222222222222222222222222
+LISSNetInfoSniffer\LISSNetInfoSniffer.exe 
+[GetHttpsData] filepath :%s!
+sdk\x64\
+sdk\x86\
+[initLissHelper] lissPath:%s
+[initLissHelper] hMod SUCCESS
+LISS_SDK_InitIntance
+LISS_SDK_FreeIntance
+LISS_SDK_IsLoginUiGoingToShow
+LISS_SDK_SendBroadcastTypeInternal
+LISS_SDK_IsSupportMMCStrategy
+LISS_SDK_SendMMCStopStrategy
+LISS_SDK_SendMMCMonitorKeywordFilePath
+[initLissHelper] hMod failed[%d]!
+invalid status-code
+void __thiscall boost::beast::http::header<0,class boost::beast::http::basic_fields<class std::allocator<char> > >::result(unsigned int)
+login
+login ip %s,%s
+Tspace card Mac:%s
+D:\dmt\master\dependency\include\boost\beast\http\impl\message.hpp
+Sec-WebSocket-Extensions
+GetTerminalMac:%s
+card Mac:%s
+login add INFO
+[CanBroadcast %d] ret:%d show:%d
+[CanUseDeviceControl]
+[CanUseDeviceControl] ret:%d,support:%d
+failCount:%d
+[MMPCSendBroadcastType] type:%s start:%d
+pmgb-full
+pmgb-window
+pmgb-rect
+closeall
+[SupportUseDeviceControl] process:%d device:%d network:%d traffic%d
+[SupportUseDeviceControl] ret:%d support:%d
+[SupportUseDeviceControl] No LissSDK
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+field name too large
+field value too large
+[StopDeviceControl] %d:%d:%d:%d
+ForceIpv4
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+[StopDeviceControl] No LissSDK
+[SendKeywordFilepath]
+IpProto
+[SendKeywordFilepath] Filepath:%s
+[SendKeywordFilepath] No LissSDK
+class boost::beast::static_string<123,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::assign(const char *,unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+count > max_size()
+System\CurrentControlSet\Control\Session Manager\Environment
+SSLKEYLOGFILE
+SSLKEYLOGFILE
+void __thiscall boost::beast::static_string<11,char,struct std::char_traits<char> >::resize(unsigned int)
+n > max_size()
+TSpace Notify web record sound.
+invalid escape control letter; must be one of a-z or A-Z
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+System\CurrentControlSet\Control\Session Manager\Environment
+SSLKEYLOGFILE
+TSpace Notify web record close.
+C:\ProgramData\LISSClient\sslkey.log
+TSpace Notify web play sound.
+[SetLissSslKey] failed
+TSpace Notify web play close.
+invalid hex escape : must be \x HexDigit HexDigit
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+unexpected end of pattern found
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+unexpected end of pattern found
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+unexpected end of pattern found
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+unexpected end of pattern found
+D:\dmt\master\dependency\include\boost\xpressive\detail\dynamic\parse_charset.hpp
+struct boost::xpressive::detail::escape_value<char,unsigned short> __cdecl boost::xpressive::detail::parse_escape<const char*,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > >>(const char *&,const char *,struct boost::xpressive::compiler_traits<struct boost::xpressive::regex_traits<char,struct boost::xpressive::cpp_regex_traits<char> > > &)
+invalid Unicode escape : must be \u HexDigit HexDigit HexDigit HexDigit
+NotifyUpdateAudiostatus [%d]
+(\{.*\}|\[.*\])
+bad locale name
+false
+APPDATA
+unknown
+skin\core.conf
+user.conf
+runtime
+.conf
+..\skin\core.conf
+general.conf
+skin\res.config
+IsWow64Process
+multicast
+assist_ip
+fileTransferPort
+local_time
+controller_port
+waitseconds
+general_education
+home_work_server_ip
+lockedAfterNetBroken
+ioControlLevel
+transferType
+screenUdpVerityPort
+SendToWeb
+Day of month value is out of range 1..31
+Year is out of valid range: 1400..9999
+Month number is out of range 1..12
+January
+February
+March
+April
+August
+September
+October
+November
+December
+NotAMonth
+Day of month is not valid for year
+could not convert calendar time to local time
+could not convert calendar time to UTC time
+not-a-date-time
+-infinity
++infinity
+UnDefinedName
+Service already exists.
+Invalid service owner.
+ %s %d %d %s
+MultiClient.exe
+ %s %s
+mc.qt
+MultiRender.exe 
+teacher_ip
+remote
+local
+decoderName
+appType
+verityPort
+controler_port
+controler_host
+fullscreen
+BlackSlient.exe
+%s Exec Failed:%d
+SharedDesktop.exe
+ --mouse %d --protocol %s --bindip %s --bindport %d --remote %s --port %d --encoderType %s --quality %d --waitseconds %d --width %d --height %d
+verfityPort
+width
+height
+capture
+AudioSender.exe 
+toolkits\bin\OePainter.exe
+PainterBoard
+Voice
+showIcon
+context
+toolkits\bin\MicrIcon.exe
+%s MicrIcon Exec Failed:%d
+MicrIcon Current Desktop name is :%s
+closeIcon
+Socket bind func error :%d
+vender_id
+oseasy.mmc.udp
+RequestImage
+atteched
+MtuCountWillWait
+recvfrom error:%d
+CLSID_NetworkListManager:%s
+pNetworkListManager->QueryInterface:%s
+pCPContainer->FindConnectionPoint:%s
+pConnectPoint->Advise:%s
+AudioPlayRender no run, do run.
+AudioPlayRender run yet, do nothing.
+AudioPlayRender.exe
+AudioRecordSender no run, do run.
+AudioRecordSender run yet, do nothing.
+AudioRecordSender.exe 
+unknown exception code
+attempt to encode a value > 6 bits
+attempt to decode a value not in base64 char set
+invalid xml escape_sequence
+cannot invoke iterator comparison now
+invalid multbyte/wide char conversion
+close failed:%s
+[%d]disconnect
+[%d]connected succeed
+msg 000!
+async_read error!
+len error!
+msg new error!
+[%d] EnableClient failed:%s
+[%d]try to connect:%d
+127.0.0.1
+[%d] LocalIp:%s
+[%d] write fail %s
+[%d] socket null 
+[%d]DealSendLogic failed %s
+IdpScreenClient::DealSendLogic::<lambda_487a53498ef69d4b32431d347edbb8e2>::operator ()
+[%d] io stop:%s
+Add RdMessage full!
+Add WrMessage full!
+[Veriy]multicast ip:%s,port:%d
+VeriyReceiver::~VeriyReceiver
+Multicast
+Receive error:%s
+Receive stop_ios
+Receive stop_ios leave
+DisableKeyboard
+EnableKeyboard
+socket INVALID_SOCKET
+npd-auto
+assist
+desktop
+set-teaAndStu-ip
+teaIp
+stuIp
+start-multiclient
+set-time
+send-broadcast-type
+broadcasttype
+start
+start-lissNet
+filepath
+desktop-type
+terminal-mac
+can-broadcast
+support-use-device-control
+networktraffic
+network
+device
+process
+check-liss-sdk
+stop-device-control
+stopnetworktraffic
+stopnetwork
+stopdevice
+stopprocess
+cancel
+expires_after
+upper
+space
+alnum
+set_option
+()$^.*+?[]|\-{},:=!
+
+alpha
+blank
+cntrl
+digit
+graph
+lower
+print
+punct
+xdigit
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+, dump: 
+, size: 
+type: 
+?456789:;<=
+	
+
+ !"#$%&'()*+,-./0123
+0123456789
+count > max_size()
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+field name too large
+field value too large
+n > max_size()
+0123456789
+struct boost::beast::http::basic_fields<class std::allocator<char> >::element &__thiscall boost::beast::http::basic_fields<class std::allocator<char> >::new_element(enum boost::beast::http::field,class boost::basic_string_view<char,struct std::char_traits<char> >,class boost::basic_string_view<char,struct std::char_traits<char> >)
+D:\dmt\master\dependency\include\boost\beast\http\impl\fields.hpp
+0123456789
+class boost::beast::static_string<123,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::assign(const char *,unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+A basic_flat_buffer exceeded the allocator's maximum size
+void __thiscall boost::beast::static_string<11,char,struct std::char_traits<char> >::resize(unsigned int)
+n > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+invalid response body
+n > max_size()
+keep-alive
+char *__thiscall boost::beast::basic_flat_buffer<class std::allocator<char> >::alloc(unsigned int)
+upgrade
+count > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\flat_buffer.hpp
+void __thiscall boost::beast::http::message<0,struct boost::beast::http::basic_string_body<char,struct std::char_traits<char>,class std::allocator<char> >,class boost::beast::http::basic_fields<class std::allocator<char> > >::prepare_payload(struct std::integral_constant<bool,0>)
+close
+n > max_size()
+chunked
+, chunked
+D:\dmt\master\dependency\include\boost\beast\http\impl\message.hpp
+chunked
+basic_flat_buffer too long
+void __thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::resize(unsigned int)
+chunked
+count > max_size()
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+n > max_size()
+size() + count > max_size()
+void __thiscall boost::beast::static_string<125,char,struct std::char_traits<char> >::resize(unsigned int)
+chunked
+invalid status-code
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+index > size()
+Sec-WebSocket-Extensions
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+unknown method
+upgrade
+websocket
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+Build WebSocket Server port:%d
+__thiscall boost::beast::static_string<123,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+void __thiscall boost::beast::static_string<24,char,struct std::char_traits<char> >::resize(unsigned int)
+websocket
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+upgrade
+void __thiscall boost::beast::static_string<28,char,struct std::char_traits<char> >::resize(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+D:\dmt\master\dependency\include\boost\exception\detail\exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+class boost::asio::mutable_buffer __thiscall boost::beast::basic_flat_buffer<class std::allocator<char> >::prepare(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\flat_buffer.hpp
+__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::static_string(const char *)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+class boost::beast::static_string<512,char,struct std::char_traits<char> > &__thiscall boost::beast::static_string<512,char,struct std::char_traits<char> >::insert(unsigned int,const char *,unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_string.hpp
+void __thiscall boost::beast::http::header<1,class boost::beast::http::basic_fields<class std::allocator<char> > >::method(enum boost::beast::http::verb)
+D:\dmt\master\dependency\include\boost\beast\http\impl\message.hpp
+void __thiscall boost::beast::http::header<0,class boost::beast::http::basic_fields<class std::allocator<char> > >::result(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\http\impl\message.hpp
+tr1::bad_weak_ptr
+Version
+boost.beast
+The socket was closed due to a timeout
+The operation timed out
+class boost::asio::mutable_buffer __thiscall boost::beast::flat_static_buffer_base::prepare(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\flat_static_buffer.ipp
+buffer overflow
+class boost::beast::detail::buffers_pair<1> __thiscall boost::beast::static_buffer_base::prepare(unsigned int)
+D:\dmt\master\dependency\include\boost\beast\core\impl\static_buffer.ipp
+static_buffer overflow
+boost.beast.websocket
+The WebSocket stream was gracefully closed at both endpoints
+The WebSocket operation caused a dynamic buffer overflow
+The WebSocket stream produced an incomplete deflate block
+The WebSocket message exceeded the locally configured limit
+The WebSocket handshake was not HTTP/1.1
+The WebSocket handshake method was not GET
+The WebSocket handshake Host field is missing
+The WebSocket handshake Connection field is missing
+The WebSocket handshake Connection field is missing the upgrade token
+The WebSocket handshake Upgrade field is missing
+The WebSocket handshake Upgrade field is missing the websocket token
+The WebSocket handshake Sec-WebSocket-Key field is missing
+The WebSocket handshake Sec-WebSocket-Key field is invalid
+The WebSocket handshake Sec-WebSocket-Version field is missing
+The WebSocket handshake Sec-WebSocket-Version field is invalid
+The WebSocket handshake Sec-WebSocket-Accept field is missing
+The WebSocket handshake Sec-WebSocket-Accept field is invalid
+The WebSocket handshake was declined by the remote peer
+The WebSocket frame contained an illegal opcode
+The WebSocket data frame was unexpected
+The WebSocket continuation frame was unexpected
+The WebSocket frame contained illegal reserved bits
+The WebSocket control frame was fragmented
+The WebSocket control frame size was invalid
+The WebSocket frame was unmasked
+The WebSocket frame was masked
+The WebSocket frame size was not canonical
+The WebSocket frame payload was not valid utf8
+The WebSocket close frame reason code was invalid
+The WebSocket close frame payload size was invalid
+The WebSocket close frame payload was not valid utf8
+The WebSocket handshake failed
+A WebSocket protocol violation occurred
+beast.http
+end of stream
+partial message
+need more
+unexpected body
+need buffer
+end of chunk
+header limit exceeded
+body limit exceeded
+bad alloc
+bad line ending
+bad method
+bad target
+bad version
+bad status
+bad reason
+bad field
+bad value
+bad Content-Length
+bad Transfer-Encoding
+bad chunk
+bad chunk extension
+bad obs-fold
+stale parser
+unexpected eof in body
+beast.http error
+<unknown-field>
+Accept
+Accept-Additions
+Accept-Charset
+Accept-Datetime
+Accept-Encoding
+Accept-Features
+Accept-Language
+Accept-Patch
+Accept-Post
+Accept-Ranges
+Access-Control
+Access-Control-Allow-Credentials
+Access-Control-Allow-Headers
+Access-Control-Allow-Methods
+Access-Control-Allow-Origin
+Access-Control-Expose-Headers
+Access-Control-Max-Age
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Allow
+Also-Control
+Alt-Svc
+Alt-Used
+Alternate-Recipient
+Alternates
+Apparently-To
+Apply-To-Redirect-Ref
+Approved
+Archive
+Archived-At
+Article-Names
+Article-Updates
+Authentication-Control
+Authentication-Info
+Authentication-Results
+Authorization
+Auto-Submitted
+Autoforwarded
+Autosubmitted
+C-Ext
+C-Man
+C-Opt
+C-PEP
+C-PEP-Info
+Cache-Control
+CalDAV-Timezones
+Cancel-Key
+Cancel-Lock
+Close
+Comments
+Compliance
+Connection
+Content-Alternative
+Content-Base
+Content-Description
+Content-Disposition
+Content-Duration
+Content-Encoding
+Content-features
+Content-ID
+Content-Identifier
+Content-Language
+Content-Length
+Content-Location
+Content-MD5
+Content-Range
+Content-Return
+Content-Script-Type
+Content-Style-Type
+Content-Transfer-Encoding
+Content-Type
+Content-Version
+Control
+Conversion
+Conversion-With-Loss
+Cookie
+Cookie2
+Date-Received
+Default-Style
+Deferred-Delivery
+Delivery-Date
+Delta-Base
+Depth
+Derived-From
+Destination
+Differential-ID
+Digest
+Discarded-X400-IPMS-Extensions
+Discarded-X400-MTS-Extensions
+Disclose-Recipients
+Disposition-Notification-Options
+Disposition-Notification-To
+Distribution
+DKIM-Signature
+DL-Expansion-History
+Downgraded-Bcc
+Downgraded-Cc
+Downgraded-Disposition-Notification-To
+Downgraded-Final-Recipient
+Downgraded-From
+Downgraded-In-Reply-To
+Downgraded-Mail-From
+Downgraded-Message-Id
+Downgraded-Original-Recipient
+Downgraded-Rcpt-To
+Downgraded-References
+Downgraded-Reply-To
+Downgraded-Resent-Bcc
+Downgraded-Resent-Cc
+Downgraded-Resent-From
+Downgraded-Resent-Reply-To
+Downgraded-Resent-Sender
+Downgraded-Resent-To
+Downgraded-Return-Path
+Downgraded-Sender
+Downgraded-To
+EDIINT-Features
+Eesst-Version
+Encoding
+Encrypted
+Errors-To
+Expect
+Expires
+Expiry-Date
+Followup-To
+Forwarded
+Generate-Delivery-Report
+GetProfile
+Hobareg
+HTTP2-Settings
+If-Match
+If-Modified-Since
+If-None-Match
+If-Range
+If-Schedule-Tag-Match
+If-Unmodified-Since
+Importance
+In-Reply-To
+Incomplete-Copy
+Injection-Date
+Injection-Info
+Jabber-ID
+Keep-Alive
+Keywords
+Label
+Language
+Last-Modified
+Latest-Delivery-Time
+Lines
+List-Archive
+List-Help
+List-ID
+List-Owner
+List-Post
+List-Subscribe
+List-Unsubscribe
+List-Unsubscribe-Post
+Location
+Lock-Token
+Max-Forwards
+Memento-Datetime
+Message-Context
+Message-ID
+Message-Type
+Meter
+Method-Check
+Method-Check-Expires
+MIME-Version
+MMHS-Acp127-Message-Identifier
+MMHS-Authorizing-Users
+MMHS-Codress-Message-Indicator
+MMHS-Copy-Precedence
+MMHS-Exempted-Address
+MMHS-Extended-Authorisation-Info
+MMHS-Handling-Instructions
+MMHS-Message-Instructions
+MMHS-Message-Type
+MMHS-Originator-PLAD
+MMHS-Originator-Reference
+MMHS-Other-Recipients-Indicator-CC
+MMHS-Other-Recipients-Indicator-To
+MMHS-Primary-Precedence
+MMHS-Subject-Indicator-Codes
+MT-Priority
+Negotiate
+Newsgroups
+NNTP-Posting-Date
+NNTP-Posting-Host
+Non-Compliance
+Obsoletes
+Optional
+Optional-WWW-Authenticate
+Ordering-Type
+Organization
+Origin
+Original-Encoded-Information-Types
+Original-From
+Original-Message-ID
+Original-Recipient
+Original-Sender
+Original-Subject
+Originator-Return-Address
+Overwrite
+Pep-Info
+PICS-Label
+Position
+Posting-Version
+Pragma
+Prefer
+Preference-Applied
+Prevent-NonDelivery-Report
+Priority
+Privicon
+ProfileObject
+Protocol
+Protocol-Info
+Protocol-Query
+Protocol-Request
+Proxy-Authenticate
+Proxy-Authentication-Info
+Proxy-Authorization
+Proxy-Connection
+Proxy-Features
+Proxy-Instruction
+Public
+Public-Key-Pins
+Public-Key-Pins-Report-Only
+Range
+Received
+Received-SPF
+Redirect-Ref
+References
+Referer
+Referer-Root
+Relay-Version
+Reply-By
+Reply-To
+Require-Recipient-Valid-Since
+Resent-Bcc
+Resent-Cc
+Resent-Date
+Resent-From
+Resent-Message-ID
+Resent-Reply-To
+Resent-Sender
+Resent-To
+Resolution-Hint
+Resolver-Location
+Retry-After
+Return-Path
+Schedule-Reply
+Schedule-Tag
+Sec-WebSocket-Accept
+Sec-WebSocket-Extensions
+Sec-WebSocket-Key
+Sec-WebSocket-Protocol
+Sec-WebSocket-Version
+Security-Scheme
+See-Also
+Sender
+Sensitivity
+Server
+Set-Cookie
+Set-Cookie2
+SetProfile
+SIO-Label
+SIO-Label-History
+SoapAction
+Solicitation
+Status-URI
+Strict-Transport-Security
+Subject
+SubOK
+Subst
+Summary
+Supersedes
+Surrogate-Capability
+Surrogate-Control
+Timeout
+Title
+Topic
+Trailer
+Transfer-Encoding
+UA-Color
+UA-Media
+UA-Pixels
+UA-Resolution
+UA-Windowpixels
+Upgrade
+Urgency
+User-Agent
+Variant-Vary
+VBR-Info
+Want-Digest
+Warning
+WWW-Authenticate
+X-Archived-At
+X-Device-Accept
+X-Device-Accept-Charset
+X-Device-Accept-Encoding
+X-Device-Accept-Language
+X-Device-User-Agent
+X-Frame-Options
+X-Mittente
+X-PGP-Sig
+X-Ricevuta
+X-Riferimento-Message-ID
+X-TipoRicevuta
+X-Trasporto
+X-VerificaSicurezza
+X400-Content-Identifier
+X400-Content-Return
+X400-Content-Type
+X400-MTS-Identifier
+X400-Originator
+X400-Received
+X400-Recipients
+X400-Trace
+SEARCH
+SUBSCRIBE
+ECKOUT
+NNECT
+ELETE
+ACTIVITY
+ALENDAR
+OTIFY
+PTIONS
+OPFIND
+OPPATCH
+EARCH
+UBSCRIBE
+Continue
+Switching Protocols
+Processing
+Created
+Accepted
+Non-Authoritative Information
+No Content
+Reset Content
+Partial Content
+Multi-Status
+Already Reported
+IM Used
+Multiple Choices
+Moved Permanently
+Found
+See Other
+Not Modified
+Use Proxy
+Temporary Redirect
+Permanent Redirect
+Bad Request
+Unauthorized
+Payment Required
+Forbidden
+Not Found
+Method Not Allowed
+Not Acceptable
+Proxy Authentication Required
+Request Timeout
+Conflict
+Length Required
+Precondition Failed
+Payload Too Large
+URI Too Long
+Unsupported Media Type
+Range Not Satisfiable
+Expectation Failed
+Misdirected Request
+Unprocessable Entity
+Locked
+Failed Dependency
+Upgrade Required
+Precondition Required
+Too Many Requests
+Request Header Fields Too Large
+Connection Closed Without Response
+Unavailable For Legal Reasons
+Client Closed Request
+Internal Server Error
+Not Implemented
+Bad Gateway
+Service Unavailable
+Gateway Timeout
+HTTP Version Not Supported
+Variant Also Negotiates
+Insufficient Storage
+Loop Detected
+Not Extended
+Network Authentication Required
+Network Connect Timeout Error
+<unknown-status>
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+258EAFA5-E914-47DA-95CA-C5AB0DC85B11
+permessage-deflate
+server_max_window_bits
+client_max_window_bits
+server_no_context_takeover
+client_no_context_takeover
+; server_max_window_bits=
+; client_max_window_bits=
+; server_no_context_takeover
+; client_no_context_takeover
+boost.beast.zlib
+need buffers
+unexpected end of deflate stream
+need dict
+stream error
+invalid block type
+invalid stored block length
+too many symbols
+invalid code lengths
+invalid bit length repeat
+missing end of block code
+invalid literal/length code
+invalid distance code
+invalid distance
+over-subscribed length
+incomplete length set
+beast.zlib error
+void __thiscall boost::beast::zlib::detail::deflate_stream::doReset(int,int,int,enum boost::beast::zlib::Strategy)
+D:\dmt\master\dependency\include\boost\beast\zlib\detail\deflate_stream.ipp
+invalid level
+invalid windowBits
+invalid memLevel
+void __thiscall boost::beast::zlib::detail::deflate_stream::doWrite(struct boost::beast::zlib::z_params &,class boost::optional<enum boost::beast::zlib::Flush>,class boost::system::error_code &)
+invalid input
+void __thiscall boost::beast::zlib::detail::inflate_stream::doReset(int)
+D:\dmt\master\dependency\include\boost\beast\zlib\detail\inflate_stream.ipp
+windowBits out of range
+void __thiscall boost::beast::zlib::detail::inflate_stream::doWrite(struct boost::beast::zlib::z_params &,enum boost::beast::zlib::Flush,class boost::system::error_code &)
+auto __thiscall boost::beast::zlib::detail::inflate_stream::inflate_table::<lambda_32d4f6ebba9c66b34db3b51d32ef3d88>::operator ()(void) const
+insufficient output size when inflating tables
+__thiscall boost::beast::zlib::detail::inflate_stream::get_fixed_tables::fixed_codes::fixed_codes(void)
+ ""(),,//:@[]{
+ websocket-server-coro
+Boost.Beast/290
+[%d] websocket connected
+[%d] websocket read error:%s
+[%d] client websocket disconnect!
+[%d] websocket read coroutine failed:%s
+[%d] websocket write coroutine failed:%s
+EnableWebSocket::CreateWebConnect::<lambda_51f4c7e79fdb99dbb95e119e69a17453>::operator ()
+listen
+expires_at
+123456789abcdef
+unsigned int __thiscall boost::basic_string_view<char,struct std::char_traits<char> >::copy(char *,unsigned int,unsigned int) const
+D:\dmt\master\dependency\include\boost\utility\string_view.hpp
+string_view::copy
+chunked
+k7E8
+bad array new length
+boost::filesystem::path codecvt to wstring
+boost::filesystem::path codecvt to string
+CreateHardLinkW
+CreateSymbolicLinkW
+boost::filesystem::remove
+boost::filesystem::status
+boost::filesystem::canonical
+boost::filesystem::copy
+boost::filesystem::copy_directory
+boost::filesystem::copy_file
+boost::filesystem::create_directories
+boost::filesystem::create_directory
+boost::filesystem::create_directory_symlink
+boost::filesystem::create_hard_link
+boost::filesystem::create_symlink
+boost::filesystem::current_path
+boost::filesystem::equivalent
+boost::filesystem::file_size
+boost::filesystem::hard_link_count
+boost::filesystem::is_empty
+boost::filesystem::last_write_time
+boost::filesystem::permissions
+boost::filesystem::read_symlink
+boost::filesystem::relative
+boost::filesystem::remove_all
+boost::filesystem::rename
+boost::filesystem::resize_file
+boost::filesystem::space
+boost::filesystem::temp_directory_path
+boost::filesystem::system_complete
+boost::filesystem::weakly_canonical
+unknown error
+codecvt
+partial
+error
+noconv
+boost::filesystem::directory_iterator::construct
+boost::filesystem::directory_iterator::operator++
+boost::filesystem::recursive_directory_iterator::pop
+filesystem::recursive_directory_iterator increment error
+vector too long
+map/set too long
+Attempt to access an uninitialized boost::match_results<> class.
+Can't access subexpressions in an invalid regex.
+invalid vector subscript
+Invalid regular expression object
+  The error occurred while parsing the regular expression fragment: '
+  The error occurred while parsing the regular expression: '
+>>>HERE>>>
+lower
+upper
+alpha
+Error in thread safety code: could not acquire a lock
+The \c and \C escape sequences are not supported by POSIX basic regular expressions: try the Perl syntax instead.
+Incomplete \g escape found.
+Escape sequence was neither a valid property nor a valid character class name.
+Missing } in quantified repetition.
+Character set declaration starting with [ terminated prematurely - either no ] was found or the set had no content.
+Encountered a forward reference to a marked sub-expression that does not exist.
+list too long
+Character class declaration starting with [ terminated prematurely - either no ] was found or the set had no content.
+DEFINE
+Invalid or empty zero width assertion.
+More than one alternation operator | was encountered inside a conditional expression.
+Alternation operators are not allowed inside a DEFINE block.
+A repetition operator cannot be applied to a zero-width assertion.
+CCEPT
+OMMIT
+punct
+alnumalphablankcntrldigitgraphlowerprintpunctspaceunicodeuppervwordxdigit
+(?-x:(?>
+?|[
+
+( ) ]
+Usage Error: Can't mix regular expression captures with POSIX matching rules
+alert
+backspace
+newline
+vertical-tab
+form-feed
+carriage-return
+exclamation-mark
+quotation-mark
+number-sign
+dollar-sign
+percent-sign
+ampersand
+apostrophe
+left-parenthesis
+right-parenthesis
+asterisk
+plus-sign
+comma
+hyphen
+period
+slash
+three
+seven
+eight
+colon
+semicolon
+less-than-sign
+equals-sign
+greater-than-sign
+question-mark
+commercial-at
+left-square-bracket
+backslash
+right-square-bracket
+circumflex
+underscore
+grave-accent
+left-curly-bracket
+vertical-line
+right-curly-bracket
+tilde
+0123456789
+Success
+No match
+Invalid regular expression.
+Invalid collation character.
+Invalid character class name, collating name, or character range.
+Invalid or unterminated escape sequence.
+Invalid back reference: specified capturing group does not exist.
+Unmatched [ or [^ in character class declaration.
+Unmatched marking parenthesis ( or \(.
+Unmatched quantified repeat operator { or \{.
+Invalid content of repeat range.
+Invalid range end in character class
+Out of memory.
+Invalid preceding regular expression prior to repetition operator.
+Premature end of regular expression
+Regular expression is too large.
+Unmatched ) or \)
+Empty regular expression.
+The complexity of matching the regular expression exceeded predefined bounds.  Try refactoring the regular expression to make each choice made by the state machine unambiguous.  This exception is thrown to prevent "eternal" matches that take an indefinite period time to locate.
+Ran out of stack space trying to match the regular expression.
+Invalid or unterminated Perl (?...) sequence.
+Unknown error.
+', trying to retrieve '
+', stored '
+NameValuePairs: type mismatch for '
+Clone() is not implemented yet.
+RandomNumberGenerator: IncorporateEntropy not implemented
+BufferedTransformation: this object can't be reinitialized
+BufferedTransformation: this object doesn't support multiple channels
+BufferedTransformation: this object is not attachable
+ is not a valid key length
+BitBucket
+" not used
+AlgorithmParametersBase: parameter "
+Rounds
+KeySize
+Cryptographic algorithms are disabled before the power-up self tests are performed.
+Cryptographic algorithms are disabled after a power-up self test failed.
+: this object requires an IV
+: this object cannot use a null IV
+StreamTransformation: this object does't support a special last block
+NullRNG
+NullRNG: NullRNG should only be passed to functions that don't need to generate random bytes
+ bytes
+ byte digest to 
+HashTransformation: can't truncate a 
+PK_DefaultEncryptionFilter: plaintext too long
+PK_DefaultDecryptionFilter: ciphertext too long
+: invalid ciphertext
+Unflushable<T>: this object has buffered input that cannot be flushed
+38465
+ValueNames
+: missing required parameter '
+SimpleKeyingInterface: this object doesn't support resynchronization
+StreamTransformation: this object doesn't support random access
+CryptoMaterial: this object contains invalid values
+CryptoMaterial: this object does not support saving
+CryptoMaterial: this object does not support loading
+CryptoMaterial: this object does not support precomputation
+GeneratableCryptoMaterial: this object does not support key/parameter generation
+PK_MessageAccumulator: DigestSize() should not be called
+PK_MessageAccumulator: TruncatedFinal() should not be called
+BER decode error
+InputBuffer
+BER decode error: unknown object identifier
+StolenIV
+Modulus
+PrivateExponent
+PublicElement
+SubgroupOrder
+Cofactor
+SubgroupGenerator
+Curve
+GroupOID
+Log2Base
+DecodingLookupArray
+PK_MessageEncodingMethod: this signature scheme does not support message recovery
+CryptoPP: invalid group element
+IteratedHashBase: input data exceeds maximum allowed by hash function 
+SHA-1
+SHA-256
+04000000000000000000020108A2E0CC0D99F8A5EF
+0402FE13C0537BBC11ACAA07D793DE4E6D5E5C94EEE80289070FB05D38FF58321F2E800536D538CCDAA3D9
+000000000000000000000000000000000000000001
+03FFFFFFFFFFFFFFFFFFFF48AAB689C29CA710279B
+040369979697AB43897789566789567F787A7876A65400435EDB42EFAFB2989D51FEFCE3C80988F41FF883
+0713612DCDDCB40AAB946BDA29CA91F73AF958AFD9
+07B6882CAAEFA84F9554FF8428BD88E246D2782AE2
+2000000000000000000000000000005A79FEC67CB6E91F1C1DA800E478A5
+0429A0B6A887A983E9730988A68727A8B2D126C44CC2CC7B2A6555193035DC76310804F12E549BDB011C103089E73510ACB275FC312A5DC6B76553F0CA
+000000000000000000000000000000000000000000000000000000000001
+000000000000000000000000000000000000000000000000000000000000
+0100000000000000D9CCEC8A39E56F
+04009D73616F35F4AB1407D73562C10F00A52830277958EE84D1315ED31886
+00E8BEE4D3E2260744188BE0E9C723
+003088250CA6E7C7FE649CE85820F7
+010000000000000108789B2496AF93
+0401A57A6A7B26CA5EF52FCDB816479700B3ADC94ED1FE674C06E695BABA1D
+0095E9A9EC9B297BD4BF36E059184F
+00689918DBEC7E5A0DD6DFC0AA55C7
+040000000000000000000292FE77E70C12A4234C33
+0403F0EBA16286A2D57EA0991168D4994637E8343E3600D51FBC6C71A0094FA2CDD545B11C5C0C797324F1
+020A601907B8C953CA1481EB10512F78744A3205FD
+01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9AE2ED07577265DFF7F94451E061E163C61
+040503213F78CA44883F1A3B8162F188E553CD265F23C1567A16876913B0C2AC245849283601CCDA380F1C9E318D90F95D07E5426FE87E45C0E8184698E45962364E34116177DD2259
+000000000000000000000000000000000000000000000000000000000000000000000001
+000000000000000000000000000000000000000000000000000000000000000000000000
+03FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEF90399660FC938A90165B042A7CEFADB307
+0405F939258DB7DD90E1934F8C70B0DFEC2EED25B8557EAC9C80E2E198F8CDBECD86B1205303676854FE24141CB98FE6D4B20D02B4516FF702350EDDB0826779C813F0DF45BE8112F4
+027B680AC8B8596DA5A4AF8A19A0303FCA97FD7645309FA2A581485AF6263E313B79A2F5
+0400000000000000023123953A9464B54D
+040081BAF91FDF9833C40F9C181343638399078C6E7EA38C001F73C8134B1B4EF9E150
+0217C05610884B63B9C6C7291678F9D341
+07A11B09A76B562144418FF3FF8C2570B8
+0400000000000000016954A233049BA98F
+040356DCD8F2F95031AD652D23951BB366A80648F06D867940A5366D9E265DE9EB240F
+04B8266A46C55657AC734CE38F018F2192
+03E5A88919D7CAFCBF415F07C2176573B2
+01000000000000000000000000C7F34A778F443ACC920EBA49
+0401F481BC5F0FF84A74AD6CDF6FDEF4BF6179625372D8C0C5E10025E399F2903712CCF3EA9E3A1AD17FB0B3201B6AF7CE1B05
+00FDFB49BFE6C3A89FACADAA7A1E5BBC7CC1C2E5D831478814
+0017858FEB7A98975169E171F77B4087DE098AC8A911DF7B01
+010000000000000000000000015AAB561B005413CCD4EE99D5
+0400D9B67D192E0367C803F39E1A7E82CA14A651350AAE617E8F01CE94335607C304AC29E7DEFBD9CA01F596F927224CDECF6C
+00C9BB9E8927D4D64C377E2AB2856A5B16E3EFB7F61D4316AE
+0163F35A5137C2CE3EA6ED8667190B0BC43ECD69977702709B
+8000000000000000000000000000069D5BB915BCD46EFB1AD5F173ABDF
+04017232BA853A7E731AF129F22FF4149563A419C26BF50A4C9D6EEFAD612601DB537DECE819B7F70F555A67C427A8CD9BF18AEB9B56E0C11056FAE6A3
+01000000000000000000000000000013E974E72F8A6922031D2603CFE0D7
+0400FAC9DFCBAC8313BB2139F1BB755FEF65BC391F8B36F8F8EB7371FD558B01006A08A41903350678E58528BEBF8A0BEFF867A7CA36716F7E01F81052
+0066647EDE6C332C7F8C0923BB58213B333B20E9CE4281FE115F7D8F90AD
+7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE5F83B2D4EA20400EC4557D5ED3E3E7CA5B4B5C83B8E01E5FCF
+040060F05F658F49C1AD3AB1890F7184210EFD0987E307C84C27ACCFB8F9F67CC2C460189EB5AAAA62EE222EB1B35540CFE902374601E369050B7C4E42ACBA1DACBF04299C3460782F918EA427E6325165E9EA10E3DA5F6C42E9C55215AA9CA27A5863EC48D8E0286B
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+010000000000000000000000000000000000000000000000000001E2AAD6A612F33307BE5FA47C3C9E052F838164CD37D9A21173
+04015D4860D088DDB3496B0C6064756260441CDE4AF1771D4DB01FFE5B34E59703DC255A868A1180515603AEAB60794E54BB7996A70061B1CFAB6BE5F32BBFA78324ED106A7636B9C5A7BD198D0158AA4F5488D08F38514F1FDF4B4F40D2181B3681C364BA0273C706
+0021A5C2C8EE9FEB5C4B9A753B7B476B7FD6422EF1F3DD674761FA99D6AC27C8A9A197B272822F6CD57A55AA4F50AE317B13545F
+020000000000000000000000000000000000000000000000000000000000000000000000131850E1F19A63E4B391A8DB917F4138B630D84BE5D639381E91DEB45CFE778F637C1001
+04026EB7A859923FBC82189631F8103FE4AC9CA2970012D5D46024804801841CA44370958493B205E647DA304DB4CEB08CBBD1BA39494776FB988B47174DCA88C7E2945283A01C89720349DC807F4FBF374F4AEADE3BCA95314DD58CEC9F307A54FFC61EFC006D8A2C9D4979C0AC44AEA74FBEBBB9F772AEDCB620B01A7BA7AF1B320430C8591984F601CD4C143EF1C7A3
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+03FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE661CE18FF55987308059B186823851EC7DD9CA1161DE93D5174D66E8382E9BB2FE84E47
+040303001D34B856296C16C0D40D3CD7750A93D1D2955FA80AA5F40FC8DB7B2ABDBDE53950F4C0D293CDD711A35B67FB1499AE60038614F1394ABFA3B4C850D927E1E7769C8EEC2D19037BF27342DA639B6DCCFFFEB73D69D78C6C27A6009CBBCA1980F8533921E8A684423E43BAB08A576291AF8F461BB2A8B3531D2F0485C19B16E2F1516E23DD3C1A4827AF1B8AC15B
+02F40E7E2221F295DE297117B7F3D62F5C6A97FFCB8CEFF1CD6BA8CE4A9A18AD84FFABBD8EFA59332BE7AD6756A66E294AFD185A78FF12AA520E4DE739BACA0C7FFEFF7F2955727A
+FFFFFFFFFFFFFFFFFFFFFFFF99DEF836146BC9B1B4D22831
+04188DA80EB03090F67CBF20EB43A18800F4FF0AFD82FF101207192B95FFC8DA78631011ED6B24CDD573F977A11E794811
+64210519E59C80E70FA7E9AB72243049FEB8DEECC146B9B1
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFFC
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFFF
+FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
+046B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C2964FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5
+5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
+FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
+FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
+DB7C2ABF62E35E7628DFAC6561C5
+0409487239995A5EE76B55F9C2F098A89CE5AF8724C0A23E0E0FF77500
+659EF8BA043916EEDE8911702B22
+DB7C2ABF62E35E668076BEAD2088
+DB7C2ABF62E35E668076BEAD208B
+36DF0AAFD8B8D7597CA10520D04B
+044BA30AB5E892B4E1649DD0928643ADCD46F5882E3747DEF36E956E97
+51DEF1815DB5ED74FCC34C85D709
+6127C24C05F38A0AAAF65C0EF02C
+0100000000000000000001F4C8F927AED3CA752257
+044A96B5688EF573284664698968C38BB913CBFC8223A628553168947D59DCC912042351377AC5FB32
+1C97BEFC54BD7A8B65ACF89F81D4D4ADC565FA45
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFC
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFF
+0100000000000000000001B8FA16DFAB9ACA16B6B3
+043B4C382CE37AA192A4019E763036F4F5DD4D7EBB938CF935318FDCED6BC28286531733C3F03C4FEE
+0000000000000000000000000000000000000007
+0000000000000000000000000000000000000000
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFAC73
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
+0479BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8
+0000000000000000000000000000000000000000000000000000000000000007
+0000000000000000000000000000000000000000000000000000000000000000
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F
+FFFFFFFE0000000075A30D1B9038A115
+04161FF7528B899B2D0C28607CA52C5B86CF5AC8395BAFEB13C02DA292DDED7A83
+E87579C11079F43DD824993C2CEE5ED3
+FFFFFFFDFFFFFFFFFFFFFFFFFFFFFFFC
+FFFFFFFDFFFFFFFFFFFFFFFFFFFFFFFF
+3FFFFFFF7FFFFFFFBE0024720613B5A3
+047B6AA5D85E572983E6FB32A7CDEBC14027B6916A894D3AEE7106FE805FC34B44
+5EEEFCA380D02919DC2C6558BB6D8A5D
+D6031998D1B3BBFEBF59CC9BBFF9AEE1
+0100000000000000000000351EE786A818F3A1A16B
+0452DCB034293A117E1F4FF11B30F7199D3144CE6DFEAFFEF2E331F296E071FA0DF9982CFEA7D43F2E
+B4E134D3FB59EB8BAB57274904664D5AF50388BA
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFAC70
+FFFFFFFFFFFFFFFFFFFFFFFE26F2FC170F69466A74DEFD8D
+04DB4FF10EC057E9AE26B07D0280B7F4341DA5D1B1EAE06C7D9B2F2F6D9C5628A7844163D015BE86344082AA88D95E2F9D
+000000000000000000000000000000000000000000000003
+000000000000000000000000000000000000000000000000
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFEE37
+010000000000000000000000000001DCE8D2EC6184CAF0A971769FB1F7
+04A1455B334DF099DF30FC28A169A467E9E47075A90F7E650EB6B7A45C7E089FED7FBA344282CAFBD6F7E319F7C0B0BD59E2CA4BDB556D61A5
+00000000000000000000000000000000000000000000000000000005
+00000000000000000000000000000000000000000000000000000000
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFE56D
+FFFFFFFFFFFFFFFFFFFFFFFFFFFF16A2E0B8F03E13DD29455C5C2A3D
+04B70E0CBD6BB4BF7F321390B94A03C1D356C21122343280D6115C1D21BD376388B5F723FB4C22DFE6CD4375A05A07476444D5819985007E34
+B4050A850C04B3ABF54132565044B0B7D7BFD8BA270B39432355FFB4
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFE
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000001
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC7634D81F4372DDF581A0DB248B0A77AECEC196ACCC52973
+04AA87CA22BE8B05378EB1C71EF320AD746E1D3B628BA79B9859F741E082542A385502F25DBF55296C3A545E3872760AB73617DE4A96262C6F5D9E98BF9292DC29F8F41DBD289A147CE9DA3113B5F0B8C00A60B1CE1D7E819D7A431D7C90EA0E5F
+B3312FA7E23EE7E4988E056BE3F82D19181D9C6EFE8141120314088F5013875AC656398D8A2ED19D2A85C8EDD3EC2AEF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFFFF0000000000000000FFFFFFFC
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFFFF0000000000000000FFFFFFFF
+01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA51868783BF2F966B7FCC0148F709A5D03BB5C9B8899C47AEBB6FB71E91386409
+0400C6858E06B70404E9CD9E3ECB662395B4429C648139053FB521F828AF606B4D3DBAA14B5E77EFE75928FE1DC127A2FFA8DE3348B3C1856A429BF97E7E31C2E5BD66011839296A789A3BC0045C8A5FB42C7D1BD998F54449579B446817AFBD17273E662C97EE72995EF42640C550B9013FAD0761353C7086A272C24088BE94769FD16650
+0051953EB9618E1C9A1F929A21A0B68540EEA2DA725B99B315F3B8B489918EF109E156193951EC7E937B1652C0BD3BB1BF073573DF883D2C34F1EF451FD46B503F00
+01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC
+01FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+CipherModeBase: feedback size cannot be specified for this cipher mode
+OAEP-
+DL_ElgamalLikeSignatureAlgorithm: this signature scheme does not support message recovery
+DSA-1363
+: pairwise consistency test failed
+ThisObject:
+OutputStringPointer
+StringSink: OutputStringPointer not specified
+BufferedTransformation: this object doesn't allow input
+AllocatorBase: requested size would cause integer overflow
+/EMSA1(
+ECDSA
+DL_GroupParameters_EC<EC>
+DL_GroupParameters_EC<EC>: curve generation is not implemented yet
+ThisPointer:
+: Missing required parameter '
+NodeSize
+ByteQueue: size specified for UndoLazyPut is too large
+: Nonblocking input is not implemented by this object.
+HashVerifier: message hash not valid
+VerifierFilter: digital signature not valid
+RandomNumberGeneratorPointer
+RandomNumberStoreSize
+PutMessage
+TruncatedDigestSize
+HashVerificationFilterFlags
+SignatureVerificationFilterFlags
+OutputBuffer
+FilterWithBufferedInput: invalid buffer size
+FilterWithBufferedInput
+RedirectionTargetPointer
+RedirectionBehavior
+RandomNumberSink
+ArraySink: missing OutputBuffer argument
+StreamTransformationFilter: PKCS_PADDING and ONE_AND_ZEROS_PADDING cannot be used with 
+StreamTransformationFilter: plaintext length is not a multiple of block size and NO_PADDING is specified
+StreamTransformationFilter: ciphertext length is not a multiple of block size
+StreamTransformationFilter: invalid PKCS #7 block padding found
+StreamTransformationFilter: invalid ones-and-zeros padding found
+StringStore: missing InputBuffer argument
+RandomNumberStore
+RandomNumberStore: nonblocking transfer is not implemented by this object
+RoundUpToMultipleOf: integer overflow
+Integer: division by zero
+Integer: no integer satisfies the given parameters
+OpenPGP decode error
+PointerToPrimeSelector
+Integer: Min must be no greater than Max
+RandomNumberType
+EquivalentTo
+BitLength
+Integer: missing Max argument
+Integer: invalid EquivalentTo and/or Mod argument
+Integer: invalid RandomNumberType argument
+MontgomeryRepresentation: Montgomery representation requires an odd modulus
+PK_Signer: key too short for this signature scheme
+TF_SignerBase: this algorithm does not support messsage recovery or the key is too short
+TF_SignerBase: the recoverable message part is too long for the given key and algorithm
+: message too long for this public key
+ModulusSize
+SubgroupOrderSize
+EncodingParameters
+KeyDerivationParameters
+DSA: not a valid prime length
+DLIES
+HMAC(
+&\8!.
+AQl7
+'8!.
+8STs
+e
+PolynomialMod2: division by zero
+invalid bit length
+Separator
+Terminator
+GroupSize
+PaddingByte
+EncodingLookupArray
+BaseN_Encoder
+BaseN_Encoder: Log2Base must be between 1 and 7 inclusive
+BaseN_Decoder
+BaseN_Decoder: Log2Base must be between 1 and 7 inclusive
+Grouper
+0123456789ABCDEF
+0123456789abcdef
+Uppercase
+CBC_Encryption: message is too short for ciphertext stealing
+X917RNG: Continuous random number generator test failed.
+ more bytes of input needed
+MaurerRandomnessTest: 
+ operation failed with error 
+OS_Rng: 
+CryptAcquireContext
+CryptGenRandom
+EqualityComparisonFilter: did not receive the same data on two channels
+EqualityComparisonFilter
+=j&&LZ66lA??~
+S11b?
+e##F^
+t,,X.
+4-6
+M;;va
+}{))R>
+gK99r
+!H88p
+c!!B0
+f""D~**T
+V22dN::t
+o%%Jr..\$
+x((Pz
+)w--Z
+T00`P
+&&Lj66lZ??~A
+O44h\
+s11bS
+R##Fe
+&''Ni
+4.6-nn
+>//^q
+,  @`
+99rKJJ
+u!!Bc
+==zGdd
+""Df**T~
+;22dV::tN
+
+
+
+$$Hl\\
+C77nYmm
+%%Jo..\r
+55j_WW
+g+V}+
+&Lj&6lZ6?~A?
+6-n
+R;vM;
+9rK9J
+M3fU3
+P<xD<
+~=zG=d
+"Df"*T~*
+2dV2:tN:
+
+$Hl$\
+7nY7m
+x%Jo%.\r.
+p>|B>
+a5j_5W
+U(Px(
+ggV}++
+Lj&&lZ66~A??
+h\44Q
+bS11*?
+	$6
+Xt,,4.
+RRvM;;
+MMfU33
+PPxD<<%
+Bc!! 0
+~~zG==
+Df""T~**;
+dV22tN::
+xxJo%%\r..8$
+pp|B>>q
+aaj_55
+UUPx((
+!tX)i
+='9-6d
+aiKwZ
+;fD4~
+_jbF~T
+11#?*0
+,4$8_@
+0 Umv
+SbEwd
+\h!T[
+.6$:g
+
+>4$8,@
+p\lHtW
+`3SbE
++HpXhE
+pZlNr
+T6$:.
+
+ wZiK
+!tI)i
+`3QbE
++pXhH
+6'9-
+d
+T[$:.6
+;f[4~
+_TbF~
+h8,4$
+2Ht\l
+HMAC: can only be used with a block-based hash function
+Timer: QueryPerformanceCounter failed with error 
+Timer: QueryPerformanceFrequency failed with error 
+ThreadUserTimer: GetThreadTimes failed with error 
+SetWaitableTimerEx
+KERNEL32.DLL
+.\boost/exception/detail/exception_ptr.hpp
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_alloc_>(void)
+class boost::exception_ptr __cdecl boost::exception_detail::get_static_exception_object<struct boost::exception_detail::bad_exception_>(void)
+in Json::Value::duplicateStringValue(): Failed to allocate string value buffer
+in Json::Value::duplicateAndPrefixStringValue(): length too big for prefixing
+in Json::Value::duplicateAndPrefixStringValue(): Failed to allocate string value buffer
+assert json failed
+in Json::Value::setComment(): Comments must start with /
+in Json::Value::asCString(): requires stringValue
+Type is not convertible to string
+LargestInt out of Int range
+LargestUInt out of Int range
+double out of Int range
+Value is not convertible to Int.
+LargestInt out of UInt range
+LargestUInt out of UInt range
+double out of UInt range
+Value is not convertible to UInt.
+LargestUInt out of Int64 range
+double out of Int64 range
+Value is not convertible to Int64.
+LargestInt out of UInt64 range
+double out of UInt64 range
+Value is not convertible to UInt64.
+Value is not convertible to double.
+Value is not convertible to float.
+Value is not convertible to bool.
+in Json::Value::clear(): requires complex value
+in Json::Value::resize(): requires arrayValue
+in Json::Value::operator[](ArrayIndex): requires arrayValue
+in Json::Value::operator[](int index): index cannot be negative
+in Json::Value::operator[](ArrayIndex)const: requires arrayValue
+in Json::Value::operator[](int index) const: index cannot be negative
+in Json::Value::resolveReference(): requires objectValue
+in Json::Value::resolveReference(key, end): requires objectValue
+in Json::Value::find(key, end, found): requires objectValue or nullValue
+in Json::Value::removeMember(): requires objectValue
+in Json::Value::getMemberNames(), value must be objectValue
+A valid JSON document must be either an array or an object value.
+Exceeded stackLimit in readValue().
+Syntax error: value, object or array expected.
+Missing ':' after object member name
+Missing ',' or '}' in object declaration
+Missing '}' or object member name
+Missing ',' or ']' in array declaration
+' is not a number.
+Empty escape sequence in string
+Bad escape sequence in string
+additional six characters expected to parse unicode surrogate pair.
+expecting another \u token to begin the second half of a unicode surrogate pair
+Bad unicode escape sequence in string: four digits expected.
+Bad unicode escape sequence in string: hexadecimal digit expected.
+Line %d, Column %d
+ for detail.
+
+Extra non-whitespace after JSON value.
+nfinity
+keylength >= 2^30
+Duplicate key: '
+collectComments
+allowComments
+strictRoot
+allowDroppedNullPlaceholders
+allowNumericKeys
+allowSingleQuotes
+stackLimit
+failIfExtra
+rejectDupKeys
+allowSpecialFloats
+Error from reader: %s
+reader error
+%%.%dg
+-Infinity
+-1e+9999
+Infinity
+1e+9999
+indentation
+commentStyle
+enableYAMLCompatibility
+dropNullPlaceholders
+useSpecialFloats
+precision
+commentStyle must be 'All' or 'None'
+InitializeConditionVariable
+SleepConditionVariableCS
+WakeAllConditionVariable
+a&N:	1VN
+Upff
+D:\dmt\master\10.9\Output\Release\StudentLogic.pdb
+.text
+.text$di
+.text$mn
+.text$x
+.text$yd
+.idata$5
+.00cfg
+.CRT$XCA
+.CRT$XCL
+.CRT$XCU
+.CRT$XCZ
+.CRT$XIA
+.CRT$XIC
+.CRT$XIU
+.CRT$XIZ
+.CRT$XLA
+.CRT$XLC
+.CRT$XLZ
+.CRT$XPA
+.CRT$XPZ
+.CRT$XTA
+.CRT$XTU
+.CRT$XTZ
+.rdata
+.rdata$T
+.rdata$r
+.rdata$zzzdbg
+.rtc$IAA
+.rtc$IZZ
+.rtc$TAA
+.rtc$TZZ
+.tls$
+.tls$ZZZ
+.xdata$x
+.edata
+.idata$2
+.idata$3
+.idata$4
+.idata$6
+.idata$7
+.data
+.data$r
+.rsrc$01
+.rsrc$02
+StudentLogic.dll
+??0CxFile@@QAE@ABV0@@Z
+??0CxFile@@QAE@XZ
+??0CxIOFile@@QAE@ABV0@@Z
+??0CxIOFile@@QAE@PAU_iobuf@@@Z
+??0CxMemFile@@QAE@ABV0@@Z
+??1CxFile@@UAE@XZ
+??1CxIOFile@@UAE@XZ
+??1CxImage@@UAE@XZ
+??4CxFile@@QAEAAV0@ABV0@@Z
+??4CxIOFile@@QAEAAV0@ABV0@@Z
+??4CxMemFile@@QAEAAV0@ABV0@@Z
+?Close@CxIOFile@@UAE_NXZ
+?Eof@CxIOFile@@UAE_NXZ
+?Error@CxIOFile@@UAEHXZ
+?Flush@CxIOFile@@UAE_NXZ
+?GetC@CxIOFile@@UAEHXZ
+?GetS@CxIOFile@@UAEPADPADH@Z
+?Open@CxIOFile@@QAE_NPB_W0@Z
+?PutC@CxFile@@UAE_NE@Z
+?PutC@CxIOFile@@UAE_NE@Z
+?Read@CxIOFile@@UAEIPAXII@Z
+?Scanf@CxIOFile@@UAEHPBDPAX@Z
+?Seek@CxIOFile@@UAE_NHH@Z
+?Size@CxIOFile@@UAEHXZ
+?Tell@CxIOFile@@UAEHXZ
+?Write@CxIOFile@@UAEIPBXII@Z
+Barrage
+ControlRunningBoard
+ElectronicAnswer
+ExamNotifyTeacher
+GetAttention
+Message
+NotifyUpdateAudiostatus
+RequestHandUp
+RequestSubmitFile
+RespondSignIn
+ReturnCommandCall
+SendFile
+SendMsgToWebClient
+SendToWeb
+SetUiEx
+SubmitBlock
+SubmitErrorCode
+UnLoad
+WillCompleted
+VerSetConditionMask
+GetDriveTypeA
+WriteFile
+CloseHandle
+GetLastError
+SetLastError
+CreateIoCompletionPort
+GetQueuedCompletionStatus
+PostQueuedCompletionStatus
+EnterCriticalSection
+LeaveCriticalSection
+InitializeCriticalSectionAndSpinCount
+DeleteCriticalSection
+SetEvent
+WaitForSingleObject
+SleepEx
+WaitForSingleObjectEx
+CreateEventA
+CreateEventW
+SetWaitableTimer
+WaitForMultipleObjects
+CreateWaitableTimerW
+QueueUserAPC
+TerminateThread
+TlsAlloc
+TlsGetValue
+TlsSetValue
+TlsFree
+GetLocalTime
+FreeLibrary
+GetModuleFileNameW
+LocalFree
+FormatMessageA
+FormatMessageW
+VerifyVersionInfoW
+MultiByteToWideChar
+WideCharToMultiByte
+HeapFree
+GetProcessHeap
+TerminateProcess
+HeapAlloc
+Sleep
+ReleaseSemaphore
+ReleaseMutex
+CreateMutexW
+CreateSemaphoreW
+CreateFileMappingW
+MapViewOfFile
+UnmapViewOfFile
+GetEnvironmentVariableA
+GetEnvironmentVariableW
+SetCurrentDirectoryA
+SetCurrentDirectoryW
+GetCurrentDirectoryW
+CreateFileA
+DeleteFileA
+FindClose
+FindFirstFileW
+FindNextFileW
+GetDriveTypeW
+GetLogicalDrives
+SetFilePointer
+GetCurrentProcess
+GetCurrentThreadId
+CreateProcessA
+CreateProcessW
+OpenProcess
+GetSystemTimeAsFileTime
+SetLocalTime
+GetModuleFileNameA
+GetModuleHandleW
+GetProcAddress
+LoadLibraryW
+GetPrivateProfileStringW
+GetComputerNameW
+InitializeCriticalSection
+CreateToolhelp32Snapshot
+Process32FirstW
+Process32NextW
+KERNEL32.dll
+OpenInputDesktop
+SwitchDesktop
+SetThreadDesktop
+CloseDesktop
+GetThreadDesktop
+GetUserObjectInformationW
+TranslateMessage
+DispatchMessageW
+PeekMessageA
+SendMessageW
+SendNotifyMessageW
+keybd_event
+mouse_event
+SetTimer
+KillTimer
+GetSystemMetrics
+SetForegroundWindow
+FindWindowW
+EnumWindows
+GetWindowThreadProcessId
+SetWindowsHookExW
+UnhookWindowsHookEx
+CallNextHookEx
+EnumDisplaySettingsW
+USER32.dll
+BitBlt
+CreateCompatibleBitmap
+CreateCompatibleDC
+CreateDCW
+DeleteDC
+DeleteObject
+GetDeviceCaps
+GetDIBits
+SelectObject
+GetObjectW
+GDI32.dll
+OpenProcessToken
+GetUserNameW
+RegCloseKey
+RegCreateKeyExA
+RegOpenKeyExA
+RegOpenKeyExW
+RegQueryValueExA
+RegQueryValueExW
+RegSetValueExA
+ADVAPI32.dll
+SHCreateItemFromParsingName
+SHCreateDirectoryExW
+SHGetFolderPathW
+SHELL32.dll
+CoUninitialize
+CreateStreamOnHGlobal
+CoCreateInstance
+CoInitialize
+CreateBindCtx
+ole32.dll
+OLEAUT32.dll
+??0_Lockit@std@@QAE@H@Z
+??1_Lockit@std@@QAE@XZ
+?uncaught_exception@std@@YA_NXZ
+?_Xbad_alloc@std@@YAXXZ
+?_Xlength_error@std@@YAXPBD@Z
+?_Xout_of_range@std@@YAXPBD@Z
+??0_Locinfo@std@@QAE@PBD@Z
+??1_Locinfo@std@@QAE@XZ
+?_Getcvt@_Locinfo@std@@QBE?AU_Cvtvec@@XZ
+?_Getlconv@_Locinfo@std@@QBEPBUlconv@@XZ
+?_Getfalse@_Locinfo@std@@QBEPBDXZ
+?_Gettrue@_Locinfo@std@@QBEPBDXZ
+?c_str@?$_Yarn@D@std@@QBEPBDXZ
+??Bid@locale@std@@QAEIXZ
+??0facet@locale@std@@IAE@I@Z
+??1facet@locale@std@@MAE@XZ
+?classic@locale@std@@SAABV12@XZ
+?_Init@locale@std@@CAPAV_Locimp@12@_N@Z
+?_Getgloballocale@locale@std@@CAPAV_Locimp@12@XZ
+?is@?$ctype@D@std@@QBE_NFD@Z
+?widen@?$ctype@D@std@@QBEDD@Z
+?narrow@?$ctype@D@std@@QBEDDD@Z
+?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z
+?good@ios_base@std@@QBE_NXZ
+?exceptions@ios_base@std@@QAEXH@Z
+?flags@ios_base@std@@QBEHXZ
+?flags@ios_base@std@@QAEHH@Z
+?precision@ios_base@std@@QAE_J_J@Z
+?width@ios_base@std@@QBE_JXZ
+?width@ios_base@std@@QAE_J_J@Z
+??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@XZ
+??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAE@XZ
+?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z
+?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPBD_J@Z
+?eback@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?gptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?pbase@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?pptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?egptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?gbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXH@Z
+?setg@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD00@Z
+?epptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBEPADXZ
+?pbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXH@Z
+?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD0@Z
+??1?$basic_ios@DU?$char_traits@D@std@@@std@@UAE@XZ
+?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z
+?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z
+?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ
+?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ
+?imbue@?$basic_ios@DU?$char_traits@D@std@@@std@@QAE?AVlocale@2@ABV32@@Z
+?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDXZ
+?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEDD@Z
+?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z
+??0?$basic_ios@DU?$char_traits@D@std@@@std@@IAE@XZ
+??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
+??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UAE@XZ
+?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@F@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@G@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ
+_Query_perf_counter
+_Query_perf_frequency
+?_Decref@facet@locale@std@@UAEPAV_Facet_base@3@XZ
+?_Incref@facet@locale@std@@UAEXXZ
+?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ
+?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ
+?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEXABVlocale@2@@Z
+?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEPAV12@PAD_J@Z
+?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JXZ
+?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ
+?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ
+?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPAD_J@Z
+?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPBD_J@Z
+?id@?$ctype@D@std@@2V0locale@2@A
+?id@?$numpunct@D@std@@2V0locale@2@A
+_Mbrtowc
+?_Getdays@_Locinfo@std@@QBEPBDXZ
+?_Getmonths@_Locinfo@std@@QBEPBDXZ
+?_W_Getdays@_Locinfo@std@@QBEPBGXZ
+?_W_Getmonths@_Locinfo@std@@QBEPBGXZ
+?__ExceptionPtrCreate@@YAXPAX@Z
+?__ExceptionPtrDestroy@@YAXPAX@Z
+?__ExceptionPtrCopy@@YAXPAXPBX@Z
+?__ExceptionPtrCurrentException@@YAXPAX@Z
+?__ExceptionPtrRethrow@@YAXPBX@Z
+?_Xruntime_error@std@@YAXPBD@Z
+_Strcoll
+_Strxfrm
+??0_Locinfo@std@@QAE@HPBD@Z
+?_Getname@_Locinfo@std@@QBEPBDXZ
+?_Getcoll@_Locinfo@std@@QBE?AU_Collvec@@XZ
+??4?$_Yarn@D@std@@QAEAAV01@PBD@Z
+?_New_Locimp@_Locimp@locale@std@@CAPAV123@_N@Z
+?_Makeloc@_Locimp@locale@std@@CAPAV123@ABV_Locinfo@3@HPAV123@PBV23@@Z
+?global@locale@std@@SA?AV12@ABV12@@Z
+?always_noconv@codecvt_base@std@@QBE_NXZ
+?tolower@?$ctype@D@std@@QBEDD@Z
+?tolower@?$ctype@D@std@@QBEPBDPADPBD@Z
+?toupper@?$ctype@D@std@@QBEDD@Z
+?is@?$ctype@_W@std@@QBE_NF_W@Z
+?widen@?$ctype@_W@std@@QBE_WD@Z
+?narrow@?$ctype@_W@std@@QBED_WD@Z
+?_Getcat@?$ctype@_W@std@@SAIPAPBVfacet@locale@2@PBV42@@Z
+?in@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PBD1AAPBDPAD3AAPAD@Z
+?out@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PBD1AAPBDPAD3AAPAD@Z
+?unshift@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PAD1AAPAD@Z
+?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z
+??Bios_base@std@@QBE_NXZ
+?setf@ios_base@std@@QAEHHH@Z
+?getloc@ios_base@std@@QBE?AVlocale@2@XZ
+?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QBE?AVlocale@2@XZ
+?sbumpc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ
+?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ
+?snextc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ
+?_Gndec@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ
+?_Gninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ
+?_Gnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBE_JXZ
+?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAD00@Z
+?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEPADXZ
+?_Pnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IBE_JXZ
+?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXXZ
+?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXPAPAD0PAH001@Z
+??0?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAE@XZ
+??1?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UAE@XZ
+?sputc@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@QAEG_W@Z
+?sputn@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@QAE_JPB_W_J@Z
+?eback@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?gptr@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?pbase@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?pptr@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?egptr@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?gbump@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEXH@Z
+?setg@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEXPA_W00@Z
+?epptr@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IBEPA_WXZ
+?pbump@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEXH@Z
+?setp@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEXPA_W0@Z
+?setp@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEXPA_W00@Z
+?_Pninc@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAEPA_WXZ
+??1?$basic_ios@_WU?$char_traits@_W@std@@@std@@UAE@XZ
+?clear@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QAEXH_N@Z
+?setstate@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QAEXH_N@Z
+?tie@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QBEPAV?$basic_ostream@_WU?$char_traits@_W@std@@@2@XZ
+?rdbuf@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QBEPAV?$basic_streambuf@_WU?$char_traits@_W@std@@@2@XZ
+?imbue@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QAE?AVlocale@2@ABV32@@Z
+?fill@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QBE_WXZ
+?fill@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QAE_W_W@Z
+?widen@?$basic_ios@_WU?$char_traits@_W@std@@@std@@QBE_WD@Z
+??0?$basic_ios@_WU?$char_traits@_W@std@@@std@@IAE@XZ
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAVios_base@1@AAV21@@Z@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@_J@Z
+?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z
+??0?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QAE@PAV?$basic_streambuf@_WU?$char_traits@_W@std@@@1@_N@Z
+??1?$basic_ostream@_WU?$char_traits@_W@std@@@std@@UAE@XZ
+?_Osfx@?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QAEXXZ
+?flush@?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QAEAAV12@XZ
+??0?$basic_istream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
+??1?$basic_istream@DU?$char_traits@D@std@@@std@@UAE@XZ
+?_Ipfx@?$basic_istream@DU?$char_traits@D@std@@@std@@QAE_N_N@Z
+??0?$basic_iostream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z
+??1?$basic_iostream@DU?$char_traits@D@std@@@std@@UAE@XZ
+?_Fiopen@std@@YAPAU_iobuf@@PBDHH@Z
+?setw@std@@YA?AU?$_Smanip@_J@1@_J@Z
+?_Xregex_error@std@@YAXW4error_type@regex_constants@1@@Z
+?_Lock@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UAEXXZ
+?_Unlock@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UAEXXZ
+?imbue@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAEXABVlocale@2@@Z
+?setbuf@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAEPAV12@PA_W_J@Z
+?showmanyc@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAE_JXZ
+?sync@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAEHXZ
+?uflow@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAEGXZ
+?xsgetn@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAE_JPA_W_J@Z
+?xsputn@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MAE_JPB_W_J@Z
+?id@?$ctype@_W@std@@2V0locale@2@A
+?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A
+?id@?$numpunct@_W@std@@2V0locale@2@A
+?id@?$collate@D@std@@2V0locale@2@A
+?_Xbad_function_call@std@@YAXXZ
+_Mtx_init_in_situ
+_Mtx_destroy_in_situ
+_Mtx_lock
+_Mtx_unlock
+?_Throw_C_error@std@@YAXH@Z
+?_Random_device@std@@YAIXZ
+MSVCP140.dll
+OE_DeleteLock
+OE_Sleep
+OE_CreateLock
+OE_EvCreateEvent
+OE_EvResetEvent
+OE_EvSendEventMessge
+OE_EvWaitEventMessge
+OE_EvCloseEvent
+OE_DeleteFile64
+OE_IsFileExist
+OE_DeleteFile
+MmcImplBase.dll
+WSASend
+WSAStringToAddressW
+inet_pton
+WSAIoctl
+WSARecv
+WSASocketW
+WSAAddressToStringW
+inet_ntop
+WSARecvFrom
+WS2_32.dll
+AcceptEx
+GetAcceptExSockaddrs
+MSWSOCK.dll
+GetAdaptersInfo
+GetAdaptersAddresses
+IPHLPAPI.DLL
+curl_slist_append
+curl_easy_init
+curl_easy_setopt
+curl_easy_perform
+curl_easy_cleanup
+libcurl.dll
+GdipAlloc
+GdipFree
+GdiplusStartup
+GdiplusShutdown
+GdipLoadImageFromStream
+GdipLoadImageFromStreamICM
+GdipCloneImage
+GdipDisposeImage
+GdipSaveImageToStream
+GdipGetImageGraphicsContext
+GdipCreateBitmapFromScan0
+GdipBitmapLockBits
+GdipBitmapUnlockBits
+GdipDeleteGraphics
+GdipGraphicsClear
+GdipDrawImageI
+GdipGetImageEncodersSize
+GdipGetImageEncoders
+gdiplus.dll
+avpicture_fill
+avpicture_get_size
+av_free
+av_frame_alloc
+sws_freeContext
+sws_getContext
+sws_scale
+_purecall
+__std_exception_copy
+__std_exception_destroy
+__std_type_info_compare
+_CxxThrowException
+__CxxFrameHandler3
+memchr
+memcmp
+memcpy
+memmove
+memset
+__RTtypeid
+strchr
+strrchr
+__std_type_info_name
+__RTDynamicCast
+__std_terminate
+_except_handler4_common
+__std_type_info_destroy_list
+VCRUNTIME140.dll
+_invalid_parameter_noinfo_noreturn
+strerror
+strncpy
+calloc
+malloc
+__stdio_common_vsprintf
+__stdio_common_vsprintf_p
+_beginthreadex
+_mkdir
+signal
+_libm_sse2_pow_precise
+__acrt_iob_func
+__stdio_common_vfprintf
+_invalid_parameter_noinfo
+_errno
+_wcsicmp
+realloc
+abort
+system
+_wfopen
+__stdio_common_vswprintf_p
+_get_stream_buffer_pointers
+fclose
+ferror
+fflush
+fgetc
+fgetpos
+fgets
+fputc
+fread
+fsetpos
+fseek
+_fseeki64
+ftell
+fwrite
+setvbuf
+ungetc
+_lock_file
+_unlock_file
+__stdio_common_vfscanf
+clock
+_gmtime64
+_localtime64
+_time64
+towupper
+towlower
+toupper
+tolower
+_aligned_free
+_aligned_malloc
+strncmp
+_libm_sse2_log_precise
+isalpha
+__stdio_common_vsprintf_s
+strpbrk
+_dtest
+terminate
+_callnewh
+_seh_filter_dll
+_configure_narrow_argv
+_initialize_narrow_environment
+_initialize_onexit_table
+_register_onexit_function
+_execute_onexit_table
+_crt_atexit
+_crt_at_quick_exit
+_cexit
+_initterm
+_initterm_e
+_except1
+floor
+_wcsnicmp
+api-ms-win-crt-runtime-l1-1-0.dll
+api-ms-win-crt-string-l1-1-0.dll
+api-ms-win-crt-heap-l1-1-0.dll
+api-ms-win-crt-stdio-l1-1-0.dll
+api-ms-win-crt-filesystem-l1-1-0.dll
+api-ms-win-crt-math-l1-1-0.dll
+api-ms-win-crt-convert-l1-1-0.dll
+api-ms-win-crt-time-l1-1-0.dll
+CreateDirectoryW
+CreateFileW
+DeleteFileW
+GetDiskFreeSpaceExW
+GetFileAttributesW
+GetFileAttributesExW
+GetFileInformationByHandle
+GetFileTime
+GetFullPathNameW
+RemoveDirectoryW
+SetEndOfFile
+SetFileAttributesW
+SetFilePointerEx
+SetFileTime
+DeviceIoControl
+GetWindowsDirectoryW
+CreateDirectoryExW
+CopyFileW
+MoveFileExW
+AreFileApisANSI
+LoadLibraryA
+GetStringTypeExW
+LCMapStringW
+LCMapStringA
+GetUserDefaultLCID
+GetStringTypeExA
+QueryPerformanceCounter
+QueryPerformanceFrequency
+GetCurrentThread
+GetThreadTimes
+ResetEvent
+WaitForMultipleObjectsEx
+OpenEventA
+GetCurrentProcessId
+ResumeThread
+GetSystemInfo
+GetLogicalProcessorInformation
+GetModuleHandleA
+CreateWaitableTimerA
+UnhandledExceptionFilter
+SetUnhandledExceptionFilter
+IsProcessorFeaturePresent
+InitializeSListHead
+IsDebuggerPresent
+GetStartupInfoW
+LoadStringA
+LoadStringW
+CombineRgn
+CreateRectRgn
+CryptAcquireContextA
+CryptReleaseContext
+CryptGenRandom
+?in@?$codecvt@_WDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PBD1AAPBDPA_W3AAPA_W@Z
+?out@?$codecvt@_WDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PB_W1AAPB_WPAD3AAPAD@Z
+?_New_Locimp@_Locimp@locale@std@@CAPAV123@ABV123@@Z
+?_Locimp_Addfac@_Locimp@locale@std@@CAXPAV123@PAVfacet@23@I@Z
+??0?$codecvt@_WDU_Mbstatet@@@std@@QAE@I@Z
+?_Getcat@?$codecvt@_WDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z
+??1?$codecvt@_WDU_Mbstatet@@@std@@MAE@XZ
+?id@?$codecvt@_WDU_Mbstatet@@@std@@2V0locale@2@A
+?set_new_handler@std@@YAP6AXXZP6AXXZ@Z
+?read@?$basic_istream@DU?$char_traits@D@std@@@std@@QAEAAV12@PAD_J@Z
+?putback@?$basic_istream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z
+??5?$basic_istream@DU?$char_traits@D@std@@@std@@QAEAAV01@AAN@Z
+_exit
+_libm_sse2_sqrt_precise
+avcodec-57.dll
+avutil-55.dll
+swscale-4.dll
+.P6AXPAX@Z
+.PAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@
+.PAV?$DL_GroupParameters@VInteger@CryptoPP@@@CryptoPP@@
+.PAV?$DL_GroupParameters_IntegerBasedImpl@VModExpPrecomputation@CryptoPP@@V?$DL_FixedBasePrecomputationImpl@VInteger@CryptoPP@@@2@@CryptoPP@@
+.PAV?$DL_PublicKeyImpl@VDL_GroupParameters_DSA@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKeyImpl@VDL_GroupParameters_DSA@CryptoPP@@@CryptoPP@@
+.PAV?$DL_GroupParameters@UECPPoint@CryptoPP@@@CryptoPP@@
+.PAV?$DL_GroupParameters@UEC2NPoint@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKeyImpl@V?$DL_GroupParameters_EC@VECP@CryptoPP@@@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKeyImpl@V?$DL_GroupParameters_EC@VEC2N@CryptoPP@@@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKeyImpl@V?$DL_GroupParameters_EC@VECP@CryptoPP@@@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKeyImpl@V?$DL_GroupParameters_EC@VEC2N@CryptoPP@@@CryptoPP@@@CryptoPP@@
+.PAVDL_GroupParameters_GFP@CryptoPP@@
+.PAV?$DL_GroupParameters_EC@VEC2N@CryptoPP@@@CryptoPP@@
+.PAV?$DL_GroupParameters_EC@VECP@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKey@VInteger@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKey@VInteger@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKey@UECPPoint@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKey@UEC2NPoint@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKey@UECPPoint@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKey@UEC2NPoint@CryptoPP@@@CryptoPP@@
+.PAVRandomNumberGenerator@CryptoPP@@
+.PAVBufferedTransformation@CryptoPP@@
+.?AW4RandomNumberType@Integer@CryptoPP@@
+.PBVPrimeSelector@CryptoPP@@
+.PAV?$DL_PublicKeyImpl@VDL_GroupParameters_GFP@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKeyImpl@VDL_GroupParameters_GFP@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PublicKeyImpl@VDL_GroupParameters_GFP_DefaultSafePrime@CryptoPP@@@CryptoPP@@
+.PAV?$DL_PrivateKeyImpl@VDL_GroupParameters_GFP_DefaultSafePrime@CryptoPP@@@CryptoPP@@
+.PAVDL_GroupParameters_IntegerBased@CryptoPP@@

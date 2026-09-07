@@ -1,0 +1,87 @@
+================================================================================
+BASIC INFORMATION
+================================================================================
+File: C:\Users\WangDe\Desktop\Os-Easy\os-easy multicast teaching system\StudentLogic.dll
+Entry Point: 0x1020fdf3
+Min EA: 0x10001000
+Max EA: 0x102ae000
+Total Functions: 15120
+
+================================================================================
+EXPORTS
+================================================================================
+Total: 56
+
+0x10066ad0: ??0CxFile@@QAE@ABV0@@Z
+0x10002430: ??0CxFile@@QAE@XZ
+0x10066af0: ??0CxIOFile@@QAE@ABV0@@Z
+0x10066b30: ??0CxIOFile@@QAE@PAU_iobuf@@@Z
+0x10066b80: ??0CxMemFile@@QAE@ABV0@@Z
+0x10002440: ??1CxFile@@UAE@XZ
+0x1006bec0: ??1CxIOFile@@UAE@XZ
+0x100028f0: ??1CxImage@@UAE@XZ
+0x100095d0: ??4CxFile@@QAEAAV0@ABV0@@Z
+0x1006d130: ??4CxIOFile@@QAEAAV0@ABV0@@Z
+0x1006d170: ??4CxMemFile@@QAEAAV0@ABV0@@Z
+0x1023ec10: ??_7CxFile@@6B@
+0x1023ec4c: ??_7CxIOFile@@6B@
+0x1023ecc4: ??_7CxImage@@6B@
+0x1023ec88: ??_7CxMemFile@@6B@
+0x10071090: ??_FCxIOFile@@QAEXXZ
+0x100710b0: ??_FCxImage@@QAEXXZ
+0x100710d0: ??_FCxMemFile@@QAEXXZ
+0x10072810: ??_OCxImage@@QAEXAAV0@@Z
+0x10073d20: ?Close@CxIOFile@@UAE_NXZ
+0x10074b50: ?Eof@CxIOFile@@UAE_NXZ
+0x10074b90: ?Error@CxIOFile@@UAEHXZ
+0x10075150: ?Flush@CxIOFile@@UAE_NXZ
+0x10075c80: ?GetC@CxIOFile@@UAEHXZ
+0x1007d310: ?GetS@CxIOFile@@UAEPADPADH@Z
+0x10086430: ?Open@CxIOFile@@QAE_NPB_W0@Z
+0x10002450: ?PutC@CxFile@@UAE_NE@Z
+0x10086c20: ?PutC@CxIOFile@@UAE_NE@Z
+0x10086cd0: ?Read@CxIOFile@@UAEIPAXII@Z
+0x10088c60: ?Scanf@CxIOFile@@UAEHPBDPAX@Z
+0x10088e50: ?Seek@CxIOFile@@UAE_NHH@Z
+0x1008a940: ?Size@CxIOFile@@UAEHXZ
+0x1008d580: ?Tell@CxIOFile@@UAEHXZ
+0x100900c0: ?Write@CxIOFile@@UAEIPBXII@Z
+0x1002ee70: Barrage
+0x1002ee90: ControlRunningBoard
+0x1002eed0: ElectronicAnswer
+0x1002ef00: ExamNotifyTeacher
+0x1002ef30: GetAttention
+0x1002ef40: Load
+0x1002ef90: Message
+0x1002efc0: NotifyUpdateAudiostatus
+0x1002efe0: RequestHandUp
+0x1002eff0: RequestSubmitFile
+0x1002f010: RespondSignIn
+0x1002f040: ReturnCommandCall
+0x1002f070: SendFile
+0x1002f090: SendMsgToWebClient
+0x1002f0c0: SendToWeb
+0x1002f0e0: SetUiEx
+0x1002f110: SubmitBlock
+0x1002f130: SubmitErrorCode
+0x1002f160: UnLoad
+0x1002f170: WillCompleted
+0x101fadc0: TlsCallback_0
+0x1020fdf3: DllEntryPoint
+
+================================================================================
+OEP DECOMPILE
+================================================================================
+Entry Point: 0x1020fdf3
+
+Function: DllEntryPoint
+Range: 0x1020fdf3 - 0x1020fe16
+Size: 35 bytes
+
+--- Pseudocode ---
+BOOL __stdcall DllEntryPoint(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
+{
+  if ( fdwReason == 1 )
+    __security_init_cookie();
+  return dllmain_dispatch(hinstDLL, fdwReason, lpReserved);
+}
