@@ -1,0 +1,44 @@
+flowchart TD
+    START([用户点击「发送崩溃指令」]) --> INPUT{校验输入}
+    INPUT -- IP为空 --> ERR1[提示: 请先填写目标IP或网段]
+    INPUT -- 端口非数字 --> ERR2[提示: 端口必须是数字]
+    INPUT -- 通过 --> PARSE[解析载荷 parse_payload<br/>默认 oshack + CRLF]
+
+    PARSE --> THREAD[后台线程执行 crash<br/>timeout=3s  retries=2  retry_delay=3s]
+    THREAD --> CONNECT[TCP 连接教师机IP:9003]
+
+    CONNECT --> LISTEN{9003 是否在监听}
+
+    LISTEN -- 否: 服务未拉起/空窗期 --> E10061[WinError 10061<br/>目标计算机积极拒绝连接<br/>载荷未发出]
+    E10061 --> RETRY{还有重试次数?}
+    RETRY -- 是 --> WAIT[等待3秒<br/>覆盖服务拉起窗口] --> CONNECT
+    RETRY -- 否 --> DFAIL[弹窗 askyesno<br/>显示错误详情<br/>询问是否重试]
+    DFAIL -- 否 --> END_FAIL([结束: 发送失败])
+    DFAIL -- 是 --> CONNECT
+
+    LISTEN -- 是: 服务已拉起 --> CONN_OK[连接建立成功]
+    CONN_OK --> SEND[发送载荷 oshack + CRLF]
+
+    SEND --> PSRV[教师端9003解析线程收到数据]
+    PSRV --> PROTO{按什么协议解析}
+    PROTO -- NodeManager 二进制帧<br/>16字节命令头 --> PFAIL[格式不符<br/>非16字节头]
+    PROTO -- HTTP 解析器<br/>Bad Request 状态码表 --> HFAIL[oshack 非合法请求行]
+
+    PFAIL --> VULN[命中解析缺陷分支<br/>负长度/越界/空指针/异常未捕获]
+    HFAIL --> VULN
+    VULN --> CRASH[★ 处理线程崩溃]
+
+    CRASH --> RST[OS 强制关闭该连接<br/>RST 而非 FIN]
+    RST --> CRECV[客户端收到 WinError 10054<br/>远程主机被迫关闭连接]
+    CRECV --> JUDGE[判定 RESULT_OK<br/>崩溃已触发]
+
+    %% 服务端后果
+    CRASH --> UICH[9003 承载的<br/>recv uiMessages 通道断裂]
+    UICH --> MONITOR[教师端监控线程<br/>依赖该通道收发UI消息<br/>随之停止: 实测效果]
+
+    %% 配置来源标注
+    CFG[/core.conf: ConnectPort 9003<br/>MainLogic.dll 混合TCP服务<br/>HTTP+WebSocket+NodeManager+UI通道/] -. 端口与协议来源 .-> CONNECT
+
+    JUDGE --> DOK[弹窗 showinfo<br/>显示成功详情]
+    ERR1 --> END_FAIL
+    ERR2 --> END_FAIL
