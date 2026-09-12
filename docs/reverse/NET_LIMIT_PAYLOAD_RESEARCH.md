@@ -1,6 +1,6 @@
 # type=500 网络限制载荷结构 - 深度挖掘报告（CtrlCode JSON 定稿）
 
-> ✅ **实证声明（2026-09-12 抓包核对）**：本报告“载荷带 `/*//` 前缀”的结论**正确**。真实抓包（captured_logs）显示报文总长 106=16+90，payloadLen=90=4+86，前 4 字节为 `2f2a2f2f`（`/*//`）。请以《10_行为管控报文核查定稿.md》为准。
+> ⚠️ **修正声明（2026-09-12 反汇编定稿）**：本报告“载荷带 `/*//` 前缀”的结论**错误**。逐指令反汇编确认 `/*//` 为构造后未使用的死代码，载荷为纯 JSON。早期“抓包实证”系循环论证。请以《10_行为管控报文核查定稿.md》为准。
 
 > **目标**：还原教师端「行为管控 → 网络限制」指令的完整载荷结构（`this+0x548` 之谜）
 > **方法**：Ghidra 12.1.3 对 MainLogic.dll（教师端核心）+ Teacher.exe（UI 层）进行调用链追踪 + JSON 键名还原 + 位标志验证
@@ -11,14 +11,14 @@
 
 ## 一、核心结论（本次定稿）
 
-**type=500（网络限制）的载荷 = `/*//` 前缀 + 教师端构造的 CtrlCode JSON**
+**type=500（网络限制）的载荷 = 教师端构造的 CtrlCode JSON（无前缀）**
 
 ```
 16字节命令头                载荷
-[500][0][0][len]  +  "/*//" + {"CtrlCode":<int>, "apps":[...], "cites":[...], "keys":[...], ...}
+[500][0][0][len]  +  {"CtrlCode":<int>, "apps":[...], "cites":[...], "keys":[...], ...}
 ```
 
-载荷主体由 Teacher.exe 的 `FUN_0059ca10` 构造，经 MainLogic.dll 存入 `DAT_1018faa0+0x548`，发送时带 `/*//` 前缀（抓包实证）。
+载荷主体由 Teacher.exe 的 `FUN_0059ca10` 构造，经 MainLogic.dll 存入 `DAT_1018faa0+0x548`，发送时不带任何前缀。
 
 ---
 
@@ -137,7 +137,7 @@ FUN_10064770  (type=500 发送)
 综合所有证据，**教师端发送的 type=500 载荷**应为如下形式（`/*//` 前缀 + JSON）：
 
 ```
-/*//{"CtrlCode":19,"apps":[{"app":"notepad","exec":"C:\\Windows\\system32\\notepad.exe","type":"black"}],
+{"CtrlCode":19,"apps":[{"app":"notepad","exec":"C:\\Windows\\system32\\notepad.exe","type":"black"}],
      "cites":[{"cite":"example.com","type":"black"}],
      "keys":[{"keyName":"surf"}],
      "sendState":1,"tipInfo":"...","serverIp":"192.168.1.100"}
@@ -183,7 +183,7 @@ def build_net_limit_packet(ctrl_code: int, apps=None, cites=None,
     if cites: payload_obj["cites"] = cites # [{"cite":..,"type":..}]
     if keys:  payload_obj["keys"] = keys   # [{"keyName":..}]
 
-    body = b"/*//" + json.dumps(payload_obj, separators=(',', ':')).encode("utf-8")
+    body = json.dumps(payload_obj, separators=(',', ':')).encode("utf-8")
     header = struct.pack("<IIII", 500, 0, 0, len(body))
     return header + body
 
@@ -204,7 +204,7 @@ pkt = build_net_limit_packet(
 3. **`type` 字段在 apps/cites 里的取值**（black/white？）—— 与 Teacher.exe 的 p-black/p-white 对应
 4. **sendState/tipInfo/serverIp 是否必需**（可能是可选字段）
 5. **数组元素是否还有外层字段**（如 `{"apps":[{"app":...}]}` 的嵌套层级）
-6. **type=500 之外的其他 cmdType（11/13/28/79/111）载荷**是否同样走 `/*//` + JSON
+6. **type=500 之外的其他 cmdType（11/13/28/79/111）载荷**是否同样为标准 16B头+JSON
 7. **0x04/0x08/0x20/0x40/0x80 位的用途**（未在反编译中见到，可能为保留位或新版本功能）
 
 ---

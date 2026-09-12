@@ -62,12 +62,12 @@ Analyse/
 ### 管控指令报文（教师端 → 学生端）
 
 ```
-[cmdType:u32][flag1:u32][flag2:u32][payloadLen:u32] + "/*//" + JSON
+[cmdType:u32][flag1:u32][flag2:u32][payloadLen:u32] + JSON（无前缀）
      500          0          0           90
 ```
 
 - **传输**：UDP 单播 → 学生机 `:8040`（`UdpMessageControllerPort`）
-- **载荷**：`/*//` + `{"CtrlCode":<int>, "apps":[], "cites":[], "keys":[], "sendState":1, "tipInfo":"", "serverIp":""}`
+- **载荷**：`{"CtrlCode":<int>, "apps":[], "cites":[], "keys":[], "sendState":1, "tipInfo":"", "serverIp":""}`（**无前缀**）
 - **实证**：`evidence/captured-logs/` 真实抓包（106 字节报文，payloadLen=90=4+86）
 
 ### CtrlCode 位标志
@@ -93,15 +93,16 @@ Analyse/
 ### 安全要点
 
 - `core.conf` 的 `/IpAddressFilter//` 为**空** → 无来源 IP 校验
-- 管控走 **UDP 明文**（16B 头 + `/*//` + JSON）
+- 管控走 **UDP 明文**（16B 头 + JSON）
 
 ---
 
 ## ⚠️ 重要提醒
 
-1. **抓包实证 > 反编译推断**：本仓库的报文格式结论以 `evidence/captured-logs/` 的真实抓包为准。
-2. **历史报告可能存在过时结论**：`docs/reverse/` 下部分报告成文较早，与 `docs/逆向分析报告/10_*.md` 冲突时**以 10 号定稿为准**。
-3. 仅供**安全研究与授权测试**使用。
+1. **证据分级**：反汇编（静态事实）> 真实教师端抓包 > 自制工具抓包。⚠️ 本仓库 `evidence/captured-logs/` 里的 8040 测试包是**照抄早期错误报告构造的**（含 `/*//` 前缀），**不能**作为报文格式证据，仅证明 A→B 链路可达。
+2. **报文格式以 10 号定稿为准**：载荷为**纯 JSON，无 `/*//` 前缀**（反汇编逐指令确认 `/*//` 为死代码）。
+3. **历史报告可能存在过时结论**：`docs/reverse/` 下部分报告成文较早，与 `docs/逆向分析报告/10_*.md` 冲突时以 10 号为准。
+4. 仅供**安全研究与授权测试**使用。
 
 ---
 

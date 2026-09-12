@@ -18,8 +18,9 @@
 #      学生机 :8040（UdpMessageControllerPort / core.conf）
 #
 #   3) 网络限制 cmdType=500 载荷（基本定稿）
-#      载荷 = "/*//" 前缀 + CtrlCode JSON（MainLogic.dll FUN_10064770）
-#      ★ 2026-09 抓包实证（captured_logs）：载荷 = "/*//" + JSON，前缀计入 payloadLen。
+#      载荷 = CtrlCode JSON（MainLogic.dll FUN_10064770）
+#      ★ 2026-09 反汇编定稿：载荷【无前缀】（/*// 为死代码）；
+#        “抓包实证带前缀”系循环论证（测试包照抄了错误报告）。
 #      {"CtrlCode": 位标志, "apps":[...], "cites":[...], "keys":[...],
 #       "sendState":1, "tipInfo":"...", "serverIp":"..."}
 #      CtrlCode 位标志（Teacher.exe FUN_005648c0 确认）:
@@ -74,7 +75,7 @@ CTRL_DISABLED_USB3 = 0x10000        # USB 限制 3
 CTRL_USB_ALL = CTRL_DISABLED_USB1 | CTRL_DISABLED_USB2 | CTRL_DISABLED_USB3
 
 # 载荷前缀标记（MainLogic.dll FUN_10064770 确认；captured_logs 抓包实证）
-PAYLOAD_PREFIX = b"/*//"
+PAYLOAD_PREFIX = b""  # 已废弃：原为 b"/*//"（反汇编确认为死代码）
 
 
 # ══════════════════════════ 报文构造 ══════════════════════════
@@ -115,7 +116,7 @@ def build_ctrl_payload(ctrl_code: int, apps=None, cites=None, keys=None,
     """构造网络限制（cmdType=500）CtrlCode JSON 载荷。
 
     载荷格式（逆向定稿，2026-09 抓包实证）：
-        "/*//" + {"CtrlCode":<int>, "apps":[...], "cites":[...],
+        {"CtrlCode":<int>, "apps":[...], "cites":[...],
                    "keys":[...], "sendState":1, "tipInfo":"", "serverIp":""}
 
     Args:
@@ -124,7 +125,7 @@ def build_ctrl_payload(ctrl_code: int, apps=None, cites=None, keys=None,
         cites:   网址限制规则列表，如 [{"cite":"example.com","type":"black"}]。
         keys:    关键词过滤列表，如 [{"keyName":"surf"}]。
         send_state / tip_info / server_ip: 附加字段（可选）。
-        with_prefix: 是否带 "/*//" 前缀（默认 True；抓包实证前缀存在）。
+        with_prefix: 是否带 "/*//" 前缀（默认 False；反汇编确认前缀不存在）。
 
     Returns:
         载荷字节。

@@ -195,7 +195,7 @@ FUN_100a6cf0（某事件/异步触发）
 |------|------|
 | `CONTROL_INJECTION_RESEARCH.md` | core.conf 端口表（ConnectPort=9003 连接/TCP） |
 | `ARBITRATION_VERIFICATION_REPORT.md` | IDA vs Ghidra 交叉仲裁（8040/8045/9030 端口拓扑） |
-| `NET_LIMIT_PAYLOAD_RESEARCH.md` | cmdType=500 网络限制载荷（`/*//` + CtrlCode JSON） |
+| `NET_LIMIT_PAYLOAD_RESEARCH.md` | cmdType=500 网络限制载荷（CtrlCode JSON，无前缀） |
 | `DEVICECONTROL_ANALYSIS_REPORT.md` | DeviceControl 本地控制端口（127.0.0.1:8045） |
 
 ---

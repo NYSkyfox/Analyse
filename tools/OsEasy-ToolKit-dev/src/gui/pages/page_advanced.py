@@ -3,7 +3,7 @@
 #
 # ★ 教师端管控指令模拟基于逆向定稿协议（docs/reverse/ARBITRATION_VERIFICATION_REPORT.md、
 #   docs/reverse/NET_LIMIT_PAYLOAD_RESEARCH.md）：
-#     16B 头 [cmdType][flag1][flag2][len] + 载荷（cmdType=500 时载荷 = "/*//" + CtrlCode JSON）
+#     16B 头 [cmdType][flag1][flag2][len] + 载荷（cmdType=500 时载荷 = CtrlCode JSON，无前缀）
 #   发送通道：UDP 单播 → 学生机:8040（遍历单播 = 原生教师端"全体"的实现）
 
 import tkinter as tk
@@ -173,8 +173,8 @@ class PageAdvanced:
         ttk.Checkbutton(cb_row1, text="禁用USB(0x100+0x1000+0x10000)", variable=self.var_usb).pack(side=tk.LEFT, padx=4)
         cb_row2 = ttk.Frame(self.ctrl_frame)
         cb_row2.pack(fill=tk.X, anchor=tk.W, pady=2)
-        ttk.Checkbutton(cb_row2, text="带 /*// 载荷前缀", variable=self.var_prefix).pack(side=tk.LEFT, padx=4)
-        ttk.Label(cb_row2, text="（抓包实证 cmdType=500 载荷带 /*// 前缀）",
+        ttk.Checkbutton(cb_row2, text="带 /*// 前缀(已废弃)", variable=self.var_prefix).pack(side=tk.LEFT, padx=4)
+        ttk.Label(cb_row2, text="（2026-09 反汇编定稿：载荷无前缀）",
                   foreground="gray").pack(side=tk.LEFT, padx=4)
         self.ctrl_value_label = ttk.Label(self.ctrl_frame, text="CtrlCode = 0x00", foreground="blue")
         self.ctrl_value_label.pack(anchor=tk.W, padx=6, pady=2)
