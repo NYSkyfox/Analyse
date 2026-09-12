@@ -341,10 +341,10 @@ DeviceControl 命令:
 | `Teacher.exe` | `CheckFilter` — 检查过滤器 |
 | `DeviceControl_x64.exe` | `Disable NetWork` / `Enable NetWork` — 全局断网/恢复 |
 | `DeviceControl_x64.exe` | `Enable NetWork` / `Disable NetWork` — 双方向控制 |
-| `OeNetLimitSetup.exe` | `OeNetLimit` / `Oenetlimit` — TDI 过滤驱动 |
+| `OeNetLimitSetup.exe` | `OeNetLimit` / `Oenetlimit` — WFP 网络过滤驱动 |
 | `OeNetLimitSetup.exe` | `netsf_m.inf` / `netsf.inf` — 网络服务安装 INF |
 | `OeNetLimitSetup.exe` | `ms_OeNetLimit` / `ms_oenetlimit` — 网络组件 GUID |
-| `OeNetLimitSetup.exe` | `tdifilter` — TDI 过滤驱动类型 |
+| `OeNetLimitSetup.exe` | `tdifilter` — 网络过滤驱动类型标识（实际实现为 WFP Callout） |
 | `OeNetLimitSetup.exe` | `NETCFG_S_REBOOT` / `NETCFG_E_NEED_REBOOT` — 安装后需重启 |
 | `OeNetLimitSetup.exe` | `\WhiteProcessPath.txt` — 同样引用白名单（按进程控制网络） |
 | `MMPC.exe` | `[MMPCSendBroadcastType] type:%s start:%d` — 广播类型下发 |
@@ -373,7 +373,7 @@ graph TD
     end
     
     subgraph "学生端 - 三层过滤"
-        DC -->|"Disable NetWork<br/>Enable NetWork"| L1[第一层: TDI 过滤驱动<br/>OeNetLimit.sys]
+        DC -->|"Disable NetWork<br/>Enable NetWork"| L1[第一层: WFP 过滤驱动<br/>OeNetLimit.sys]
         FW -->|出站规则| L2[第二层: Windows 防火墙<br/>程序级出站阻止]
         PROC[ProcFireWall] -->|进程级| L3[第三层: 进程级网络控制<br/>按 WhiteProcessPath.txt]
     end
@@ -385,9 +385,9 @@ graph TD
 
 **调用链：**
 
-1. **全局断网**：`DeviceControl` → `Disable NetWork` → 激活 `OeNetLimit.sys` TDI 过滤驱动，在内核传输层拦截所有 TCP/UDP 包
+1. **全局断网**：`DeviceControl` → `Disable NetWork` → 激活 `OeNetLimit.sys`（WFP Callout：FwpsCalloutRegister + FwpmCalloutAdd，ALE 连接层 + IPv4 出入站），在内核网络栈拦截 TCP/UDP 包
 2. **按程序限网**：`DeviceControl` → `Enable Application Limit` + `Enable Application White Mode` → `ProcFireWall` 结合 `WhiteProcessPath.txt`，仅白名单程序可通过网络
-3. **网址/IP 过滤**：`core.conf` 中的 `IpAddressFilter` 配置，由 `OeNetLimit.sys` 在 TDI 层实现目标地址过滤
+3. **网址/IP 过滤**：由 `OeNetLimit.sys` 的 WFP Callout 实现目标地址过滤（注意：`core.conf` 的 `IpAddressFilter` 默认为**空值**=无过滤）
 4. **防火墙辅助**：`Teacher.exe` 直接调用 `WindowsFirewall.exe` 添加出站规则，实现双重保障
 5. **上网密码**：`StuInternet` SHA256 哈希值，教师可设置临时上网密码让学生短暂访问网络
 6. **网络过滤图标**：`KeyFilter.png` 是教师端工具条上的网络过滤开关
@@ -426,7 +426,7 @@ graph TD
 | `DeviceControl_x64.exe` | `easyusbctrl.dll` — USB 控制专用 DLL |
 | `DeviceControl_x64.exe` | `EasyUsb_StartWorking` / `EasyUsb_StopWorking` — 启停 USB 过滤 |
 | `DeviceControl_x64.exe` | `Call EasyUsb_StartWorking` / `Call EasyUsb_StopWorking` — 调用日志 |
-| `DeviceControl_x64.exe` | `\tfclass\` — TDI/USB 过滤类设备路径 |
+| `DeviceControl_x64.exe` | `\tfclass\` — USB 过滤类设备路径 |
 | `DeviceControl_x64.exe` | `QueryDosDeviceW` — 查询 DOS 设备名 |
 | `easyusbinstall.exe` | `easyusbflt` — USB 过滤驱动名称 |
 | `easyusbinstall.exe` | `system32\drivers\%s.sys` — 驱动安装路径 |
@@ -516,7 +516,7 @@ DLL 接口:
 │              │ AppBlack / AppWhite │ ZwSuspendProcess     │
 │              │                     │ WhiteProcessPath.txt │
 ├──────────────┼─────────────────────┼──────────────────────┤
-│ 网络使用限制  │ DisabledNet         │ OeNetLimit.sys (TDI) │
+│ 网络使用限制  │ DisabledNet         │ OeNetLimit.sys (WFP) │
 │              │ EnableNetKeyFilter  │ WindowsFirewall.exe  │
 │              │ EditInternet        │ IpAddressFilter      │
 ├──────────────┼─────────────────────┼──────────────────────┤

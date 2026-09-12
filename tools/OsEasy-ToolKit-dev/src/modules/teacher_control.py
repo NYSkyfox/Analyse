@@ -2,8 +2,8 @@
 # 教师端管控指令模拟模块 —— 在学生机上模拟教师端向学生端发送管控指令
 #
 # ★ 逆向结论（IDA + Ghidra 双重仲裁，详见：
-#    docs/ARBITRATION_VERIFICATION_REPORT.md
-#    docs/NET_LIMIT_PAYLOAD_RESEARCH.md）
+#    docs/reverse/ARBITRATION_VERIFICATION_REPORT.md
+#    docs/reverse/NET_LIMIT_PAYLOAD_RESEARCH.md）
 #
 #   1) 线格式（已确认）
 #      报文体 = [16 字节命令头][载荷]
@@ -19,6 +19,7 @@
 #
 #   3) 网络限制 cmdType=500 载荷（基本定稿）
 #      载荷 = "/*//" 前缀 + CtrlCode JSON（MainLogic.dll FUN_10064770）
+#      ★ 2026-09 抓包实证（captured_logs）：载荷 = "/*//" + JSON，前缀计入 payloadLen。
 #      {"CtrlCode": 位标志, "apps":[...], "cites":[...], "keys":[...],
 #       "sendState":1, "tipInfo":"...", "serverIp":"..."}
 #      CtrlCode 位标志（Teacher.exe FUN_005648c0 确认）:
@@ -34,7 +35,7 @@
 #      {"type":"support-use-device-control"/"stop-device-control", ...}
 #      → UDP 127.0.0.1:8045 → DeviceControl → 驱动执行
 #
-#   ⚠️ 待动态验证：/*// 后是否直接跟 JSON；数组是否按位携带；
+#   ⚠️ 待动态验证：数组是否按位携带；
 #      其他 cmdType（11/13/28/79/111）的载荷结构
 
 import time
@@ -72,7 +73,7 @@ CTRL_DISABLED_USB2 = 0x1000         # USB 限制 2
 CTRL_DISABLED_USB3 = 0x10000        # USB 限制 3
 CTRL_USB_ALL = CTRL_DISABLED_USB1 | CTRL_DISABLED_USB2 | CTRL_DISABLED_USB3
 
-# 载荷前缀标记（MainLogic.dll FUN_10064770 确认）
+# 载荷前缀标记（MainLogic.dll FUN_10064770 确认；captured_logs 抓包实证）
 PAYLOAD_PREFIX = b"/*//"
 
 
@@ -113,7 +114,7 @@ def build_ctrl_payload(ctrl_code: int, apps=None, cites=None, keys=None,
                        server_ip: str = "", with_prefix: bool = True) -> bytes:
     """构造网络限制（cmdType=500）CtrlCode JSON 载荷。
 
-    载荷格式（逆向定稿）：
+    载荷格式（逆向定稿，2026-09 抓包实证）：
         "/*//" + {"CtrlCode":<int>, "apps":[...], "cites":[...],
                    "keys":[...], "sendState":1, "tipInfo":"", "serverIp":""}
 
@@ -123,7 +124,7 @@ def build_ctrl_payload(ctrl_code: int, apps=None, cites=None, keys=None,
         cites:   网址限制规则列表，如 [{"cite":"example.com","type":"black"}]。
         keys:    关键词过滤列表，如 [{"keyName":"surf"}]。
         send_state / tip_info / server_ip: 附加字段（可选）。
-        with_prefix: 是否带 "/*//" 前缀（默认 True）。
+        with_prefix: 是否带 "/*//" 前缀（默认 True；抓包实证前缀存在）。
 
     Returns:
         载荷字节。

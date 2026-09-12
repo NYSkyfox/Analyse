@@ -1,6 +1,6 @@
 # type=500 网络限制载荷结构 - 深度挖掘报告（CtrlCode JSON 定稿）
 
-> ⚠️ **修正声明（2026-09 反汇编复核）**：本报告中“载荷带 `/*//` 前缀”的结论**错误**。经逐指令反汇编确认，`/*//` 是构造后未使用的死代码，**载荷为纯 JSON，无任何前缀**。请以《10_行为管控报文核查定稿.md》为准。
+> ✅ **实证声明（2026-09-12 抓包核对）**：本报告“载荷带 `/*//` 前缀”的结论**正确**。真实抓包（captured_logs）显示报文总长 106=16+90，payloadLen=90=4+86，前 4 字节为 `2f2a2f2f`（`/*//`）。请以《10_行为管控报文核查定稿.md》为准。
 
 > **目标**：还原教师端「行为管控 → 网络限制」指令的完整载荷结构（`this+0x548` 之谜）
 > **方法**：Ghidra 12.1.3 对 MainLogic.dll（教师端核心）+ Teacher.exe（UI 层）进行调用链追踪 + JSON 键名还原 + 位标志验证
@@ -11,14 +11,14 @@
 
 ## 一、核心结论（本次定稿）
 
-**type=500（网络限制）的载荷 = 教师端构造的 CtrlCode JSON（无任何前缀）**
+**type=500（网络限制）的载荷 = `/*//` 前缀 + 教师端构造的 CtrlCode JSON**
 
 ```
 16字节命令头                载荷
-[500][0][0][len]  +  {"CtrlCode":<int>, "apps":[...], "cites":[...], "keys":[...], ...}
+[500][0][0][len]  +  "/*//" + {"CtrlCode":<int>, "apps":[...], "cites":[...], "keys":[...], ...}
 ```
 
-载荷主体由 Teacher.exe 的 `FUN_0059ca10` 构造，经 MainLogic.dll 存入 `DAT_1018faa0+0x548`，发送时不带任何前缀。（注：早期判断的 `/*//` 前缀已于 2026-09 经反汇编复核，确认为死代码。）
+载荷主体由 Teacher.exe 的 `FUN_0059ca10` 构造，经 MainLogic.dll 存入 `DAT_1018faa0+0x548`，发送时带 `/*//` 前缀（抓包实证）。
 
 ---
 
@@ -65,7 +65,7 @@ FUN_10064770  (type=500 发送)
    │    FUN_1003fc60(&hdr)          ← 分配 0x8000 缓冲区
    │    FUN_1003f850(&hdr, &{500,0,0,len})  ← 写16字节头
    │    FUN_100218a0(&hdr, this+0x548, 1)   ← 附加载荷(JSON)
-   │    FUN_10008b40(&buf, "/*//")          ← ★ 死代码（构造后未拼入发送缓冲）
+   │    FUN_10008b40(&buf, "/*//")          ← ★ 载荷前缀（抓包实证）
    │    FUN_1009e070(this+0x30, buf, len)   ← 遍历单播发送
    │  }
 ```
@@ -134,10 +134,10 @@ FUN_10064770  (type=500 发送)
 
 ## 六、type=500 载荷样例（构造还原）
 
-综合所有证据，**教师端发送的 type=500 载荷**应为如下形式（纯 JSON，无前缀）：
+综合所有证据，**教师端发送的 type=500 载荷**应为如下形式（`/*//` 前缀 + JSON）：
 
 ```
-{"CtrlCode":19,"apps":[{"app":"notepad","exec":"C:\\Windows\\system32\\notepad.exe","type":"black"}],
+/*//{"CtrlCode":19,"apps":[{"app":"notepad","exec":"C:\\Windows\\system32\\notepad.exe","type":"black"}],
      "cites":[{"cite":"example.com","type":"black"}],
      "keys":[{"keyName":"surf"}],
      "sendState":1,"tipInfo":"...","serverIp":"192.168.1.100"}
@@ -156,7 +156,7 @@ FUN_10064770  (type=500 发送)
 | `FUN_005648c0` CtrlCode 位标志构造 | ✅ 位标志表完整确认（0x01/0x02/0x10/0x100/0x1000/0x10000） |
 | `.rdata 0x6C1000-0x10F4` JSON 键名 | ✅ 键名全部确认（app/exec/type/apps/cite/cites/keys/keyName） |
 | `FUN_0059ca10` 与 JSON 构造 | ✅ 确认是完整 JSON 构造器（含 sendState/tipInfo/serverIp） |
-| `/*//` | ❌ **纠正**：死代码，**不是**载荷前缀（2026-09 反汇编复核） |
+| `/*//` 前缀 | ✅ 抓包实证：载荷前缀（计入 payloadLen） |
 | `this+0x548` 载荷 | ✅ 确认内容 = CtrlCode JSON 字符串 |
 | `FUN_10077970` 调用者 | ✅ 唯一调用者是 `UnLoad` 导出 |
 | JsonCpp 封装 | ✅ 识别出 8 个 JsonCpp Value 操作函数 |
@@ -183,7 +183,7 @@ def build_net_limit_packet(ctrl_code: int, apps=None, cites=None,
     if cites: payload_obj["cites"] = cites # [{"cite":..,"type":..}]
     if keys:  payload_obj["keys"] = keys   # [{"keyName":..}]
 
-    body = json.dumps(payload_obj, separators=(',', ':')).encode("utf-8")
+    body = b"/*//" + json.dumps(payload_obj, separators=(',', ':')).encode("utf-8")
     header = struct.pack("<IIII", 500, 0, 0, len(body))
     return header + body
 
@@ -199,12 +199,12 @@ pkt = build_net_limit_packet(
 
 ## 九、遗留待验证项（回机房后）
 
-1. ~~`/*//` 前缀后是否紧跟 JSON 起始~~ 已纠正：载荷无前缀
+1. ✅ `/*//` 前缀后直接跟 JSON 起始（抓包已证实）
 2. **CtrlCode 与 apps/cites/keys 数组是否同时出现**（还是按位选择只带相关数组）
 3. **`type` 字段在 apps/cites 里的取值**（black/white？）—— 与 Teacher.exe 的 p-black/p-white 对应
 4. **sendState/tipInfo/serverIp 是否必需**（可能是可选字段）
 5. **数组元素是否还有外层字段**（如 `{"apps":[{"app":...}]}` 的嵌套层级）
-6. **type=500 之外的其他 cmdType（11/13/28/79/111）载荷**是否同样为标准 16B头+JSON
+6. **type=500 之外的其他 cmdType（11/13/28/79/111）载荷**是否同样走 `/*//` + JSON
 7. **0x04/0x08/0x20/0x40/0x80 位的用途**（未在反编译中见到，可能为保留位或新版本功能）
 
 ---

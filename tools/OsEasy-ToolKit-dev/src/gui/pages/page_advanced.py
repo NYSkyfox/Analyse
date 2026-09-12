@@ -1,8 +1,8 @@
 # src/gui/pages/page_advanced.py
 # 高级页 —— 远程崩溃 + 学生端安装测试 + 教师端管控指令模拟（单台/全体）
 #
-# ★ 教师端管控指令模拟基于逆向定稿协议（docs/ARBITRATION_VERIFICATION_REPORT.md、
-#   docs/NET_LIMIT_PAYLOAD_RESEARCH.md）：
+# ★ 教师端管控指令模拟基于逆向定稿协议（docs/reverse/ARBITRATION_VERIFICATION_REPORT.md、
+#   docs/reverse/NET_LIMIT_PAYLOAD_RESEARCH.md）：
 #     16B 头 [cmdType][flag1][flag2][len] + 载荷（cmdType=500 时载荷 = "/*//" + CtrlCode JSON）
 #   发送通道：UDP 单播 → 学生机:8040（遍历单播 = 原生教师端"全体"的实现）
 
@@ -174,7 +174,7 @@ class PageAdvanced:
         cb_row2 = ttk.Frame(self.ctrl_frame)
         cb_row2.pack(fill=tk.X, anchor=tk.W, pady=2)
         ttk.Checkbutton(cb_row2, text="带 /*// 载荷前缀", variable=self.var_prefix).pack(side=tk.LEFT, padx=4)
-        ttk.Label(cb_row2, text="（逆向确认 cmdType=500 载荷带 /*// 前缀）",
+        ttk.Label(cb_row2, text="（抓包实证 cmdType=500 载荷带 /*// 前缀）",
                   foreground="gray").pack(side=tk.LEFT, padx=4)
         self.ctrl_value_label = ttk.Label(self.ctrl_frame, text="CtrlCode = 0x00", foreground="blue")
         self.ctrl_value_label.pack(anchor=tk.W, padx=6, pady=2)
