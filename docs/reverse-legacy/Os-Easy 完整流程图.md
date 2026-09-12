@@ -1,5 +1,9 @@
 # Os-Easy 电子教室 完整运行流程图
 
+> ⚠️ **历史文档提示**：本文件为**早期分析**（2026-08），部分结论（如 OeNetLimit 驱动机制、报文前缀等）已被后续复核**修正或推翻**。
+> 请以 `docs/reverse-analysis/10_行为管控报文核查定稿.md` 与 `docs/reverse-analysis/09_管控指令协议定稿.md` 为准。
+
+
 ```mermaid
 sequenceDiagram
     autonumber

@@ -9,8 +9,20 @@
 
 ```
 Analyse/
-├── docs/                          # 📄 文档
-│   ├── reverse/                   #   逆向分析报告（按主题）
+├── docs/
+│   ├── reverse-analysis/          # ⭐ 系统化逆向报告（00-10，推荐优先阅读）
+│   │   ├── 00_总览与系统架构.md
+│   │   ├── 01_通信机制.md
+│   │   ├── 02_行为管控.md
+│   │   ├── 03_屏幕广播.md
+│   │   ├── 04_远程Cmd命令.md
+│   │   ├── 05_远程关机重启.md
+│   │   ├── 06_DeviceControl设备管控.md
+│   │   ├── 07_建议点深挖.md
+│   │   ├── 08_核查说明.md
+│   │   ├── 09_管控指令协议定稿.md
+│   │   └── 10_行为管控报文核查定稿.md     ★ 报文格式定稿（必读）
+│   ├── reverse/                   # 专题深度报告（早于 00-10，部分结论已被修正）
 │   │   ├── CONTROL_COMMAND_PROTOCOL_REPORT.md   管控指令协议
 │   │   ├── NET_LIMIT_PAYLOAD_RESEARCH.md        网络限制载荷
 │   │   ├── REMOTECOMMAND_REVERSE_REPORT.md      远程命令
@@ -22,21 +34,14 @@ Analyse/
 │   │   ├── CRASH_FUNCTION_REVERSE_REPORT.md     崩溃函数分析
 │   │   ├── OS-EASY_ANALYSIS_REPORT.md           总体分析
 │   │   ├── PROJECT_SUMMARY.md                   项目总结
-│   │   └── DEPLOYMENT_SUMMARY.md                部署摘要
-│   ├── 逆向分析报告/              #   ★ 本轮系统化报告（00-10，推荐先看）
-│   │   ├── 00_总览与系统架构.md
-│   │   ├── 01_通信机制.md
-│   │   ├── 02_行为管控.md
-│   │   ├── 03_屏幕广播.md
-│   │   ├── 04_远程Cmd命令.md
-│   │   ├── 05_远程关机重启.md
-│   │   ├── 06_DeviceControl设备管控.md
-│   │   ├── 07_建议点深挖.md
-│   │   ├── 08_核查说明.md
-│   │   ├── 09_管控指令协议定稿.md
-│   │   └── 10_行为管控报文核查定稿.md           ★ 报文定稿（抓包实证）
-│   ├── toolkit/                   #   工具文档（CLI/GUI/PAGES/容器指南）
-│   └── assets/                    #   流程图/截图
+│   │   └── OsEasyPOC_ANALYSIS.md                POC 内嵌组件
+│   ├── reverse-legacy/            # ⚠️ 早期分析（2026-08），结论可能过时
+│   │   ├── Report.md                            功能逆向（strings 分析）
+│   │   ├── Os-Easy Report.md                    学生端静态分析
+│   │   ├── Os-Easy 完整流程图.md                 运行流程图
+│   │   └── new.md                               管控协议早期分析
+│   ├── toolkit/                   # 工具文档（CLI/GUI/PAGES/部署/容器指南）
+│   └── assets/                    # 流程图 / GUI 截图
 │
 ├── analysis/                      # 🔬 分析产物
 │   ├── ghidra-scripts/            #   Ghidra Java 脚本
@@ -45,16 +50,11 @@ Analyse/
 │
 ├── evidence/                      # 🔍 原始证据
 │   ├── arbitration/               #   反编译产物（verify_*.txt / portall_*.txt）
-│   └── captured-logs/            #   ★ 真实抓包日志 + 分析报告
-│
-├── reports/                       # 📊 历史报告
-│   ├── OsEasyPOC_ANALYSIS.md
-│   └── toolkit-analysis/          #   Report.md / Os-Easy Report.md / 流程图
+│   └── captured-logs/            #   抓包日志 + 分析报告
 │
 └── tools/                         # 🛠 工具
     └── OsEasy-ToolKit-dev/        #   管控指令模拟 PoC（Python）
 ```
-
 ---
 
 ## 🎯 核心结论速览
@@ -101,14 +101,14 @@ Analyse/
 
 1. **证据分级**：反汇编（静态事实）> 真实教师端抓包 > 自制工具抓包。⚠️ 本仓库 `evidence/captured-logs/` 里的 8040 测试包是**照抄早期错误报告构造的**（含 `/*//` 前缀），**不能**作为报文格式证据，仅证明 A→B 链路可达。
 2. **报文格式以 10 号定稿为准**：载荷为**纯 JSON，无 `/*//` 前缀**（反汇编逐指令确认 `/*//` 为死代码）。
-3. **历史报告可能存在过时结论**：`docs/reverse/` 下部分报告成文较早，与 `docs/逆向分析报告/10_*.md` 冲突时以 10 号为准。
+3. **历史报告可能存在过时结论**：`docs/reverse/` 下部分报告成文较早，与 `docs/reverse-analysis/10_*.md` 冲突时以 10 号为准。
 4. 仅供**安全研究与授权测试**使用。
 
 ---
 
 ## 📌 推荐阅读顺序
 
-1. `docs/逆向分析报告/00_总览与系统架构.md` — 建立整体认知
-2. `docs/逆向分析报告/10_行为管控报文核查定稿.md` — 报文格式（工具开发必读）
-3. `docs/逆向分析报告/09_管控指令协议定稿.md` — 端口/协议全景
+1. `docs/reverse-analysis/00_总览与系统架构.md` — 建立整体认知
+2. `docs/reverse-analysis/10_行为管控报文核查定稿.md` — 报文格式（工具开发必读）
+3. `docs/reverse-analysis/09_管控指令协议定稿.md` — 端口/协议全景
 4. `docs/reverse/ARBITRATION_VERIFICATION_REPORT.md` — Ghidra/IDA 仲裁方法与结论

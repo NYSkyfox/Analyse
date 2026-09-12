@@ -1,5 +1,9 @@
 # Os-Easy 教师端管控指令协议逆向分析（new.md）
 
+> ⚠️ **历史文档提示**：本文件为**早期分析**（2026-08），部分结论（如 OeNetLimit 驱动机制、报文前缀等）已被后续复核**修正或推翻**。
+> 请以 `docs/reverse-analysis/10_行为管控报文核查定稿.md` 与 `docs/reverse-analysis/09_管控指令协议定稿.md` 为准。
+
+
 > 分析对象：Os-Easy（噢易）多媒体电子教室教师端/学生端套件
 > 分析方法：Sysinternals Strings + IDA Pro 9.4（IDAPython 静态反编译）
 > 分析目标：还原「教师端 → 学生端」管控指令的内容与线格式，用于在学生机上模拟教师端发送控制指令

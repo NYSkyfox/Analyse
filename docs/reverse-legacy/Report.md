@@ -1,5 +1,9 @@
 # Os-Easy 组播教学系统 — 功能逆向分析报告
 
+> ⚠️ **历史文档提示**：本文件为**早期分析**（2026-08），部分结论（如 OeNetLimit 驱动机制、报文前缀等）已被后续复核**修正或推翻**。
+> 请以 `docs/reverse-analysis/10_行为管控报文核查定稿.md` 与 `docs/reverse-analysis/09_管控指令协议定稿.md` 为准。
+
+
 > 本文档基于 `strings.exe` (Sysinternals v2.54) 对 Os-Easy v10.9 教学软件的全部可执行文件、配置文件、日志文件进行深度逆向分析。
 >
 > **补充分析手段**：`pefile` (Python) — PE 导入表/签名/熵值/资源分析。
