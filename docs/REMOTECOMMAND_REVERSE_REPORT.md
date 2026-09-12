@@ -267,7 +267,7 @@ if (后缀不是 ".exe" && 不是 ".com" && 不是 ".bat" && 不是 ".cmd"/".CMD
 | `CONTROL_INJECTION_RESEARCH.md` | core.conf 端口表 / 协议族 |
 | `ARBITRATION_VERIFICATION_REPORT.md` | IDA vs Ghidra 交叉仲裁 |
 | `CRASH_FUNCTION_REVERSE_REPORT.md` | 9003 崩溃/监控线程停止（MainLogic 内另一条服务链路） |
-| `NET_LIMIT_PAYLOAD_RESEARCH.md` | cmdType=500 网络限制载荷（`/*//` + CtrlCode JSON，与 xsys 控制面同族参考） |
+| `NET_LIMIT_PAYLOAD_RESEARCH.md` | cmdType=500 网络限制载荷（CtrlCode JSON，无前缀，与 xsys 控制面同族参考） |
 | `DEVICECONTROL_ANALYSIS_REPORT.md` | 本地控制端口 8045 |
 | `STUDENT_TO_STUDENT_CONTROL_FEASIBILITY.md` | 学生端互控可行性 |
 
