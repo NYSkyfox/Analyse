@@ -109,9 +109,10 @@ UPLOAD_ENABLE = True
 UPLOAD_URL = "http://45.207.220.121:8091/upload"
 UPLOAD_NAME = None
 
-_upload_lock = threading.Lock()
-_upload_queue = []
-_UPLOAD_MAX = 200
+# ★ 待上传数据【本地落盘目录】: 管控断网/服务器不可达时也不丢, 解除后自动补传
+SPOOL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "oseasy_spool")
+SPOOL_MAX_FILES = 5000
+_spool_seq = [0]
 
 
 def _make_upload_name():
@@ -127,25 +128,62 @@ def _make_upload_name():
     return "%s_%s_%s" % (ip, ts, rnd)
 
 
+def _ensure_spool():
+    try:
+        if not os.path.isdir(SPOOL_DIR):
+            os.makedirs(SPOOL_DIR)
+    except Exception:
+        pass
+
+
+def _spool_files():
+    try:
+        return sorted(os.listdir(SPOOL_DIR))
+    except Exception:
+        return []
+
+
 def init_upload():
     global UPLOAD_NAME
     UPLOAD_NAME = _make_upload_name()
+    _ensure_spool()
 
 
 def enqueue_upload(text):
+    """★ 把待上传数据【落盘】(不是只放内存): 断网期间也不丢, 恢复后自动补传"""
     if not UPLOAD_ENABLE or not text:
         return
-    with _upload_lock:
-        _upload_queue.append(text)
-        while len(_upload_queue) > _UPLOAD_MAX:
-            _upload_queue.pop(0)
+    _ensure_spool()
+    _spool_seq[0] += 1
+    fn = os.path.join(SPOOL_DIR, "%013d_%05d.txt" % (int(time.time() * 1000), _spool_seq[0]))
+    try:
+        with open(fn, "w", encoding="utf-8") as f:
+            f.write(text)
+    except Exception:
+        pass
+    files = _spool_files()
+    if len(files) > SPOOL_MAX_FILES:
+        for old in files[:len(files) - SPOOL_MAX_FILES]:
+            try:
+                os.remove(os.path.join(SPOOL_DIR, old))
+            except Exception:
+                pass
 
 
 def _upload_one():
-    with _upload_lock:
-        if not _upload_queue:
-            return False
-        item = _upload_queue[0]
+    files = _spool_files()
+    if not files:
+        return False
+    path = os.path.join(SPOOL_DIR, files[0])
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            item = f.read()
+    except Exception:
+        try:
+            os.remove(path)
+        except Exception:
+            pass
+        return True
     ok = False
     try:
         payload = item.encode("utf-8", "replace")
@@ -161,9 +199,10 @@ def _upload_one():
     except Exception:
         ok = False
     if ok:
-        with _upload_lock:
-            if _upload_queue and _upload_queue[0] is item:
-                _upload_queue.pop(0)
+        try:
+            os.remove(path)
+        except Exception:
+            pass
     else:
         time.sleep(1.5)
     return ok
