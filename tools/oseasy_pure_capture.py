@@ -399,17 +399,19 @@ def capture_raw(duration, out_path, ports, all_mode):
     total = 0
     t0 = time.time()
     print("=" * 66)
-    print("raw 抓包开始，时长 %d 秒 -> %s" % (duration, out_path))
+    _dur_txt = "无限（按 Ctrl+C 结束）" if (not duration or duration <= 0) else ("%d 秒" % duration)
+    print("raw 抓包开始，时长 %s -> %s" % (_dur_txt, out_path))
     print("过滤端口: %s" % ("全部" if all_mode else "%d 个" % len(ports)))
     if UPLOAD_ENABLE:
         print("实时上传: 开 -> %s (name=%s)" % (UPLOAD_URL, UPLOAD_NAME))
     else:
         print("实时上传: 关")
-    print("（Ctrl+C 可提前结束）")
     print("=" * 66)
 
     try:
-        while time.time() - t0 < duration:
+        while True:
+            if duration and duration > 0 and (time.time() - t0) >= duration:
+                break
             try:
                 buf, addr = s.recvfrom(65535)
             except socket.timeout:
@@ -473,7 +475,8 @@ def capture_listen(duration, out_path, ports):
         return
 
     print("=" * 66)
-    print("listen 抓包开始，时长 %d 秒 -> %s" % (duration, out_path))
+    _dur_txt = "无限（按 Ctrl+C 结束）" if (not duration or duration <= 0) else ("%d 秒" % duration)
+    print("listen 抓包开始，时长 %s -> %s" % (_dur_txt, out_path))
     print("监听 UDP 端口: %s" % ", ".join(str(p) for p, _ in socks))
     if UPLOAD_ENABLE:
         print("实时上传: 开 -> %s (name=%s)" % (UPLOAD_URL, UPLOAD_NAME))
@@ -484,7 +487,9 @@ def capture_listen(duration, out_path, ports):
     t0 = time.time()
     cnt = 0
     try:
-        while time.time() - t0 < duration:
+        while True:
+            if duration and duration > 0 and (time.time() - t0) >= duration:
+                break
             r, _, _ = select.select([sk for _, sk in socks], [], [], 0.5)
             for sk in r:
                 try:
@@ -712,7 +717,7 @@ def interactive_menu():
             return
 
         if c == "1":
-            t = _ask_int("抓包时长(秒) [120]: ", 120)
+            t = _ask_int("抓包时长(秒) [0=无限, 直接回车=无限]: ", 0)
             out = _ask("输出文件 [默认自动命名]: ", "")
             if not out:
                 out = "oseasy_%s.pcap" % time.strftime("%Y%m%d_%H%M%S")
@@ -729,7 +734,7 @@ def interactive_menu():
             capture_raw(t, out, set(PORT_SET), allm)
 
         elif c == "2":
-            t = _ask_int("抓包时长(秒) [120]: ", 120)
+            t = _ask_int("抓包时长(秒) [0=无限, 直接回车=无限]: ", 0)
             out = _ask("输出日志 [默认自动命名]: ", "")
             if not out:
                 out = "oseasy_listen_%s.log" % time.strftime("%Y%m%d_%H%M%S")
@@ -776,7 +781,7 @@ def main():
     s2.set_defaults(func=cmd_ports)
 
     s3 = sub.add_parser("raw", help="raw socket 抓包（需管理员，无需 Npcap）")
-    s3.add_argument("-t", "--time", type=int, default=120, help="秒数(默认120)")
+    s3.add_argument("-t", "--time", type=int, default=0, help="秒数, 0=无限(默认0)")
     s3.add_argument("-o", "--out", default=None, help="输出 pcap")
     s3.add_argument("--all", action="store_true", help="不过滤端口(全抓)")
     s3.add_argument("--ports", default=None, help="自定义端口,如 7777,8040,8002")
@@ -785,7 +790,7 @@ def main():
     s3.set_defaults(func=None)
 
     s4 = sub.add_parser("listen", help="UDP 监听抓包（无需管理员，受限）")
-    s4.add_argument("-t", "--time", type=int, default=120, help="秒数(默认120)")
+    s4.add_argument("-t", "--time", type=int, default=0, help="秒数, 0=无限(默认0)")
     s4.add_argument("-o", "--out", default=None, help="输出日志")
     s4.add_argument("--no-upload", action="store_true", help="关闭实时上传")
     s4.add_argument("--upload-url", default=None, help="上传地址")
