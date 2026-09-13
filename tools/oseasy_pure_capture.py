@@ -54,7 +54,7 @@ import threading
 import urllib.parse
 import urllib.request
 
-VERSION = "3.0"
+VERSION = "4.0"
 
 # ----------------------------------------------------------------------
 # 端口表  (port, proto, 说明)
@@ -220,7 +220,13 @@ def _uploader_loop():
         time.sleep(0.05)
 
 
+_uploader_started = [False]
+
+
 def start_uploader():
+    if _uploader_started[0]:
+        return
+    _uploader_started[0] = True
     try:
         t = threading.Thread(target=_uploader_loop, daemon=True)
         t.start()
@@ -648,6 +654,109 @@ def cmd_ports(args):
         print("%-6d %-4s %s" % (p, pr.upper(), d))
 
 
+def _ask(prompt, default=""):
+    try:
+        v = input(prompt)
+    except (EOFError, KeyboardInterrupt):
+        print("")
+        return default
+    v = v.strip()
+    return v if v else default
+
+
+def _ask_int(prompt, default):
+    v = _ask(prompt, str(default))
+    try:
+        return int(v)
+    except Exception:
+        return default
+
+
+def _ask_yes(prompt, default=True):
+    v = _ask(prompt, "Y" if default else "N").lower()
+    if v == "":
+        return default
+    return v in ("y", "yes", "1", "是", "shi")
+
+
+def _parse_one_file(path):
+    class _Args(object):
+        pass
+    a = _Args()
+    a.file = path
+    cmd_parse(a)
+
+
+def interactive_menu():
+    global UPLOAD_ENABLE, UPLOAD_URL
+    print("=" * 66)
+    print(" Os-Easy 纯 Python 抓包 / 上传 / 解析工具  v%s（无需 Npcap）" % VERSION)
+    print("=" * 66)
+    print(" 上传服务器 : %s" % UPLOAD_URL)
+    print(" 本机 IP    : %s" % get_local_ip())
+    print("-" * 66)
+
+    while True:
+        print("")
+        print("请选择功能（输入数字后回车）：")
+        print("  1 = 抓包 · raw 模式  （★推荐，需管理员；抓本机进出全部包）")
+        print("  2 = 抓包 · listen 模式（无需管理员；只听广播，受限）")
+        print("  3 = 解析 pcap 文件")
+        print("  4 = 查看覆盖端口清单")
+        print("  5 = 查看本机 IP")
+        print("  0 = 退出")
+        c = _ask("请输入数字: ").lower()
+
+        if c in ("0", "q", ""):
+            print("已退出。")
+            return
+
+        if c == "1":
+            t = _ask_int("抓包时长(秒) [120]: ", 120)
+            out = _ask("输出文件 [默认自动命名]: ", "")
+            if not out:
+                out = "oseasy_%s.pcap" % time.strftime("%Y%m%d_%H%M%S")
+            allm = _ask_yes("全量抓包(不过滤端口)? [y/N]: ", False)
+            up = _ask_yes("实时上传到服务器? [Y/n]: ", True)
+            UPLOAD_ENABLE = up
+            if UPLOAD_ENABLE:
+                init_upload()
+                start_uploader()
+                print(" [上传] 已启用 -> %s  (name=%s)" % (UPLOAD_URL, UPLOAD_NAME))
+            else:
+                print(" [上传] 已关闭")
+            print("")
+            capture_raw(t, out, set(PORT_SET), allm)
+
+        elif c == "2":
+            t = _ask_int("抓包时长(秒) [120]: ", 120)
+            out = _ask("输出日志 [默认自动命名]: ", "")
+            if not out:
+                out = "oseasy_listen_%s.log" % time.strftime("%Y%m%d_%H%M%S")
+            up = _ask_yes("实时上传到服务器? [Y/n]: ", True)
+            UPLOAD_ENABLE = up
+            if UPLOAD_ENABLE:
+                init_upload()
+                start_uploader()
+            capture_listen(t, out, None)
+
+        elif c == "3":
+            f = _ask("请输入 pcap 文件路径: ", "")
+            if f and os.path.isfile(f):
+                _parse_one_file(f)
+            else:
+                print(" [X] 文件不存在: %s" % f)
+
+        elif c == "4":
+            cmd_ports(None)
+
+        elif c == "5":
+            cmd_ip(None)
+
+        else:
+            print(" [X] 无效输入，请输入 0~5。")
+
+
 def main():
     global UPLOAD_ENABLE, UPLOAD_URL
     ap = argparse.ArgumentParser(
@@ -688,7 +797,8 @@ def main():
 
     args = ap.parse_args()
     if not args.cmd:
-        ap.print_help()
+        # 无参数启动 -> 交互式数字菜单
+        interactive_menu()
         return
 
     # 上传配置
