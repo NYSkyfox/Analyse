@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-Os-Easy 纯 Python 抓包/自动上传/解析工具 v3（不依赖 Npcap / Wireshark）
+Os-Easy 纯 Python 抓包/自动上传/解析工具 v4（不依赖 Npcap / Wireshark）
 ================================================================
 机房没有 Npcap 也能用！只用 Python 标准库。融合了 netctrl_capture.py 的
 「抓到包就实时 POST 上传到服务器」能力。
@@ -13,6 +13,9 @@ Os-Easy 纯 Python 抓包/自动上传/解析工具 v3（不依赖 Npcap / Wires
            —— 只收「广播 / 发给本机的」UDP；不需管理员；信息较少。
 
 上传：每收到一个关注端口的有效包，异步 POST 到服务器（可关）。
+每条记录都带【本机抓包时刻】（毫秒精度）+ 相对秒，便于与服务器时间互校。
+
+端口：覆盖 26 个，含 7777/7771/7778/8040/9002/9003/10118/8002/8003/8555/9100 等。
 
 ------------------------------------------------------------------
 用法（管理员 CMD / PowerShell）：
@@ -26,7 +29,7 @@ Os-Easy 纯 Python 抓包/自动上传/解析工具 v3（不依赖 Npcap / Wires
   python oseasy_pure_capture.py ports
 
 参数：
-  -t / --time   抓包秒数（默认 120）
+  -t / --time   抓包秒数（默认 0 = 无限，按 Ctrl+C 结束）
   -o / --out    输出 pcap 文件
   --all         不过滤端口（全抓）
   --ports       自定义端口，如 7777,8040,8002
@@ -54,7 +57,7 @@ import threading
 import urllib.parse
 import urllib.request
 
-VERSION = "4.0"
+VERSION = "4.2"
 
 # ----------------------------------------------------------------------
 # 端口表  (port, proto, 说明)
@@ -68,7 +71,9 @@ PORTS = [
     (9030, "udp", "npd-auto 本地 IPC"),
     (8002, "tcp", "★ 通道服务器 VdiChannelServerPort（channel_register/match）"),
     (8003, "tcp", "注册服务器 RegisterServerPort"),
-    (9003, "tcp", "ConnectPort"),
+    (9003, "tcp", "ConnectPort（教师端主控制连接：命令/参数/截屏）"),
+    (9002, "tcp", "★ 学生↔教师 第二条TCP连接（约每30s一次 len=0/1，疑似心跳保活）"),
+    (10118, "tcp", "★ 教师↔学生 管理通道（高频双向，0914抓包新发现）"),
     (443,  "tcp", "DaasServerPort/HTTPS"),
     (80,   "tcp", "HomeWorkServerPort"),
     (8555, "tcp", "FileNodeManagerPort"),
@@ -355,13 +360,24 @@ def analyze_payload(dport, pay):
     return ""
 
 
-def _fmt_upload(ts, info, note):
+def _fmt_time(epoch=None):
+    """把时间戳格式化为本机日期时间 'YYYY-MM-DD HH:MM:SS.mmm'（毫秒精度）。
+
+    用于给每条抓到的包打上【本机抓包时刻】，便于与服务器接收时间互相校验。
+    """
+    if epoch is None:
+        epoch = time.time()
+    lt = time.localtime(epoch)
+    return time.strftime("%Y-%m-%d %H:%M:%S", lt) + ".%03d" % int((epoch - int(epoch)) * 1000)
+
+
+def _fmt_upload(ts, info, note, wall=None):
     proto = {6: "TCP", 17: "UDP"}.get(info["proto"], "?")
     pay = info["payload"]
     lines = [
         "-" * 60,
-        "[%.3f] %s %s:%s -> %s:%s len=%d" % (
-            ts, proto, info["src"], info["sport"], info["dst"], info["dport"], len(pay)),
+        "[%s | t=%.3f] %s %s:%s -> %s:%s len=%d" % (
+            _fmt_time(wall), ts, proto, info["src"], info["sport"], info["dst"], info["dport"], len(pay)),
         "HEX: " + pay.hex(),
     ]
     if note:
@@ -434,7 +450,7 @@ def capture_raw(duration, out_path, ports, all_mode):
             port_stat[k] = port_stat.get(k, 0) + 1
             # ★ 实时上传
             note = analyze_payload(dp, info["payload"]) or analyze_payload(sp, info["payload"])
-            enqueue_upload(_fmt_upload(ts - t0, info, note))
+            enqueue_upload(_fmt_upload(ts - t0, info, note, ts))
             if total % 500 == 0:
                 sys.stdout.write("\r已抓 %d 包，用时 %.0fs ..." % (total, ts - t0))
                 sys.stdout.flush()
@@ -501,13 +517,13 @@ def capture_listen(duration, out_path, ports):
                 cnt += 1
                 note = analyze_payload(port, data)
                 txt = data.decode("utf-8", "replace")
-                line = "[%8.3f] src=%s:%d bind=%d len=%d pay=%s\n" % (
-                    ts, addr[0], addr[1], port, len(data), txt.strip()[:300])
+                line = "[%s | t=%8.3f] src=%s:%d bind=%d len=%d pay=%s\n" % (
+                    _fmt_time(t0 + ts), ts, addr[0], addr[1], port, len(data), txt.strip()[:300])
                 logf.write(line); logf.flush()
                 sys.stdout.write(line)
                 # 上传
-                enqueue_upload("[%.3f] listen bind=%d from %s:%d len=%d\nHEX: %s\n%s\n" % (
-                    ts, port, addr[0], addr[1], len(data), data.hex(),
+                enqueue_upload("[%s | t=%.3f] listen bind=%d from %s:%d len=%d\nHEX: %s\n%s\n" % (
+                    _fmt_time(t0 + ts), ts, port, addr[0], addr[1], len(data), data.hex(),
                     ("解析: " + note) if note else ""))
     except KeyboardInterrupt:
         print("\n[!] 用户中断。")
