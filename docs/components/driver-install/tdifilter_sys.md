@@ -13,6 +13,7 @@
 |---|---|
 | 大小 | 28856 字节 |
 | MD5 | `71b41e97b9930253287348e96c2ce76d` |
+| SHA-256 | `a83a5c637aaeeafa47fddd5e799ecff0c6cce67297d85758214b8f981f8fd426` |
 | 格式 | PE32 内核驱动（`pei-i386`） |
 | 入口点 | `0x123be` |
 | 导入 | `ntoskrnl.exe`、`HAL.dll` |

@@ -12,6 +12,8 @@
 | 来源 | `DriverInstall.exe` NSIS 解包 → `$PLUGINSDIR/` |
 | 样本 | `System.dll`(11264) / `nsExec.dll`(6656) / `ExecCmd.dll`(4608) |
 | 类型 | NSIS 运行期插件（PE32 i386 DLL） |
+| MD5 | `System.dll`=`00a0194c20ee912257df53bfe258ee4a` / `nsExec.dll`=`e54eb27fb5048964e8d1ec7a1f72334b` / `ExecCmd.dll`=`b9380b0bea8854fd9f93cc1fda0dfeac` |
+| SHA-256 | `System.dll`=`dc4da2ccadb11099076926b02764b2b44ad8f97cd32337421a4cc21a3f5448f3` / `nsExec.dll`=`ff00f5f7b8d6ca6a79aebd08f9625a5579affcd09f3a25fdf728a7942527a824` / `ExecCmd.dll`=`1f4bd9c9376fe1b6913baeca7fb6df6467126f27c9c2fe038206567232a0e244` |
 
 ## 1. 清单
 

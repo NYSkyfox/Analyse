@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 79160 字节 |
 | MD5 | `6c7189415e830ef77fb091245e9ea45d` |
+| SHA-256 | `b3f3bce4a849231fe08b76b3a9bd97c2eb813031cc8ea4d059eb1941cdf636c4` |
 | 入口点 | `0x401acd` |
 | 导入 | `KERNEL32` |
 | PDB | `C:\Users\qiaoli\Documents\Visual Studio 2008\Projects\ManagerWhtProcPath\Release\ManagerWhtProcPath.pdb` |

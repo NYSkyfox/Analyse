@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 27960 字节 |
 | MD5 | `22025a6ec6222d2807b790612af4f0fb` |
+| SHA-256 | `3a203dd1ab2698248ec0e9cb4e348eee838717d6e7cc71dfc53d5727a9202d2e` |
 | 入口点 | `0x10021d0` |
 | 导入 | `ADVAPI32`、`KERNEL32`、`msvcrt`、`SHLWAPI`、`USER32` |
 

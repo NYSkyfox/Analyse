@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 135992 字节 |
 | MD5 | `45bc4696c2c08e79b4004b56631ebb7d` |
+| SHA-256 | `645a875cb2d9a2c5c5465d2e58905b9dccfb0be95f84f121a59e1dab9d7cd7c7` |
 | 入口点 | `0x4027e6` |
 | 导入 | `KERNEL32`、`SHLWAPI`、`ADVAPI32` |
 | PDB | `D:\win_drv\win_drv\trunk\new_drv\easyusb\Release\easyusbinstall.pdb` |

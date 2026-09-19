@@ -13,6 +13,7 @@
 |---|---|
 | 大小 | 96808 字节 |
 | MD5 | `98c833e944bd2927dc379a0fa69365ba` |
+| SHA-256 | `830dc33b40de975511ccd5d0bea1b5984e0af6c27ef97375473562937607be98` |
 | 入口点 | `0x100556e` |
 | 导入 | `ADVAPI32`、`KERNEL32`、`ole32`、`SETUPAPI`、`USER32`、`SHLWAPI` |
 | PDB | `z:\win_drv\new_drv\network\netconfig\objfre_win7_amd64\amd64\OenetlimitSetup.pdb` |

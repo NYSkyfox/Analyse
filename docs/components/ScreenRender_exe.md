@@ -12,6 +12,7 @@
 | 大小 | 450048 字节 |
 | 架构/类型 | PE32 i386 GUI（FFmpeg 解码 + SDL2 渲染） |
 | MD5 | `76cfa20119b247685827d9341132570a` |
+| SHA-256 | `f7f750908edf7a748b22b4d9dc054ff56859007acf5aca0f5354fbf4086d7729` | — |
 | 内嵌 PDB | `D:\dmt\master\10.9\Output\Release\ScreenRender.pdb`（V10.9） |
 
 ## 1. 定位与职责

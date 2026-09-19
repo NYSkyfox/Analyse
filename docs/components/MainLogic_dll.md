@@ -15,6 +15,7 @@
 |---|---|
 | 大小 | 1684480 字节 |
 | MD5 | `022b8f1be58b9c02a0d4f0022d038f0f` |
+| SHA-256 | `781bd0878cc5b16bd6084715f3295ebf3b14c825a851d6f0ca2554155e9e60cf` | — |
 | 格式 | PE32 DLL（`pei-i386`） |
 | ImageBase / 入口 | `0x10000000` / `0x1013602a` |
 | C++ 运行时 | MSVC14（`MSVCP140.dll` / `VCRUNTIME140.dll` / `api-ms-win-crt-*`） |

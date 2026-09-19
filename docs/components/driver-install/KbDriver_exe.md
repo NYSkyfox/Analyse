@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 28472 字节 |
 | MD5 | `5319baccf0636c9b413f2639f1c15926` |
+| SHA-256 | `d27f2b1805e3c28862732537d65a2c284c6e6f8a0dedb86af006d685c9e2132f` |
 | 入口点 | `0x10023c7` |
 | 导入 | `ADVAPI32`、`KERNEL32`、`msvcrt`、`SHLWAPI` |
 | PDB | `d:\win_drv\win_drv\trunk\new_drv\keyboard\kbdriver\kbdriver\objfre_wxp_x86\i386\KbDriver.pdb` |

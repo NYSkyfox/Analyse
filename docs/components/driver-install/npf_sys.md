@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 46264 字节 |
 | MD5 | `fc364f245f2e47efabd1d54b3b9fea97` |
+| SHA-256 | `cd2630e6ddbeecbce58291dea5b1dc6ff522b18e02c2c558a915a8fd6f116b2e` |
 | 格式 | PE32 内核驱动（`pei-i386`） |
 | 导入 | `ntoskrnl.exe`、`HAL.dll`、`NDIS.SYS` |
 | 随附 | `wpcapSetup.exe`（安装器）、`Packet.dll`/`wpcap.dll`（用户态，见 `x86/` 目录） |

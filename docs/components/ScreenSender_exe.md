@@ -11,6 +11,7 @@
 | 大小 | 544256 字节 |
 | 架构/类型 | PE32 i386 console（FFmpeg 编码 + UDP 推流） |
 | MD5 | `4ef62de8ec22eaf0720fc2151b2c5876` |
+| SHA-256 | `4f03ed7e4ed2574b4b853077d7653d110edd724fadf4b98bf550eb00805a5cd0` | — |
 
 ## 1. 定位与职责
 

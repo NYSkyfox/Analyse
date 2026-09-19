@@ -11,6 +11,7 @@
 |---|---|
 | 大小 | 970552 字节 |
 | MD5 | `d8a846c61bf72a3eba1775dec31ee35c` |
+| SHA-256 | `fe61ecf62c38205c1b9337c035fa58f46d2c879e2f42df1d2518437fca68c8af` |
 | 格式 | PE32 DLL（`pei-i386`） |
 | 导入 | `KERNEL32.dll` |
 

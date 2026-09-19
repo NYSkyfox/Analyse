@@ -14,6 +14,8 @@
 | 路径 | `samples/os-easy/OeNetLimit.inf` |
 | 大小 | 2617 字节 |
 | 类型 | 纯文本 INF（NDIS LWF 安装描述） |
+| MD5 | `e347f9adf68d9a340ed068f14392b04a` |
+| SHA-256 | `30c3ffe0c11d3a8ef634be6f15d30bf7de1fc24c4cc8f63f8b32260ef6505464` |
 | 配套 | `OeNetLimit.sys` / `oenetlimitx64.cat` / `OeNetLimitSetup.exe` |
 
 ## 1. 文件性质

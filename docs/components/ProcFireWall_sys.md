@@ -14,6 +14,7 @@
 | 大小 | 28696 字节 |
 | 架构/类型 | PE32+ x86-64 内核驱动（进程创建监控） |
 | MD5 | `3a391c59a4e1ed85603fd41a045fdeb9` |
+| SHA-256 | `5afdc39c27b4e6e460d104fc061a9ce04ba0cb353332c5a78f41a4690c89556b` | — |
 | 内嵌 PDB | `z:\win_drv\new_drv\procfirewall\procfirewall\objfre_win7_amd64\amd64\ProcFireWall.pdb` |
 
 ## 1. 定位

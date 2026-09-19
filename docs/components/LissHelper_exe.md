@@ -12,6 +12,7 @@
 | 大小 | 185856 字节 |
 | 架构/类型 | PE32 i386 console（LISS/TCloud SDK CLI） |
 | MD5 | `85cd3471e9919187970b74f687edd89e` |
+| SHA-256 | `f8e504298629d1edb4062b862f21375f3e864fc97a75ac08ee2df4b94cbb7df2` | — |
 | 内嵌 PDB | `D:\dmt\master\10.9\Output\Release\LissHelper.pdb`（V10.9） |
 
 ## 1. 定位与职责

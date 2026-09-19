@@ -13,6 +13,8 @@
 | 来源 | `DriverInstall.exe` NSIS 解包 → `$_12_/` |
 | 样本 | `netsf.inf`(3520) / `netsf_m.inf`(1712) |
 | 类型 | 纯文本 INF（NDIS 过滤描述） |
+| MD5 | `netsf.inf`=`cde6a519cdd46c3655685e5855bb4b7c` / `netsf_m.inf`=`2d2c7bb513ac15f9d008ecaae5bedf9f` |
+| SHA-256 | `netsf.inf`=`b6c9239ac610f5c9ca037f0fb3fc1a7cf197091abf64a1d230cdb2abfcbec2af` / `netsf_m.inf`=`54b36622af40b61849f56da7b09fc943d803f719eeb1414aebbeb96057aeb708` |
 
 ## 1. 内容（`netsf.inf` 实证）
 

@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 57344 字节 |
 | MD5 | `e389fda6788dbfed141c314772102364` |
+| SHA-256 | `c11c7abfce100d91f9b66232ca02ec5ead99aaf9a2f0ed12b35e3f60df1fd1e2` |
 | 入口点 | `0x40162f` |
 | 导入 | `ADVAPI32`、`KERNEL32` |
 | PDB | `d:\AMSvr\bin\client\Install.pdb` |

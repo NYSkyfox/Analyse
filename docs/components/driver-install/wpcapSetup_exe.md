@@ -12,6 +12,7 @@
 |---|---|
 | 大小 | 79672 字节 |
 | MD5 | `e7ff5de2ed74f4397f2cf05e4ee85304` |
+| SHA-256 | `fb1ab7809bf79187d9fa988865c229b75d0224c9f0b531b0b6b03b90b44685ab` |
 | 导入 | `SHLWAPI`、`USER32`、`ADVAPI32`、`KERNEL32` |
 
 ## 1. 角色

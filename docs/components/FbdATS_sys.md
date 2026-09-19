@@ -14,6 +14,7 @@
 | 大小 | 43032 字节 |
 | 架构/类型 | PE32+ x86-64 内核驱动（SFilter/FSFilter） |
 | MD5 | `0eefb419a79af5f6b7cffc13d02e2962` |
+| SHA-256 | `76a4a36a82d5dd5cffc0986e78050d34bea1e9382710520937e04d7329530af4` | — |
 | 内嵌 PDB | `z:\win_drv\new_drv\fbdats\objfre_win7_amd64\amd64\FbdATS.pdb` |
 
 ## 1. 定位

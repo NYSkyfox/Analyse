@@ -14,6 +14,7 @@
 | 大小 | 36376 字节 |
 | 架构/类型 | PE32+ x86-64 内核驱动（Kbdclass filter） |
 | MD5 | `3187675245b5e8e96dddc9df64e7a7e6` |
+| SHA-256 | `03896f68c0ac88f3920e5017abc90bd2a79af91d4523e21e8310d3b7d08ec15b` | — |
 | 内嵌 PDB | `E:\work\four\KbFilter\x64\Release\KbFilter.pdb` |
 
 ## 1. 定位
