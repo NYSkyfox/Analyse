@@ -7,13 +7,22 @@
 
 ---
 
-## 0. 文件性质
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/OeNetLimit.inf` |
+| 大小 | 2617 字节 |
+| 类型 | 纯文本 INF（NDIS LWF 安装描述） |
+| 配套 | `OeNetLimit.sys` / `oenetlimitx64.cat` / `OeNetLimitSetup.exe` |
+
+## 1. 文件性质
 
 Windows **INF 安装描述脚本**，供 `OeNetLimitSetup.exe`（或 NetCfg/SetupAPI）解析后完成"NDIS 轻量过滤器网络服务 + 内核驱动服务"的注册。**无执行逻辑**，仅声明"装什么、装到哪、建什么键"。
 
 ---
 
-## 1. 逐节解析
+## 2. 逐节解析
 
 ### `[version]`
 | 键 | 值 | 含义 |
@@ -86,7 +95,7 @@ HKR, FilterAdapterParams\AdapterParam, type,,      "int"
 
 ---
 
-## 2. 关键结论
+## 3. 关键结论
 
 1. **双重身份**：同一 `OeNetLimit.sys` 既以 **NDIS LWF**（`[Inst_Ndi]`）又以**内核驱动服务**（`[Install.Services]`）注册——这正是驱动内同时导入 `NDIS.SYS` 与 `fwpkclnt.sys` 的原因（见 `OeNetLimit_sys.md` §5 WFP、§2 安装形态）。
 2. **借壳**：`Provider=%Msft%`、`DriverVer=04/21/2009`、`ClassGUID` 用标准 NetService——沿用微软 WFP/NDIS 示例模板，仅把设备名/服务名替换为 `OeNetLimit`。
@@ -95,7 +104,7 @@ HKR, FilterAdapterParams\AdapterParam, type,,      "int"
 
 ---
 
-## 3. 与其它文件的关系
+## 4. 与其它文件的关系
 
 | 文件 | 关系 |
 |---|---|

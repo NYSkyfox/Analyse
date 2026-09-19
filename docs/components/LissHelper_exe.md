@@ -4,6 +4,16 @@
 > PDB：`D:\dmt\master\10.9\Output\Release\LissHelper.pdb`（V10.9 构建）
 > 反编译：Ghidra 12.1.3 headless，1092 函数，存档 `/root/ghidra/mmpc/lisshelper_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/LissHelper.exe` |
+| 大小 | 185856 字节 |
+| 架构/类型 | PE32 i386 console（LISS/TCloud SDK CLI） |
+| MD5 | `85cd3471e9919187970b74f687edd89e` |
+| 内嵌 PDB | `D:\dmt\master\10.9\Output\Release\LissHelper.pdb`（V10.9） |
+
 ## 1. 定位与职责
 
 **LISS（TCloud / 腾讯课堂云平台）SDK 的命令行前端**。本身无业务逻辑，是一个**一次性 console 进程**：接收一段 **JSON 命令行**（`type` + 参数），**动态加载 `LISSClientSDK.dll`** 并调用对应 `LISS_SDK_*` 函数，把 `success`/`failed` 结果写回后退出。

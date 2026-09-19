@@ -3,6 +3,15 @@
 > 样本：`samples/os-easy/StudentLogic.dll`（2887680 字节，PE32 i386 DLL，学生端最大 DLL）
 > 反编译：Ghidra 12.1.3 headless，13160 函数 / 544017 行，存档 `/root/ghidra/mmpc/studentlogic_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/StudentLogic.dll` |
+| 大小 | 2887680 字节（学生端最大 DLL） |
+| 架构/类型 | PE32 i386 DLL（学生端逻辑核心库） |
+| MD5 | `0b79c3f65fff8c74ca74776fc730af76` |
+
 ## 1. 定位与职责
 
 **学生端（Student.exe）的逻辑核心库**，与教师端 `MainLogic.dll` 对称但职责更重：除教学交互外，**独占了屏幕捕获/编码/推流**（教师端由 MultiRender 等独立进程做，学生端把这条链做进了 DLL）。

@@ -3,6 +3,15 @@
 > 样本：`samples/os-easy/ScreenSender.exe`（544256 字节，PE32 i386 **console**）
 > 反编译：Ghidra 12.1.3 headless，4216 函数，存档 `/root/ghidra/mmpc/screensender_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/ScreenSender.exe` |
+| 大小 | 544256 字节 |
+| 架构/类型 | PE32 i386 console（FFmpeg 编码 + UDP 推流） |
+| MD5 | `4ef62de8ec22eaf0720fc2151b2c5876` |
+
 ## 1. 定位与职责
 
 **学生端屏幕"上行"推流器**：把本机屏幕（或摄像头/外部源）编码后经 **UDP**（可选 TCP）推给教师端，用于教师端**远程监视（看学生屏幕）**与屏幕广播采集。由 `StudentLogic.dll`/`Student.exe` 按需拉起，命令行由 `StudentLogic` 的 `FUN_10088ca0` 构造：

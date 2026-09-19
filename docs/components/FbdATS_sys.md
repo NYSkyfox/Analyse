@@ -6,6 +6,16 @@
 > 内嵌 PDB：`z:\win_drv\new_drv\fbdats\objfre_win7_amd64\amd64\FbdATS.pdb`
 > 另有**同源 x86 架构**样本 `samples/di_flat/FbdATS.sys`（=`samples/driverinstall/$_12_/FbdATS.sys`，驱动安装程序 `DriverInstall.exe` NSIS 解包出的内置副本，38936 字节，MD5 `8094dc20609d439e21d50bda45871430`；PDB 为同一源码树的 `…objfre_win7_x86\i386\…`），独立分析见 `driver-install/FbdATS_sys.md`。二者**同源码同版本，仅目标架构不同**。
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/FbdATS.sys` |
+| 大小 | 43032 字节 |
+| 架构/类型 | PE32+ x86-64 内核驱动（SFilter/FSFilter） |
+| MD5 | `0eefb419a79af5f6b7cffc13d02e2962` |
+| 内嵌 PDB | `z:\win_drv\new_drv\fbdats\objfre_win7_amd64\amd64\FbdATS.pdb` |
+
 ## 1. 定位
 
 **文件系统过滤驱动（FSFilter / SFilter 框架）**，对**磁盘卷/光驱/虚拟盘**做挂载级过滤，按"进程白名单位图"决定放行或 `STATUS_ACCESS_DENIED`。名称中的 **ATS = Assets**（资产）——针对教学/考试**素材文件**（课件、试卷、答案资源）做访问管控。

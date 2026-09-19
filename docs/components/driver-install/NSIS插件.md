@@ -5,7 +5,15 @@
 
 ---
 
-## 0. 清单
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 来源 | `DriverInstall.exe` NSIS 解包 → `$PLUGINSDIR/` |
+| 样本 | `System.dll`(11264) / `nsExec.dll`(6656) / `ExecCmd.dll`(4608) |
+| 类型 | NSIS 运行期插件（PE32 i386 DLL） |
+
+## 1. 清单
 
 | 文件 | 大小 | MD5 | 类型 | 作用 |
 |---|---|---|---|---|
@@ -16,14 +24,14 @@
 - 三者都是 **`DriverInstall.exe`（NSIS 安装器）运行期解压到 `$PLUGINSDIR` 的插件**，用于支撑 NSIS 脚本逻辑。
 - `System.dll` 依赖 `KERNEL32/USER32/ole32`；`nsExec/ExecCmd` 依赖 `KERNEL32/USER32(/ADVAPI32)`。
 
-## 1. 与安装流程的关系
+## 2. 与安装流程的关系
 
 `DriverInstall.nsi` 通过它们在安装时执行诸如：
 - 调用各驱动的安装器（`InstallFbdATS.exe`、`easyusbinstall.exe`、`LoadDriver.exe`、`OeNetLimitSetup.exe` 等，带 `/install` 参数）；
 - 写注册表/文件、判断条件（`System.dll`）；
 - 静默执行不弹窗（`nsExec.dll`）。
 
-## 2. 备注
+## 3. 备注
 
 - 均为**通用 NSIS 组件**，非 Os-Easy 自研逻辑，仅作为解释"安装器如何执行子安装器"的依据。
 

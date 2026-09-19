@@ -3,6 +3,15 @@
 > 样本：`samples/os-easy/Student.exe`（2161152 字节，PE32 i386 GUI）
 > 反编译：Ghidra 12.1.3 headless，12090 函数，存档 `/root/ghidra/mmpc/studentexe_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/Student.exe` |
+| 大小 | 2161152 字节 |
+| 架构/类型 | PE32 i386 GUI（学生端主程序 / UI 宿主） |
+| MD5 | `326a77edb4b5d03eaeeb7dafa2d9e08e` |
+
 ## 1. 定位与职责
 
 **学生端主程序 = UI 宿主薄壳**（与教师端 Teacher.exe 完全对称的角色）。本身几乎不含业务逻辑，职责：

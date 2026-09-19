@@ -6,6 +6,16 @@
 > 内嵌 PDB：`z:\win_drv\new_drv\procfirewall\procfirewall\objfre_win7_amd64\amd64\ProcFireWall.pdb`
 > 另有**同源 x86 架构**样本 `samples/di_flat/ProcFireWall.sys`（=`samples/driverinstall/$_12_/ProcFireWall.sys`，驱动安装程序解包出的内置副本，同样 28696 字节，MD5 `0699ff48828afe868931a5413a1d7bad`；PDB 为同一源码树的 `…objfre_win7_x86\i386\…`），独立分析见 `driver-install/ProcFireWall_sys.md`。二者**同源码同版本，仅目标架构不同**（尺寸相同但架构不同，故 MD5 必然不同）。
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/ProcFireWall.sys` |
+| 大小 | 28696 字节 |
+| 架构/类型 | PE32+ x86-64 内核驱动（进程创建监控） |
+| MD5 | `3a391c59a4e1ed85603fd41a045fdeb9` |
+| 内嵌 PDB | `z:\win_drv\new_drv\procfirewall\procfirewall\objfre_win7_amd64\amd64\ProcFireWall.pdb` |
+
 ## 1. 定位
 
 **进程创建监控驱动**：用 `PsSetCreateProcessNotifyRoutine` 订阅进程创建事件，把**新进程 PID 排队**，并通过**用户态注册的两个事件对象**通知用户态（DeviceControl），由用户态读取 PID 后决定放行/处理。它是"进程防火墙"的内核**感知**层（决策在用户态）。

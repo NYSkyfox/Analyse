@@ -6,6 +6,16 @@
 > 内嵌 PDB：`E:\work\four\KbFilter\x64\Release\KbFilter.pdb`
 > 另有**同源 x86 架构**样本 `samples/di_flat/KbFilter.sys`（=`samples/driverinstall/$_12_/KbFilter.sys`，驱动安装程序解包出的内置副本，33816 字节，MD5 `7c42b6343b7e400d074298382bd6485d`；PDB 为同一源码树的 `E:\work\four\KbFilter\Release\KbFilter.pdb`），独立分析见 `driver-install/KbFilter_sys.md`。二者**同源码同版本，仅目标架构不同**。
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/KbFilter.sys` |
+| 大小 | 36376 字节 |
+| 架构/类型 | PE32+ x86-64 内核驱动（Kbdclass filter） |
+| MD5 | `3187675245b5e8e96dddc9df64e7a7e6` |
+| 内嵌 PDB | `E:\work\four\KbFilter\x64\Release\KbFilter.pdb` |
+
 ## 1. 定位
 
 **键盘（KBD 类）过滤驱动**：以 filter driver 挂到键盘类设备栈上，在内核态**逐扫描码改写/拦截按键 IRP**，实现"键盘锁/键位屏蔽/组合键拦截"。与用户态 `LockKeyboard.dll`（MultiClient 侧）互补——本驱动是真正的内核落点，能拦用户态钩子拦不到的按键。

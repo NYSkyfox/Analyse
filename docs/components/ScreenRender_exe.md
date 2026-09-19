@@ -4,6 +4,16 @@
 > PDB：`D:\dmt\master\10.9\Output\Release\ScreenRender.pdb`（V10.9 构建）
 > 反编译：Ghidra 12.1.3 headless，3016 函数，存档 `/root/ghidra/mmpc/screenrender_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/ScreenRender.exe` |
+| 大小 | 450048 字节 |
+| 架构/类型 | PE32 i386 GUI（FFmpeg 解码 + SDL2 渲染） |
+| MD5 | `76cfa20119b247685827d9341132570a` |
+| 内嵌 PDB | `D:\dmt\master\10.9\Output\Release\ScreenRender.pdb`（V10.9） |
+
 ## 1. 定位与职责
 
 **屏幕"下行"接收渲染器**：接收教师端（或级联节点）推来的屏幕码流，**FFmpeg 解码 → SDL2 全屏渲染**，用于：

@@ -3,6 +3,15 @@
 > 样本：`samples/os-easy/Teacher.exe`（3732480 字节，PE32 i386 GUI，教师端最大 PE）
 > 反编译：Ghidra 12.1.3 headless，20530 函数，存档 `/root/ghidra/mmpc/teachexe_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/Teacher.exe` |
+| 大小 | 3732480 字节（教师端最大 PE） |
+| 架构/类型 | PE32 i386 GUI（教师端主程序 / UI 宿主） |
+| MD5 | `7b999b972ea50b540c44800be1e4e465` |
+
 ## 1. 定位与职责
 
 **教师端主程序 = UI 宿主薄壳**。它本身几乎不含业务逻辑，职责是：

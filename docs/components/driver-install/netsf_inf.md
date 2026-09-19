@@ -6,7 +6,15 @@
 
 ---
 
-## 0. 内容（`netsf.inf` 实证）
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 来源 | `DriverInstall.exe` NSIS 解包 → `$_12_/` |
+| 样本 | `netsf.inf`(3520) / `netsf_m.inf`(1712) |
+| 类型 | 纯文本 INF（NDIS 过滤描述） |
+
+## 1. 内容（`netsf.inf` 实证）
 
 ```ini
 [Version]
@@ -40,7 +48,7 @@ StartType   = 3   ; SERVICE_DEMAND_START
 - 与 `OeNetLimit.inf`（同为 NetService，ClassGUID 相同）互为配套/变体；`OeNetLimitSetup.exe` 会把这两个 INF 拷到 `%Windir%\inf\` 并调用 `SetupCopyOEMInfW` 完成驱动库注册。
 - `CatalogFile.nt = oenetlimit.cat` 对应安装包内的 `oenetlimitx86.cat` / `oenetlimitx64.cat`。
 
-## 1. 作用
+## 2. 作用
 
 - 让 OeNetLimit 同时具备 **NDIS 过滤** 形态（配合其内建的 **WFP callout** 一起实现网络限制）。
 - 与 `OeNetLimit.inf` 内容一致（`Class=NetService`、`Ndi.Service="OeNetLimit"`、`FilterMediaTypes="ethernet"`），二者同为该驱动的 **NDIS 过滤**安装 INF。

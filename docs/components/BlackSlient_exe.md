@@ -3,6 +3,15 @@
 > 样本：`samples/os-easy/BlackSlient.exe`（881152 字节，PE32 i386 GUI，注意官方拼写 "Slient"）
 > 反编译：Ghidra 12.1.3 headless，1864 函数 / 143461 行，存档 `/root/ghidra/mmpc/blackslient_x86.txt`
 
+## 0. 样本信息
+
+| 项 | 值 |
+|---|---|
+| 路径 | `samples/os-easy/BlackSlient.exe` |
+| 大小 | 881152 字节 |
+| 架构/类型 | PE32 i386 GUI（DuiLib 静态链接） |
+| MD5 | `d18d52c7e3f84c1ee200b3de6c27f3f2` |
+
 ## 1. 定位与职责
 
 **学生端"黑屏"覆盖显示进程**。教师端 `MainLogic.dll` 导出 `BlackSilent` / `StopBlackScreen`（见 MainLogic_dll.md），经 WebSocket 广播 → 学生端 `MultiClient.exe` → 由学生端主程序/DeviceControl **启动或结束本进程**：进程运行 = 全屏黑屏（可选肃静提示），进程被杀 = 解除。
