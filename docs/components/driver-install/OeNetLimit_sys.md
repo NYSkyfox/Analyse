@@ -3,7 +3,7 @@
 > 来源：`DriverInstall.exe` NSIS 解包 → `$_12_/OeNetLimit.sys`
 > 样本：`samples/di_flat/OeNetLimit.sys`（42520 字节，x86 内核驱动）
 > 反编译存档：`/root/ghidra/mmpc/di/di_OeNetLimit.sys.txt`（83 函数）
-> **完整逆向见**：`../OeNetLimit_sys.md`（`os-easy/` 根目录样本，x64；二者逻辑一致）
+> **完整逆向见**：`../OeNetLimit/OeNetLimit_sys.md`（`os-easy/` 根目录样本，x64；二者逻辑一致）
 
 ---
 
@@ -45,4 +45,4 @@
 
 ---
 
-*本文为安装包内 x86 版 OeNetLimit.sys 的定位与差异说明；功能细节请见 `../OeNetLimit_sys.md`。*
+*本文为安装包内 x86 版 OeNetLimit.sys 的定位与差异说明；功能细节请见 `../OeNetLimit/OeNetLimit_sys.md`。*

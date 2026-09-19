@@ -3,7 +3,7 @@
 > 来源：`DriverInstall.exe` NSIS 解包 → `$_12_/OeNetLimitSetup.exe`（亦作用于 `OeNetLimit.inf`/`oenetlimit*.cat`）
 > 样本：96808 字节，PE32 控制台程序（`pei-i386`）
 > 反编译存档：`/root/ghidra/mmpc/di/di_OeNetLimitSetup.exe.txt`（299 函数）；关键函数存档 `/root/ghidra/mmpc/setup_funcs.txt`
-> 关联：`../OeNetLimit_sys.md`（驱动本体）、`../DeviceControl_exe.md`（上层调用方）
+> 关联：`../OeNetLimit/OeNetLimit_sys.md`（驱动本体）、`../DeviceControl_exe.md`（上层调用方）
 
 ---
 

@@ -1,25 +1,26 @@
-# NetLimitInterface.dll 组件深度逆向
+# NetLimitInterface.dll（x86）组件深度逆向
 
-> 样本：`samples/os-easy/x86/NetLimitInterface.dll`（145408 字节）、`samples/os-easy/x64/NetLimitInterface.dll`（172544 字节）
+> 样本：`samples/os-easy/x86/NetLimitInterface.dll`（145408 字节，PE32 DLL，`pei-i386`）
+> 同源 x64：`samples/os-easy/x64/NetLimitInterface.dll`（见 `../x64/NetLimitInterface_dll.md`）
 > 工具：Ghidra 12.1.3 headless（docker `ghidra`）+ objdump + strings
 > 工程：`/projects/netlimitiface`（x86）
 > 反编译存档：`/root/ghidra/mmpc/nliface_x86.txt`（873 函数）
-> 关联：`OeNetlimit_dll.md`（下一层，真正调驱动）、`OeNetLimit_sys.md`（内核）、`DeviceControl_exe.md`（上层）
-> 分析日期：2026-09-18
+> 关联：`OeNetlimit_dll.md`（下一层，真正调驱动）、`../OeNetLimit_sys.md`（内核）、`../../DeviceControl_exe.md`（上层）
+> 分析日期：2026-09-18（重组 2026-09-19）
 
 ---
 
 ## 0. 文件指纹
 
-| 项 | x86 | x64 |
-|---|---|---|
-| 大小 | 145408 字节 | 172544 字节 |
-| MD5 | `95e68d1b7d0a30db0c918d4d0bb666b0` | `b843822afe478b94a221e42db9092cfa` |
-| SHA-256 | `10a3ec82a4cd2ccb553e6413f9a80c532fecaa4570d7e21ff5517e774641d343` | `2544ab07f527ef658f99958420fde66a44f889af31a9d2e9afa4f5faa0565708` |
-| 格式 | PE32 DLL（`pei-i386`） | PE32+ DLL（`pei-x86-64`） |
-| ImageBase | `0x10000000` | `0x180000000` |
-| 入口点 | `0x10006ab4` | `0x180007ecc` |
-| PDB | `e:\ctsc_6\trunk\limit_driver_interface\bin\NetLimitInterface.pdb` | 同源 |
+| 项 | 值 |
+|---|---|
+| 大小 | 145408 字节 |
+| MD5 | `95e68d1b7d0a30db0c918d4d0bb666b0` |
+| SHA-256 | `10a3ec82a4cd2ccb553e6413f9a80c532fecaa4570d7e21ff5517e774641d343` |
+| 格式 | PE32 DLL（`pei-i386`） |
+| ImageBase | `0x10000000` |
+| 入口点 | `0x10006ab4` |
+| PDB | `e:\ctsc_6\trunk\limit_driver_interface\bin\NetLimitInterface.pdb` |
 
 **导入**：
 - `systemoper.dll`：`SYS_GetModuleFileDir`（取本模块所在目录，拼出 OeNetlimit.dll 全路径）
@@ -143,4 +144,4 @@ NetLimitInterface 是 **DeviceControl 与驱动之间唯一的"网络规则"桥�
 
 ---
 
-*本文覆盖：NetLimitInterface.dll 指纹与 6 导出、对 OeNetlimit.dll 的延迟加载、GetNetSpeed/SetNetSpeed/SetWhiteRule 的字段级转发逻辑、NET_SPEED 与 NET_LIMIT_INFO 结构、网络封锁模式（全断/断外网/放开 + serverIp）、日志、与 DeviceControl/OeNetlimit/OeNetLimit.sys 的关系、函数索引。*
+*本文覆盖：NetLimitInterface.dll（x86）指纹与 6 导出、对 OeNetlimit.dll 的延迟加载、GetNetSpeed/SetNetSpeed/SetWhiteRule 的字段级转发逻辑、NET_SPEED 与 NET_LIMIT_INFO 结构、网络封锁模式（全断/断外网/放开 + serverIp）、日志、与 DeviceControl/OeNetlimit/OeNetLimit.sys 的关系、函数索引。*

@@ -1,49 +1,50 @@
-# OeNetLimit.sys 组件深度逆向（附 NetLimitInterface.dll / OeNetlimit.dll 家族）
+# OeNetLimit.sys 组件深度逆向（NDIS LWF + WFP 网络管控驱动）
 
-> 样本：
-> - `samples/os-easy/OeNetLimit.sys`（44568 字节，x64 驱动，MD5 `ca2dab65bdd5956b5d3d8f29d155f3be`）
-> - **同源 x86 架构**样本 `samples/di_flat/OeNetLimit.sys`（42520 字节，MD5 `10668397e1ca3b56e77bbc53aef742a6`，PDB `…objfre_win7_x86\i386\…`），独立分析见 `driver-install/OeNetLimit_sys.md`
-> - `samples/os-easy/OeNetLimitSetup.exe`（98344）、`OeNetLimit.inf`、`oenetlimitx64.cat`
-> - `samples/os-easy/x64| x86 / OeNetlimit.dll`（488592 / 372368）
-> - `samples/os-easy/x64| x86 / NetLimitInterface.dll`（172544 / 145408）
+> 样本：`samples/os-easy/OeNetLimit.sys`（44568 字节，x64 驱动，MD5 `ca2dab65bdd5956b5d3d8f29d155f3be`）
 > 工具：Ghidra 12.1.3 headless（docker `ghidra`）+ objdump + strings
 > 工程：`/projects/oenetlimit-analysis`（OeNetLimit.sys，52 函数）
-> 反编译存档：`/root/ghidra/mmpc/oenetlimit_all.txt`
-> 分析日期：2026-09-18
+> 反编译存档：`/root/ghidra/mmpc/oenetlimit_all.txt`（同 `OeNetLimit_run_x64.txt`）
+> 家族报告：`x86/OeNetlimit_dll.md`、`x86/NetLimitInterface_dll.md`（用户态库）、`OeNetLimit_inf.md`、`OeNetLimitSetup_exe.md`
+> 同源 x86 架构驱动见 `driver-install/OeNetLimit_sys.md`（安装程序内置副本，42520B，PDB `…objfre_win7_x86\i386\…`）
+> 分析日期：2026-09-18（重组 2026-09-19）
 
 ---
 
 ## 0. 文件指纹
 
-| 文件 | 大小 | MD5 | SHA-256 |
-|---|---|---|---|
-| `OeNetLimit.sys` | 44568 | `ca2dab65bdd5956b5d3d8f29d155f3be` | `25b75af685377d79f7b809964d5022273022cbc57d14cbbc774aaabcfb0d6046` |
-| `OeNetLimitSetup.exe` | 98344 | `e6cf914bf13d5c72fc007ba57e4979bf` | — |
-| `x86/OeNetlimit.dll` | 372368 | `0914ffa0abac65e1aecad7e10c5d0d9f` | — |
-| `x86/NetLimitInterface.dll` | 145408 | `95e68d1b7d0a30db0c918d4d0bb666b0` | — |
+| 项 | 值 |
+|---|---|
+| 大小 | 44568 字节 |
+| MD5 | `ca2dab65bdd5956b5d3d8f29d155f3be` |
+| SHA-256 | `25b75af685377d79f7b809964d5022273022cbc57d14cbbc774aaabcfb0d6046` |
+| 格式 | PE32+ 内核驱动（`pei-x86-64`） |
+| ImageBase / 入口 | `0x10000` / `0x28064` |
+| 导入 | `ntoskrnl`、`HAL`、**`NDIS.SYS`**、**`fwpkclnt.sys`** |
+| PDB | `z:\win_drv\new_drv\network\wfpsample\objfre_win7_amd64\amd64\OeNetLimit.pdb` |
 
-**OeNetLimit.sys**：PE32+ 内核驱动，ImageBase `0x10000`，入口 `0x28064`；导入 `ntoskrnl`、`HAL`、**`NDIS.SYS`**、**`fwpkclnt.sys`**。内嵌 PDB：`z:\win_drv\new_drv\network\wfpsample\objfre_win7_amd64\amd64\OeNetLimit.pdb`（源码树目录名即 wfpsample，印证源自微软 WFP 示例工程）。
+> 内嵌 PDB 的源码树目录名为 **`wfpsample`**（微软 Windows Filtering Platform "inspect" 示例工程），印证本驱动由 WFP 示例工程改造而来。
 
 ---
 
 ## 1. 角色概述
 
-`OeNetLimit.sys` 是 Os-Easy 的**网络管控驱动（NDIS 轻量过滤 + WFP 过滤）**，对进程做**基于白名单的网络放行/阻断与限速**：
+`OeNetLimit.sys` 是 Os-Easy 的**网络管控驱动（NDIS 轻量过滤器 + WFP 过滤）**，对进程做**基于白名单的网络放行/阻断与限速**：
 
 - 注册 **WFP callout/filter**（Inbound/Outbound IPv4 + ALE 资源分配/释放）；
 - 用 **PsSetCreateProcessNotifyRoutine** 监控进程创建，记录进程名/PID/父 PID；
 - 从 `\SystemRoot\WhiteProcessPath.txt` 载入**白名单**（另含 4 个内置默认）；
 - 暴露设备 `\\.\OeNetLimit`，接受上层 `SpeedControl` 配置（开关/限速）。
 
+用户态封装见同级 `x86/OeNetlimit_dll.md`（14 个网络限制 API + CArpMgr）、`x86/NetLimitInterface_dll.md`（C++ 适配层）。
+
 ---
 
-## 2. 安装形态（`OeNetLimit.inf`）
+## 2. 安装形态
 
-- `Class = NetService`，`ClassGUID = {4D36E974-E325-11CE-BFC1-08002BE10318}`，`Characteristics = 0x40008`；
-- NDI：`Service="OeNetLimit"`、`FilterClass="compression"`、`FilterType=0x2`、`FilterMediaTypes="ethernet"`、`FilterRunType=1` → **作为 NDIS 轻量过滤器（LWF）网络服务安装**；
-- 服务：`ServiceType=1(SERVICE_KERNEL_DRIVER)`、`StartType=1`、`ErrorControl=1`、`ServiceBinary=%12%\OeNetLimit.sys`、`LoadOrderGroup=NDIS`；
-- 目录：`CatalogFile` = `OeNetLimitX86.cat` / `OeNetLimitX64.cat`（`oenetlimitx64.cat` 随包）。
-- 安装由 `OeNetLimitSetup.exe`（NetCfg 安装器，`InstallEx`/`txfw` 逻辑）完成。
+- 以 **NDIS 轻量过滤器（LWF）网络服务** 形态安装（`Class=NetService`、`FilterClass=compression`、`FilterRunType=1`、`LoadOrderGroup=NDIS`）；
+- 同时注册为 `SERVICE_KERNEL_DRIVER`、`StartType=1`，`ServiceBinary=%12%\OeNetLimit.sys`；
+- 目录签名 `OeNetLimitX86.cat` / `OeNetLimitX64.cat`（随包 `oenetlimitx64.cat`）；
+- INF 逐行解析与 NDI 参数见 `OeNetLimit_inf.md`；安装/建服务流程见 `OeNetLimitSetup_exe.md`。
 
 ---
 
@@ -94,6 +95,8 @@ PsSetCreateProcessNotifyRoutine(FUN_00011730, 0)         // 进程创建监控
   - `+0x40`：`disableInternet`
   - 当二者非空时清空某个 0x324 字节的列表（`FUN_00014020(&DAT_00026720,0,0x324)`）
   - 日志：`OE_NET IOCTL_SET_SpeedControl disableInternet:%d disableNet:%d isDownLimit:%d`
+
+> **本驱动 IRP 分发只认 `0x122044`/`0x122048` 两条 SpeedControl**；用户态 `OeNetlimit.dll` 里出现的 `0x122004~0x122030` 在当前配套驱动下走默认分支返回 `0xC0000001`（见 `x86/OeNetlimit_dll.md` §11）。
 
 ---
 
@@ -162,17 +165,18 @@ FUN_00013794(buffer, 白名单数组)   // 解析为白名单
 
 ---
 
-## 7. 家族调用链
+## 7. 家族调用链（概要）
 
 ```
 DeviceControl.exe
-  └─ NetLimitInterface.dll（导出 CNetLimitInstance / SetWhiteRule / NET_LIMIT_INFO）
-        └─ 依赖 systemoper.dll；引用 OeNetlimit.dll       // 用户态封装
-              └─ OeNetlimit.dll（x86/x64，导入 WS2_32/SensApi/USER32/ADVAPI32）
-                    └─ 打开 \\.\OeNetLimit，发送 IOCTL 0x122048/0x122044（SpeedControl 0xF534）
-                          └─ OeNetLimit.sys（本驱动：WFP 过滤 + 进程白名单）
+  └─ NetLimitInterface.dll   →  x86/NetLimitInterface_dll.md
+        └─ OeNetlimit.dll    →  x86/OeNetlimit_dll.md
+              └─ 打开 \\.\OeNetLimit，发送 IOCTL 0x122048/0x122044（SpeedControl 0xF534）
+                    └─ OeNetLimit.sys（本驱动：WFP/NDIS 过滤 + 进程白名单）
 安装：OeNetLimitSetup.exe + OeNetLimit.inf（NetService）→ 注册 NDIS 过滤服务 + 启动驱动
 ```
+
+> 各层细节拆到同级对应报告，本文只聚焦驱动本体。
 
 ---
 
@@ -222,10 +226,9 @@ DeviceControl.exe
 ## 10. 未决项
 
 1. **WFP ALE 分类回调的实现**（放行/阻断判定、限速如何作用于包）需进一步反编译 `FUN_00012be8/…14xxx` 系列分类函数并结合 `SpeedControl` 字段。
-2. `NET_LIMIT_INFO`(0x3350) 与 `SpeedControl`(0xF534) 的字段全貌：前者是 DeviceControl↔NetLimitInterface 的用户态结构，后者是驱动侧结构，需逐字段对照 `NetLimitInterface.dll`/`OeNetlimit.dll`。
-3. `NetLimitInterface.dll`→`OeNetlimit.dll`→驱动 的精确调用（哪个模块、哪种 IOCTL）需继续逆向 `OeNetlimit.dll`（x86/x64 各 0.37–0.49MB）。
-4. OeNetLimit.sys 同时以 NDIS LWF 与 WFP 形态生效，二者分工（限速 vs 阻断）待运行态验证。
+2. `SpeedControl`(0xF534) 与用户态 `NET_LIMIT_INFO`(0x3350) 的字段全貌需逐字段对照 `x86/OeNetlimit_dll.md` / `x86/NetLimitInterface_dll.md`。
+3. OeNetLimit.sys 同时以 **NDIS LWF** 与 **WFP** 形态生效，二者分工（限速 vs 阻断）待运行态验证。
 
 ---
 
-*本文覆盖：OeNetLimit.sys 文件指纹与安装形态（NetService/NDIS LWF + WFP）、DriverEntry（设备/IRP/WFP/进程监控/白名单）、IOCTL 0x122044/0x122048 与 0xF534 SpeedControl、WFP callout/sub-layer/filter 全清单、进程创建监控与 WhiteProcessPath.txt 白名单（含内置 4 项）、家族调用链（DeviceControl→NetLimitInterface→OeNetlimit→驱动）、函数与常量索引。*
+*本文覆盖：OeNetLimit.sys 文件指纹与安装形态、DriverEntry（设备/IRP/WFP/进程监控/白名单）、IOCTL 0x122044/0x122048 与 0xF534 SpeedControl、WFP callout/sub-layer/filter 全清单、进程创建监控与 WhiteProcessPath.txt 白名单（含内置 4 项）、家族调用链概要、函数与常量索引。*

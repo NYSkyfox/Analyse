@@ -1,25 +1,26 @@
-# OeNetlimit.dll 组件深度逆向
+# OeNetlimit.dll（x86）组件深度逆向
 
-> 样本：`samples/os-easy/x86/OeNetlimit.dll`（372368 字节）、`samples/os-easy/x64/OeNetlimit.dll`（488592 字节）
+> 样本：`samples/os-easy/x86/OeNetlimit.dll`（372368 字节，PE32 DLL，`pei-i386`）
+> 同源 x64：`samples/os-easy/x64/OeNetlimit.dll`（见 `../x64/OeNetlimit_dll.md`）
 > 工具：Ghidra 12.1.3 headless（docker `ghidra`）+ objdump + strings
 > 工程：`/projects/oenetlimitdll`（x86）
 > 反编译存档：`/root/ghidra/mmpc/oenetlimitdll_x86.txt`（1996 函数）
-> 关联：`OeNetLimit_sys.md`（内核驱动）、`DeviceControl_exe.md`（上层）、`../components/driver-install/OeNetLimitSetup_exe.md`（驱动安装器）
-> 分析日期：2026-09-18
+> 关联：`../OeNetLimit_sys.md`（内核驱动）、`../../DeviceControl_exe.md`（上层）、`../OeNetLimitSetup_exe.md`（驱动安装器）
+> 分析日期：2026-09-18（重组 2026-09-19）
 
 ---
 
 ## 0. 文件指纹
 
-| 项 | x86 | x64 |
-|---|---|---|
-| 大小 | 372368 字节 | 488592 字节 |
-| MD5 | `0914ffa0abac65e1aecad7e10c5d0d9f` | `fffd08262983178aab7a4f7277baf679` |
-| SHA-256 | `fce4ba6a0a233ff737ec879367d11d53f3bc273d0ac496e9ecf8cf40c6c26f1c` | `39366c3ea5afa8108001c7bde40b5613ebb9c49ab01b402d69fc17edb99dd853` |
-| 格式 | PE32 DLL（`pei-i386`） | PE32+ DLL（`pei-x86-64`） |
-| ImageBase | `0x10000000` | `0x180000000` |
-| 入口点 | `0x10011206` | `0x18001666c` |
-| PDB | `d:\win_drv\new_drv\network\UpdateNetworkdriver\OeNetLimit_Dll_Sys\WonArpDllProject\WonArpDll\WonArpDll\bin\OeNetLimit.pdb` | 同源 |
+| 项 | 值 |
+|---|---|
+| 大小 | 372368 字节 |
+| MD5 | `0914ffa0abac65e1aecad7e10c5d0d9f` |
+| SHA-256 | `fce4ba6a0a233ff737ec879367d11d53f3bc273d0ac496e9ecf8cf40c6c26f1c` |
+| 格式 | PE32 DLL（`pei-i386`） |
+| ImageBase | `0x10000000` |
+| 入口点 | `0x10011206` |
+| PDB | `d:\win_drv\new_drv\network\UpdateNetworkdriver\OeNetLimit_Dll_Sys\WonArpDllProject\WonArpDll\WonArpDll\bin\OeNetLimit.pdb` |
 
 **导入**：
 - `SETUPAPI`：`SetupCopyOEMInfW`、`SetupOpenInfFileW`、`SetupFindFirstLineW`、`SetupGetStringFieldW`、`SetupCloseInfFile`、`SetupDiGetClassDevsA`、`SetupDiEnumDeviceInfo`、`SetupDiGetDeviceRegistryPropertyA`、`SetupDiGetDeviceInstanceIdW`、`SetupDiDestroyDeviceInfoList`
@@ -77,7 +78,7 @@ DeviceIoControl(hDev, 0x122048, in, 0xF534, NULL, 0, &ret, NULL);
 | `0x122010` | in `0x18` | 特定子项设置 |
 | `0x12201C` / `0x122024` / `0x122028` / `0x122030` | — | 无参操作（开/关类） |
 
-> 与 `OeNetLimit.sys`（`OeNetLimit_sys.md`）对应：驱动侧 `IRP_MJ_DEVICE_CONTROL` 明确处理 `0x122044`/`0x122048`（结构 `0xF534`）；DLL 使用的其余 `0x12200x~0x122030` 属附加操作码（不同驱动版本/伴随通道，见 §9 未决项）。
+> 与 `OeNetLimit.sys`（`../OeNetLimit_sys.md`）对应：驱动侧 `IRP_MJ_DEVICE_CONTROL` 明确处理 `0x122044`/`0x122048`（结构 `0xF534`）；DLL 使用的其余 `0x12200x~0x122030` 属附加操作码（不同驱动版本/伴随通道，见 §11 未决项）。
 
 ---
 
@@ -148,7 +149,7 @@ NotifyAddrChange                          // IP 变化通知
 - 使用 `SetupOpenInfFileW` / `SetupFindFirstLineW` / `SetupGetStringFieldW` 解析 INF，`SetupCopyOEMInfW` 将驱动注册进驱动库；
 - `SetupDiGetClassDevsA` / `SetupDiEnumDeviceInfo` / `SetupDiGetDeviceRegistryPropertyA` / `SetupDiGetDeviceInstanceIdW` 枚举设备实例；
 - 管理员权限校验：`OpenProcessToken` → `GetTokenInformation` → `AllocateAndInitializeSid` / `EqualSid`（判断是否 Administrators）；
-- 这与安装包内的 `OeNetLimitSetup.exe` 职责互补：Setup 负责首次部署，`CNetInstall` 供运行期按需安装/更新。
+- 这与 `OeNetLimitSetup.exe`（`../OeNetLimitSetup_exe.md`）职责互补：Setup 负责首次部署，`CNetInstall` 供运行期按需安装/更新。
 
 ## 7. 日志与配置
 
@@ -174,7 +175,7 @@ NotifyAddrChange                          // IP 变化通知
 
 ```
 DeviceControl.exe
-  → NetLimitInterface.dll（CNetLimitInstance::SetWhiteRule / NET_LIMIT_INFO）
+  → NetLimitInterface.dll（CNetLimitInstance::SetWhiteRule / NET_LIMIT_INFO）  →  ../x86/NetLimitInterface_dll.md
       → OeNetlimit.dll（本组件：14 个网络限制 API + CArpMgr + CNetInstall）
           → \\.\OeNetLimit  IOCTL 0x122044/0x122048（SpeedControl 0xF534）
               → OeNetLimit.sys（WFP/NDIS 过滤）
@@ -199,10 +200,10 @@ DeviceControl.exe
 
 ## 11. 未决项
 
-1. ~~`0x122004/0x122009/0x12200C/0x122010/0x12201C/0x122024/0x122028/0x122030` 的确切语义~~ **已确认**：配套的 `OeNetLimit.sys`（`OeNetLimit_sys.md`）的 IRP 分发函数 `FUN_00011b10`（`IRP_MJ_DEVICE_CONTROL`）**只处理 `0x122044`/`0x122048`**（且校验 in/out 长度必须为 `0xF534`，否则 `DbgPrint("IOCTL_*_SpeedControl invalid length")`），其余控制码一律走默认分支返回 `STATUS_UNSUCCESSFUL(0xC0000001)`。因此 DLL 中出现的 `0x122004~0x122030` 在**当前配套驱动版本下不被实现**——属于 DLL 侧预留/历史接口或对应另一驱动版本，实际下发这些码会得到 `0xC0000001`。真正生效的通道只有 `0x122044`/`0x122048` 两条 SpeedControl。
+1. ~~`0x122004/0x122009/0x12200C/0x122010/0x12201C/0x122024/0x122028/0x122030` 的确切语义~~ **已确认**：配套的 `OeNetLimit.sys`（`../OeNetLimit_sys.md`）的 IRP 分发函数 `FUN_00011b10`（`IRP_MJ_DEVICE_CONTROL`）**只处理 `0x122044`/`0x122048`**（且校验 in/out 长度必须为 `0xF534`，否则 `DbgPrint("IOCTL_*_SpeedControl invalid length")`），其余控制码一律走默认分支返回 `STATUS_UNSUCCESSFUL(0xC0000001)`。因此 DLL 中出现的 `0x122004~0x122030` 在**当前配套驱动版本下不被实现**——属于 DLL 侧预留/历史接口或对应另一驱动版本，实际下发这些码会得到 `0xC0000001`。真正生效的通道只有 `0x122044`/`0x122048` 两条 SpeedControl。
 2. SpeedControl 中白/黑名单数组的精确偏移与条目格式（端口 `WORD[100]` 之外，IP/URL 的元素数与编码）。
 3. `CNetInstall` 使用的具体 INF 名与安装触发时机（运行期哪一条件触发重装）。
 
 ---
 
-*本文覆盖：OeNetlimit.dll 指纹与导出、设备 `\\.\OeNetLimit` 通信与 IOCTL 编目、SpeedControl（0xF534）字段、14 个 API 语义、CArpMgr（ARP 防攻击/网关监控）、CNetInstall（INF 装驱动+管理员校验）、日志/配置、类单例工厂、与 OeNetLimit.sys 及 DeviceControl/NetLimitInterface 的关系、函数索引。*
+*本文覆盖：OeNetlimit.dll（x86）指纹与导出、设备 `\\.\OeNetLimit` 通信与 IOCTL 编目、SpeedControl（0xF534）字段、14 个 API 语义、CArpMgr（ARP 防攻击/网关监控）、CNetInstall（INF 装驱动+管理员校验）、日志/配置、类单例工厂、与 OeNetLimit.sys 及 DeviceControl/NetLimitInterface 的关系、函数索引。*
