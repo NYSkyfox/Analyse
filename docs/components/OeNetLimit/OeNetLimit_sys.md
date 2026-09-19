@@ -159,11 +159,66 @@ FUN_00013794(buffer, 白名单数组)   // 解析为白名单
 
 链表（`DAT_00026a80` 头结点）维护进程项：`名称 +0x10`、`PID`、`父 PID`、`超时`；`SLDWORKS.exe` 超时被特判为 `120000ms`，其余 `20000ms`。日志 `OE Add Delay process:%ws,%d,%d`、`OE update process:%ws,%d,%d`、`OE match parent process:...`。
 
-### 6.4 DNS/IP 白名单
+### 6.4 网络限制 = 白名单 + 默认拒绝（“网址 vs IP”是放行条目粒度）
 
-`g_DnsIpWhiteList`（`AddDnsWhiteListIp ... is full`），配合 `\??\C:` 卷路径解析，用于网络白名单 IP 列表。
+> **2026-09-20 纠偏**：初版把本驱动理解成“黑名单特定 IP/域名”。**反编译 + 实测确认实为“白名单 + 默认拒绝（default-deny）”**——教师端开“网络限制”总开关后，学生机默认所有出站流量全断（实测：任何网站都访问不了、任务栏托盘图标直接显示“无网络”，教师端无需逐条填写）。
 
----
+**① 总开关 = 清空白名单（反编译实锤）**
+
+`SET SpeedControl`（IOCTL 0x122048）处理段：
+```c
+if ((disableNet != 0) || (disableInternet != 0)) {   // 网络限制总开关任一置位
+    FUN_00014020(&DAT_00026720, 0, 0x324);          // 把 0x324 字节的 g_DnsIpWhiteList 表整个清零
+}
+```
+`DAT_00026720/26724` = `g_DnsIpWhiteList`（**白名单**，`AddDnsWhiteListIp` 喂入）。总开关开 → 白名单清空 → 无任何 IP 可放行 → **默认全断**。
+
+**② 出站数据面裁决（反编译实锤，`FUN_000131d8`）**
+
+每个出站流：取目标 IP/端口 → `IsIpAvailableInList`（`FUN_000111ac`，查每进程 IP 白名单表）：
+- 命中白名单 IP → action `0x1002`（PERMIT 放行）
+- 未命中 → 走限速判断 `FUN_00012c94` 后 action `0x1001`（BLOCK/DROP）
+
+即**出站流量只有落在白名单 IP 表里的才放行，其余一律 DROP**——这就是“默认拒绝”。
+
+**③ 白名单由谁喂：入站 DNS 监听器（`FUN_00012f84`）**
+
+WFP 入站分类专盯 **53 端口（DNS）**：DNS 应答里的域名若命中教师下发的**白名单域名通配表**（`FUN_00012b3c`，最多 0x78 条、支持 `*`）→ `AddDnsWhiteListIp`（`FUN_00011030`）解析该域名 A 记录 → 把解析出的 IP 加进放行表。
+
+**④ “网址 vs IP”下拉的真正含义 = 放行条目的书写粒度**
+
+| 模式 | 放行条目写法 | 生效机制 |
+|---|---|---|
+| 网址 | 域名（`vecWUrl`）| 驱动靠 DNS 解析把域名翻成 IP 再放行（改此类规则需 `ipconfig /flushdns`）|
+| IP | 裸 IP/网段（≤100 条，`GetIpNetTable`/WFP）| 直接按 IP 放行，不经 DNS |
+
+**两者都只影响“白名单条目怎么表达”，不改变“默认全断”这一前提**。
+
+**⑤ 接口层（用户态 `OeNetlimit.dll`，六函数成对对称）**
+
+| 模式 | 接口 | 说明 |
+|---|---|---|
+| 网址 | `SetWhiteUrl`(@1000c110) / `SetBlackUrl`(@1000c340) | 传域名数组（`vecWUrl`）|
+| IP | `SetWhiteIP`(@1000c500) / `SetBlackIP`(@1000c6d0) | 传 IP/网段数组，上限 100 条（实锤）|
+| 端口 | `SetWhitePort`(@1000bf30) / `SetBlackPort`(@1000c020) | 端口级规则 |
+
+**一句话**：
+```
+默认（总开关开）：所有出站 → 非白名单 IP → 全部 DROP（托盘显示“无网络”）
+白名单放行：教师填的 域名→解析IP / 裸IP → 加进 g_DnsIpWhiteList → 这些 IP 的出站 PERMIT
+```
+
+**⑥ 访问行为推演（白名单模型下）**
+
+| 教师设置 | 你访问 | 结果 |
+|---|---|---|
+| 仅开总开关（默认网址模式，无放行条目）| 任何网址 / 任何 IP | **全被拦**（默认全断）|
+| 白名单放行 `a.com` | `a.com` 或 其解析IP | 放行 |
+| 白名单放行 `a.com` | 其它网站/IP | **仍被拦** |
+| 白名单放行 IP `1.2.3.4` | `1.2.3.4` 或 解析到它的域名 | 放行 |
+| 白名单放行 IP `1.2.3.4` | 其它 | **仍被拦** |
+
+> 警示：`白名单`/`黑名单`的 `Set*` 前缀在用户态一对出现对称接口，但驱动内核仅实验到“白名单放行”一条主路径；`SetBlack*` 的独立生效语义尚待动态确认。
 
 ## 7. 家族调用链（概要）
 
@@ -202,6 +257,14 @@ DeviceControl.exe
 | 0x13794 | 解析白名单文本 |
 | 0x13d08 | 进程表增/改（超时、父子匹配） |
 | 0x12b3c | 白名单通配匹配（最多 0x78 条） |
+| `AddDnsWhiteListIp`（区 0x11xxx） | **解析 DNS 响应 A 记录 → `g_DnsIpWhiteList`**（网址模式落地，见 §6.4） |
+| `FUN_000111ac` `IsIpAvailableInList` | IP 命中判断（含每进程维度 IP 表 +0x274，见 §6.4） |
+| （用户态 `OeNetlimit.dll`）`SetBlackUrl`@1000c340 / `SetWhiteUrl`@1000c110 | 网址模式接口（下发后 `ipconfig /flushdns`） |
+| （用户态 `OeNetlimit.dll`）`SetBlackIP`@1000c6d0 / `SetWhiteIP`@1000c500 | IP 模式接口（≤100 条，`GetIpNetTable`/`DeleteIpNetEntry`） |
+| （用户态 `OeNetlimit.dll`）`SetBlackPort`@1000c020 / `SetWhitePort`@1000bf30 | 端口级规则接口 |
+| `FUN_00012c94` | 限速判断（出站未命中白名单时的 DROP 前置，见 §6.4 ②）|
+| `FUN_000131d8` | **出站数据面分类裁决**（命中白名单→0x1002 PERMIT / 未命中→0x1001 DROP，见 §6.4 ②）|
+| `FUN_00012f84` | **入站 DNS 监听分类**（盯 53 端口，喂白名单，见 §6.4 ③）|
 | 0x13ec8 | 栈 Cookie 失败 → `KeBugCheckEx(0xF7)` |
 
 ---
@@ -225,10 +288,11 @@ DeviceControl.exe
 
 ## 10. 未决项
 
-1. **WFP ALE 分类回调的实现**（放行/阻断判定、限速如何作用于包）需进一步反编译 `FUN_00012be8/…14xxx` 系列分类函数并结合 `SpeedControl` 字段。
+1. ✅ **WFP 分类回调已闭环（2026-09-20）**：出站数据面 `FUN_000131d8`（`IsIpAvailableInList` 命中→`0x1002` PERMIT / 未命中→限速后 `0x1001` DROP）、入站 DNS 监听 `FUN_00012f84`（盯 53 端口，域名通配 `FUN_00012b3c` 命中→`AddDnsWhiteListIp` 喂白名单）、限速 `FUN_00012c94` 均已反编译确认，"默认拒绝"坐实（见 §6.4 ①②③）。
 2. `SpeedControl`(0xF534) 与用户态 `NET_LIMIT_INFO`(0x3350) 的字段全貌需逐字段对照 `x86/OeNetlimit_dll.md` / `x86/NetLimitInterface_dll.md`。
 3. OeNetLimit.sys 同时以 **NDIS LWF** 与 **WFP** 形态生效，二者分工（限速 vs 阻断）待运行态验证。
+4. **网址模式是否 DNS sinkhole**：反编译只见"解析 DNS 响应 A 记录 → 记入 `g_DnsIpWhiteList` → WFP 按 IP 过滤"，**未见直接篡改 DNS 应答**的代码。倾向"解析后按 IP 过滤"，但**是否 sinkhole（把被禁域名应答改写为 127.0.0.1/0.0.0.0）需上机抓被禁域名的 DNS 应答**（看返回真实 IP 还是回环）才能一锤定音。
 
 ---
 
-*本文覆盖：OeNetLimit.sys 文件指纹与安装形态、DriverEntry（设备/IRP/WFP/进程监控/白名单）、IOCTL 0x122044/0x122048 与 0xF534 SpeedControl、WFP callout/sub-layer/filter 全清单、进程创建监控与 WhiteProcessPath.txt 白名单（含内置 4 项）、家族调用链概要、函数与常量索引。*
+*本文覆盖：OeNetLimit.sys 文件指纹与安装形态、DriverEntry（设备/IRP/WFP/进程监控/白名单）、IOCTL 0x122044/0x122048 与 0xF534 SpeedControl、WFP callout/sub-layer/filter 全清单、进程创建监控与 WhiteProcessPath.txt 白名单（含内置 4 项）、**"网络限制=白名单+默认拒绝"模型（§6.4：总开关清空白名单→出站 IsIpAvailableInList 命中才 PERMIT，入站 DNS 监听喂白名单，"网址 vs IP"为放行条目粒度）**、家族调用链概要、函数与常量索引。*
