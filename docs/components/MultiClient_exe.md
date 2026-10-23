@@ -54,12 +54,61 @@
 - `fullscreen`、`GetConsoleWindow`：全屏切换与窗口定位。
 - 音频广播：引用 **`AudioRender.exe`**（教师端语音/媒体渲染进程）。
 
+### 3.1 命令分发：全屏广播 vs 窗口广播（2026-10 补充，字节坐实）
+
+**核心结论：教师端的"全屏屏幕广播"与"窗口广播"是两条相互独立的代码路径，不存在同一个函数内的 `if(fullscreen) lock else no_lock` 分支。**
+
+命令分发器 `FUN_0040F790`（文件偏移 `0xEB90`，size 0x44F）解析教师端命令后按类型调用不同子函数：
+
+| 命令 | 分发器调用点 (off) | 目标函数 | 行为 |
+|---|---|---|---|
+| **全屏屏幕广播** | `0xEF69` | `FUN_00419100`（off `0x18500`） | **锁鼠标 + 锁键盘 + 启动全屏 ScreenRender** |
+| **窗口广播** | 独立分支 | 不经过 `0x18500` | 不锁键鼠 + 启动窗口 ScreenRender |
+
+证据：
+- `0x18500`（全屏广播+锁）的 **EIP 相对 call 引用全文件唯一**，就在分发器 `0xEF69`，且该 call **无条件**（无 fullscreen 标志门控）。
+- `0x18500` 内部含鼠标锁 call：`0x185DE: call 0x41AE10`（鼠标锁执行器，见 §4）。
+- 全文件扫描 `[reg+0x34]` 读/写：**0x18xxx（锁键鼠区）没有任何读取**——锁键鼠不受 fullscreen 标志控制。
+- `[ecx+0x34]` 写入点 `0x2B1A3`（`mov [ecx+0x34],eax`，见 §3.2）位于"recv fullscreen"函数 `FUN_0042B8C0`（off `0x2ACC0`）内，**只写 ScreenRender 的全屏标志，不触发锁**。
+
+### 3.2 fullscreen 标志 `struct+0x34`（2026-10 补充）
+
+```asm
+; "recv fullscreen" 函数 FUN_0042B8C0 (off 0x2ACC0)
+; off 0x2B198:  mov eax, [ebp-0x41C]     ; eax = 教师端 fullscreen 值 (1=全屏/0=窗口)
+; off 0x2B19E:  mov ecx, [ebp-0x450]     ; ecx = 内部状态结构体
+; off 0x2B1A3:  mov [ecx+0x34], eax      ; ← 写 fullscreen 标志（唯一写入点）
+; off 0x2B1AD:  push 0x4EFE8C            ; "recv fullscreen: %d"
+```
+
+该结构体字段 `+0x34` 后续被 `FUN_0042B444`（off `0x2A844`，`[DataLogic][StartCheckDesktop][FullScreen][%d]` 日志函数）读取，用于决定 `ScreenRender.exe` 以 `#fullscreen#:1` 还是 `#fullscreen#:0` 启动。**它不门控键鼠锁**（§3.1 已证）。
+
+`ScreenRender.exe` 启动处 `FUN_0041A3B0`（off `0x197B0`），命令行模板字符串 `"ScreenRender.exe "` @ `0x4EDB88`，`fullscreen` 键名 @ `0x4EDBD8`。
+
 ## 4. 键盘 / 鼠标锁定
 
 - 用户态开关：`MouseAndKeyBoardLock Enable()/Disable()`、`KeyBoardLock Enable()/Disable()`、`MouseLock Disable()`、`DisableKeyboard` / `EnableKeyboard`（日志 `Lock.cpp:60/113/52/58/104/111`）。
 - 加载 **`LockKeyboard.dll`**（宽串 `dLockKeyboard.dll`）执行锁定。
 - 驱动设备探测：`CreateFileW(path, 8, 7, NULL, 3, 0x2200000)` → `DeviceIoControl(h, 0x900A8, NULL,0, out, 0x4000, &n, NULL)`，读 0x4000 字节，前 4 字节为状态（`-0x5ffffff4`/`-0x5ffffffd` 判定"已锁定"）。
 - 日志显示 `DisableKeyboard_CreateFile1 Failed! Error:2`（设备不存在）时仍打印 `Lock keyboard success`——即**锁定以"尽力而为"方式执行**，设备缺失不视为失败。
+
+### 4.1 锁的触发链路（2026-10 补充，字节坐实）
+
+**键鼠锁只在"全屏屏幕广播"路径触发**（§3.1 `0x18500`），窗口广播路径不触发。锁分两部分：
+
+**鼠标锁（MultiClient 自身执行）**
+- 执行器 `FUN_0041AE10`（文件偏移 `0x1A210`，RVA `0x1AE10`），序言 `55 8b ec 6a ff 68 c6 f7`。
+- 4 个 EIP 相对调用者：`0x185D7` / `0x18630` / `0x189B4` / `0x2CFA3`。其中 `0x185DE`（全屏广播函数 `0x18500` 内）即广播触发点。
+- 调用者附近**不读** `[reg+0x34]`（fullscreen 标志）→ 鼠标锁不是由 fullscreen 值门控，而是由"是否走全屏广播路径"决定。
+
+**键盘锁（MultiClient 发 IPC → StudentLogic 执行）**
+- MultiClient 字符串 `MouseAndKeyBoardLock` @ `0x4EBA04`，push 引用在 off `0x188D1`（`0x18xxx` 全屏广播区内）→ 组装 `MouseAndKeyBoardLock` 命令经回环 IPC 下发给 `StudentLogic.dll`。
+- 由 StudentLogic 真正调 `LockKeyboard.dll` / `KbFilter.sys`（见 `StudentLogic_dll.md`、`KbFilter_sys.md`）。
+
+**为什么键盘锁不在 MultiClient 直接执行、而发给 StudentLogic：**
+- `KbFilter.sys` 为 **x64 内核驱动**，`KbDriver.exe` 亦 x64；`LockKeyboard.dll` 标称 x86 但需经 IOCTL 驱动操作。
+- 将键盘锁集中到 StudentLogic（Student.exe 宿主内）统一执行，便于管理键盘锁生命周期（锁/解锁/异常恢复），避免 MultiClient（纯网络/分发角色）崩溃后键盘锁死。
+- 职责分离：**MultiClient 负责"说"（组装+下发锁命令），StudentLogic 负责"做"（驱动级执行）**。
 
 ## 5. 广播类型控制 + DeviceControl 联动（核心转发）
 
@@ -100,6 +149,10 @@ sendTo("127.0.0.1", json);   // FUN_0040d4b0(…, "127.0.0.1") + FUN_004d59c0(�
 |---|---|
 | `0x4dc97a` | `entry` |
 | `0x418c90` | 键鼠锁启停（`MouseAndKeyBoardLock Enable/Disable`） |
+| `0x40F790` | **命令分发器**（全屏/窗口广播分叉，off `0xEB90`） |
+| `0x419100` | **全屏广播启动**（含鼠标锁 + 键盘锁 IPC + 全屏 ScreenRender，off `0x18500`） |
+| `0x41AE10` | **鼠标锁执行器**（off `0x1A210`，4 个调用者） |
+| `0x42B8C0` | "recv fullscreen" 命令处理（写 `struct+0x34`，off `0x2ACC0`） |
 | `0x418d80` | **发广播类型**（JSON `type/broadcasttype/start` → `127.0.0.1`） |
 | `0x418ed0` | 广播相关处理 |
 | `0x41af60` / `0x41ba30` | 广播类型发送/刷新 |

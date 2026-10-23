@@ -78,6 +78,27 @@
 - `bLockKeyBorad start/stop:%d`、`KeyBoardLock` / `MouseLock` / `MouseAndKeyBoardLock Enable/Disable`、`DisableKeyboard` / `EnableKeyboard`；
 - 实际锁键落地走 `LockKeyboard.dll`（MultiClient 已确认），本 DLL 负责状态管理与驱动设备探测联动。
 
+#### 4.3.1 键盘锁执行入口（2026-10 补充，字节坐实）
+
+**键盘锁由 MultiClient 经回环 IPC 下发命令 `MouseAndKeyBoardLock` 触发**，StudentLogic 接收后执行驱动级锁定。
+
+| 项 | 值 |
+|---|---|
+| 键盘锁入口函数 | `FUN_10074810`（VA `0x10074810`，RVA `0x00074810`） |
+| 文件偏移 | `0x00073C10`（`.text` rawptr `0x400`，rva `0x1000`） |
+| 序言 | `55 8B EC 6A FF 68 E0 83 21 10` |
+
+**IPC 链路**：
+```
+MultiClient.exe（全屏广播路径 0x18500 内，off 0x188D1 push "MouseAndKeyBoardLock"）
+  → 回环 IPC（127.0.0.1）
+  → StudentLogic.dll 接收命令
+  → FUN_10074810 执行锁定
+  → LockKeyboard.dll → IOCTL KbFilter.sys（x64 内核驱动）
+```
+
+**设计意图**：键盘锁集中在 StudentLogic（Student.exe 宿主）执行，便于统一管理生命周期（锁/解锁/异常恢复），避免 MultiClient（纯网络/分发角色）崩溃后键盘锁死。MultiClient 负责"说"（组装+下发锁命令），StudentLogic 负责"做"（驱动级执行）。
+
 ### 4.4 设备管控 / LISS 平台（TCloud）
 
 - `FUN_10073480`：`[CanUseDeviceControl] ret:%d,support:%d`——探测本机 DeviceControl 可用性；
@@ -114,20 +135,60 @@ Teacher.exe (UI)
 - `ScreenRender` 命令行参数（见 4.1）；`keywords.json`（MMC 监控）；`BlackSlient.json`/`lockConfig.json`（黑屏配置，见 BlackSlient_exe.md）；
 - 日志：`MultiClient.txt`（Lock.cpp）、`C:\ProgramData\LISSClient\sslkey.log`（TLS 密钥日志，MultiClient 侧）；YAML/JSON 双配置解析。
 
-## 7. 函数索引（关键锚点）
+## 7. PE 结构与偏移映射
 
-| 地址 | 功能 |
+PE 头部解析结果（Python `struct` 直接读取，非反编译器推断）：
+
+| 项 | 值 |
 |---|---|
-| `0x100e7330` | WebSocket 服务端构建（`Build WebSocket Server port:%d`） |
-| `0x100f7540` | WS 连接/读写协程（`websocket connected`） |
-| `0x10088ca0` | ScreenRender 推流启动（`ScreenRender()` / `error ScreenRender:%s`） |
-| `0x1008cb70` | 屏幕 BitBlt 捕获 |
-| `0x10073480` | DeviceControl 可用性探测（`[CanUseDeviceControl]`） |
-| `0x100a0f50` | LISS SDK 加载（`LISS_SDK_*` GetProcAddress） |
-| `0x2ee70~0x2f170` | 20 个业务导出（Barrage…WillCompleted） |
-| `0x66ad0~0x900c0` | 34 个 CxImage 再导出 |
+| Machine | `0x014C`（i386） |
+| Optional Header Magic | `0x10B`（PE32） |
+| **ImageBase** | **`0x10000000`** |
+| SectionAlignment | `0x1000` |
+| FileAlignment | `0x200` |
+| Section 数 | 5 |
 
-## 8. 未决项
+### 7.1 Section 表
+
+| 名称 | RVA | VirtualSize | RawOffset | RawSize |
+|---|---|---|---|---|
+| `.text` | `0x00001000` | `0x0023216C` | `0x00000400` | `0x00232200` |
+| `.rdata` | `0x00234000` | `0x00058A5C` | `0x00232600` | `0x00058C00` |
+| `.data` | `0x0028D000` | `0x00020D34` | `0x0028B200` | `0x0001B200` |
+| `.rsrc` | `0x002AE000` | `0x000001E0` | `0x002A6400` | `0x00000200` |
+| `.reloc` | `0x002AF000` | `0x0001A990` | `0x002A6600` | `0x0001AA00` |
+
+### 7.2 关键函数 VA → 文件偏移映射
+
+计算公式：`FileOffset = RawOffset + (VA − ImageBase − SectionRVA)`。
+所有目标函数均位于 `.text` 节，入口字节已验证为 `55 8B EC`（`push ebp; mov ebp,esp`，标准 MSVC x86 函数序言）。
+
+| 函数 | VA | RVA | 文件偏移 | 入口字节 | 说明 |
+|---|---|---|---|---|---|
+| `FUN_1007d650` | `0x1007D650` | `0x0007D650` | `0x0007CA50` | `55 8B EC 6A FF 68` | 屏幕截图完整流水线（截屏→sws_scale→BMP 打包→WSASend） |
+| `FUN_1008cb70` | `0x1008CB70` | `0x0008CB70` | `0x0008BF70` | `55 8B EC 83 EC 44` | BitBlt 全屏截图（`CreateDCW("DISPLAY")` → `BitBlt` → `GetDIBits` 32bpp） |
+| `FUN_10088ca0` | `0x10088CA0` | `0x00088CA0` | `0x000880A0` | `55 8B EC 6A FF 68` | ScreenRender 子进程启动（编码推流） |
+| `FUN_1002a730` | `0x1002A730` | `0x0002A730` | `0x00029B30` | `55 8B EC 83 EC 1C` | WSASend 网络发送封装 |
+| `FUN_10072ff0` | `0x10072FF0` | `0x00072FF0` | `0x000724F0` | — | 桌面切换（`GetThreadDesktop`/`OpenInputDesktop`/`SetThreadDesktop`），始终返回 1 |
+
+## 8. 函数索引（关键锚点）
+
+| 地址 | 文件偏移 | 功能 |
+|---|---|---|
+| `0x1007D650` | `0x0007CA50` | 屏幕截图完整流水线（截屏→编码→BMP→WSASend） |
+| `0x1008CB70` | `0x0008BF70` | BitBlt 全屏截图 |
+| `0x10088CA0` | `0x000880A0` | ScreenRender 推流启动 |
+| `0x1002A730` | `0x00029B30` | WSASend 发送封装 |
+| `0x10072FF0` | `0x000724F0` | 桌面切换（截屏前置） |
+| `0x100E7330` | — | WebSocket 服务端构建（`Build WebSocket Server port:%d`） |
+| `0x100F7540` | — | WS 连接/读写协程（`websocket connected`） |
+| `0x10073480` | — | DeviceControl 可用性探测（`[CanUseDeviceControl]`） |
+| `0x10074810` | `0x00073C10` | **键盘锁执行入口**（接收 MultiClient IPC `MouseAndKeyBoardLock`，调 LockKeyboard.dll） |
+| `0x100A0F50` | — | LISS SDK 加载（`LISS_SDK_*` GetProcAddress） |
+| `0x2EE70~0x2F170` | — | 20 个业务导出（Barrage…WillCompleted） |
+| `0x66AD0~0x900C0` | — | 34 个 CxImage 再导出 |
+
+## 9. 未决项
 
 1. 学生端 WS 服务端的具体下行/上行帧格式（与教师端 MainLogic 的帧对拍，需实抓）；
 2. ScreenRender 推流协议细节（`--protocol` 取值、`--remote` 目标地址来源）；

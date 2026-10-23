@@ -208,7 +208,7 @@ README.md                   # 🔄 更新（新增多页面说明）
 ## 📚 相关文档
 
 - [PAGES.md](PAGES.md) - 多页面系统完整开发指南
-- [README.md](../README.md) - 项目总体说明
+- [README.md](../../README.md) - 项目总体说明
 - [GUI.md](GUI.md) - GUI 使用指南
 
 ---

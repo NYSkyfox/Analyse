@@ -51,6 +51,25 @@ UDP 接收 (asio, bindport; 双端口: 数据+verfity)
 3. 全屏：`fullscreen` / `m_nFullScreen:%d` + `SDL_SetWindowSize`/`SDL_SetWindowPosition` + `currentWidth:%d,currentHeight:%d` 自适应；
 4. 鼠标：`The mouse is currently in the hide state %d` —— **广播模式下默认隐藏本地鼠标**（显示的是教师端远程鼠标，`--mouse` 控制）。
 
+### 3.1 全屏/窗口模式与窗口尺寸（2026-10 补充，字节坐实）
+
+**fullscreen 标志处理函数** `FUN_0041C7D0`（文件偏移 `0x1BBD0`，size 640B）：
+
+```asm
+; 命令行参数 #fullscreen#:N 解析后，值经栈传入
+0x1BDA6:  mov eax, [ebp+0x58]       ; eax = fullscreen 参数值 (1=全屏 / 0=窗口 / 2=窗口缩放)
+0x1BDA9:  mov [edx+0x844], eax      ; ← 写入 this+0x844（全屏标志字段）
+```
+
+`this+0x844` 语义：
+| 值 | 模式 | 窗口行为 |
+|---|---|---|
+| `1` | 全屏 | `WS_POPUP` 最大化，无边框无标题栏 |
+| `0` | 窗口 | 固定尺寸 = **屏宽 × 3/4**（1920p → 1440×810） |
+| `2` | 窗口缩放 | 同上但可拖拽调整 |
+
+**窗口尺寸计算**：硬编码在 ScreenRender 内部（非命令行参数、非视频流分辨率），比例常量 `3/4` 位于该函数或其调用的 SDL 窗口创建子函数中。若需自定义窗口大小，须定位该乘法/移位指令。
+
 `ScreenRenderApp` 主类（`boost::_bi::mf3<void,ScreenRenderApp,string,short,string>` 四参回调：数据串 + 端口/类型 + 控制串，对应接收/控制双通道）。
 
 ## 4. 命令行/参数消费
@@ -89,6 +108,7 @@ UDP 接收 (asio, bindport; 双端口: 数据+verfity)
 | `~0x41xxxx`（29924 行） | 鼠标隐藏状态日志 |
 | `0x4096a0` / `0x41ec50` | 错误/日志（`bind Failed` / `bind failed:%d`） |
 | `0x450563~0x45059x` | SDL2 导入桩区（CreateWindowFrom/CreateRenderer/UpdateYUVTexture…） |
+| `0x41C7D0` | fullscreen 标志处理函数（`this+0x844` 写入，窗口尺寸 3/4 屏宽逻辑） |
 
 ## 7. 未决项
 

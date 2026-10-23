@@ -125,7 +125,7 @@ HEX 前缀：`7b 0a 20 20 20 22 63 68 61 6e 6e 65 6c 22 ...` = `{\n   "channel".
 
 > 数据源：`20260912_teacher_192.168.5.18.pcapng` + `20260912_teacher_192.168.5.18_keyframes.txt`
 > 条件：**真实教师端**（非自制工具），**未连接任何学生端**，时长约 348 秒。
-> 详细分析见 [docs/reverse-analysis/12_教师端真实抓包实证.md](../../docs/reverse-analysis/12_教师端真实抓包实证.md)。
+> 详细分析见本报告 §7（该批次 0912 抓包未纳入 `reverse-analysis` 编号体系；索引见 [00_总览与系统架构](../../docs/reverse-analysis/00_总览与系统架构.md)）。
 
 ### 7.1 与第一次抓包的一致性
 
